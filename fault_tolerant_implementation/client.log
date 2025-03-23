@@ -199,3 +199,9 @@
 	details = "Failed to create account"
 	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:39.582363813-04:00"}"
 >
+2025-03-23 13:55:49,065 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-23 13:55:49,066 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-23 13:55:49,067 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-23 13:55:49,069 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-23 13:55:49,070 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-23 13:55:49,076 [INFO] Found leader: node node1
