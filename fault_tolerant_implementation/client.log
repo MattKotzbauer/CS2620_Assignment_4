@@ -1,0 +1,102 @@
+2025-03-23 12:24:01,788 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-23 12:24:01,790 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-23 12:24:01,790 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-23 12:24:01,791 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-23 12:24:01,792 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-23 12:24:01,806 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:01,807 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:01,808 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 12:24:02,010 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:02,011 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 12:24:02,413 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:02,414 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 12:24:03,216 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:03,217 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 12:24:03,419 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:03,421 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 12:24:03,823 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:03,825 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 12:24:04,627 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:04,628 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 12:24:04,831 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:04,832 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 12:24:05,234 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 12:24:05,236 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:10:20,405 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-23 13:10:20,406 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-23 13:10:20,407 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-23 13:10:20,407 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-23 13:10:20,407 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-23 13:10:20,415 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:20,416 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:20,416 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:10:20,618 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:20,619 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:10:21,022 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:21,023 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:10:21,826 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:21,829 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:10:22,032 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:22,033 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:10:22,437 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:22,438 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:10:23,241 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:23,242 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:10:23,445 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:23,446 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:10:23,848 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:10:23,849 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:11:32,994 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-23 13:11:32,995 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-23 13:11:32,996 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-23 13:11:32,997 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-23 13:11:32,998 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-23 13:11:33,007 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:00,660 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-23 13:25:00,661 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-23 13:25:00,662 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-23 13:25:00,662 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-23 13:25:00,663 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-23 13:25:00,670 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:00,671 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:00,672 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:25:00,874 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:00,875 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:25:01,278 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:01,279 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:25:02,083 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:02,084 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:25:02,287 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:02,289 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:25:02,691 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:02,693 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:25:03,496 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:03,497 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:25:03,699 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:03,700 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:25:04,103 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:25:04,104 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:26:13,420 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-23 13:26:13,421 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-23 13:26:13,423 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-23 13:26:13,425 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-23 13:26:13,426 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-23 13:26:13,433 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:13,435 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:13,435 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:26:13,637 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:13,638 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:26:14,040 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:14,041 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:26:14,845 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:14,846 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:26:15,049 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:15,050 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:26:15,453 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:15,453 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:26:16,255 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:16,257 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:26:16,460 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:16,461 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:26:16,863 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:26:16,864 [ERROR] Error executing operation: Could not connect to any server in the cluster

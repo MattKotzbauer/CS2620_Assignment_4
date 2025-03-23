@@ -117,11 +117,18 @@ class RaftNode:
         ''')
         
         # Log entries table
+        # c.execute('''
+        # CREATE TABLE IF NOT EXISTS log_entries (
+            # index INTEGER PRIMARY KEY,
+            # term INTEGER,
+            # command TEXT
+        # )
+        # ''')
         c.execute('''
         CREATE TABLE IF NOT EXISTS log_entries (
-            index INTEGER PRIMARY KEY,
-            term INTEGER,
-            command TEXT
+g        log_index INTEGER PRIMARY KEY,  # Renamed to avoid reserved keyword
+        term INTEGER,
+        command TEXT
         )
         ''')
         
@@ -178,7 +185,7 @@ class RaftNode:
             self.commit_index = int(raft_state["commit_index"])
         
         # Load log entries
-        c.execute("SELECT term, command FROM log_entries ORDER BY index ASC")
+        c.execute("SELECT term, command FROM log_entries ORDER BY log_index ASC")
         self.log = [(term, json.loads(command)) for term, command in c.fetchall()]
         
         # Load users
