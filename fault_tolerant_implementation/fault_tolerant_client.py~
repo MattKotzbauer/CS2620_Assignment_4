@@ -1,0 +1,701 @@
+# fault_tolerant_client.py
+import grpc
+import hashlib
+import time
+import json
+import random
+import logging
+from typing import Optional, Tuple, List, Dict, Any
+
+# Protobuf-generated modules
+import exp_pb2
+import exp_pb2_grpc
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler("client.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+class FaultTolerantClient:
+    """
+    A fault-tolerant client implementation that can handle server failures
+    by reconnecting to other servers in the cluster.
+    """
+
+    def __init__(self, cluster_config_path: str, max_retry_attempts: int = 3):
+        """
+        Initialize the client with a cluster configuration.
+        
+        Args:
+            cluster_config_path: Path to the JSON file containing the cluster configuration
+            max_retry_attempts: Maximum number of retry attempts when an operation fails
+        """
+        self.max_retry_attempts = max_retry_attempts
+        self.channels = {}  # Maps node_id to grpc.Channel
+        self.stubs = {}     # Implement the rest of the client methods following the same pattern
+    
+    def ReadMessages(self, user_id: int, session_token: str, number_of_messages_req: int) -> bool:
+        """
+        Read/acknowledge a number of messages.
+
+        Args:
+            user_id (int): User ID
+            session_token (str): Session token
+            number_of_messages_req (int): Number of messages to mark as read
+
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+
+            request = exp_pb2.ReadMessagesRequest(
+                user_id=user_id,
+                session_token=token_bytes,
+                number_of_messages_req=number_of_messages_req
+            )
+            
+            # This must be sent to the leader
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            try:
+                stub.ReadMessages(request)
+                return True
+            except Exception as e:
+                logger.error(f"Failed to read messages: {e}")
+                return False
+        
+        return self._execute_with_retry(operation)
+    
+    def DeleteMessage(self, user_id: int, message_uid: int, session_token: str) -> bool:
+        """
+        Delete a specific message.
+
+        Args:
+            user_id (int): User ID
+            message_uid (int): Message unique ID
+            session_token (str): Session token
+
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+
+            request = exp_pb2.DeleteMessageRequest(
+                user_id=user_id,
+                message_uid=message_uid,
+                session_token=token_bytes
+            )
+            
+            # This must be sent to the leader
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            try:
+                stub.DeleteMessage(request)
+                return True
+            except Exception as e:
+                logger.error(f"Failed to delete message: {e}")
+                return False
+        
+        return self._execute_with_retry(operation)
+    
+    def DeleteAccount(self, user_id: int, session_token: str) -> bool:
+        """
+        Delete the specified account.
+
+        Args:
+            user_id (int): User ID
+            session_token (str): Session token
+
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+
+            request = exp_pb2.DeleteAccountRequest(
+                user_id=user_id,
+                session_token=token_bytes
+            )
+            
+            # This must be sent to the leader
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            try:
+                stub.DeleteAccount(request)
+                return True
+            except Exception as e:
+                logger.error(f"Failed to delete account: {e}")
+                return False
+        
+        return self._execute_with_retry(operation)
+    
+    def GetUnreadMessages(self, user_id: int, session_token: str) -> List[Tuple[int, int, int]]:
+        """
+        Fetch unread messages for a user.
+
+        Args:
+            user_id (int): User ID
+            session_token (str): Session token
+
+        Returns:
+            List[Tuple[int, int, int]]: List of (message_uid, sender_id, receiver_id)
+        """
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+
+            request = exp_pb2.GetUnreadMessagesRequest(
+                user_id=user_id,
+                session_token=token_bytes
+            )
+            
+            # This can be performed on any node
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            resp = stub.GetUnreadMessages(request)
+
+            results = []
+            for m in resp.messages:
+                results.append((m.message_uid, m.sender_id, m.receiver_id))
+            return results
+        
+        return self._execute_with_retry(operation)
+    
+    def GetMessageInformation(self, user_id: int, session_token: str, message_uid: int) -> Tuple[bool, int, int, str]:
+        """
+        Get message info (read status, sender ID, content length, content).
+
+        Args:
+            user_id (int): User ID
+            session_token (str): Session token
+            message_uid (int): Message unique ID
+
+        Returns:
+            Tuple[bool, int, int, str]: (read_flag, sender_id, content_length, message_content)
+        """
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+
+            request = exp_pb2.GetMessageInformationRequest(
+                user_id=user_id,
+                session_token=token_bytes,
+                message_uid=message_uid
+            )
+            
+            # This can be performed on any node
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            resp = stub.GetMessageInformation(request)
+            return (resp.read_flag, resp.sender_id, resp.content_length, resp.message_content)
+        
+        return self._execute_with_retry(operation)
+    
+    def GetUsernameByID(self, user_id: int) -> str:
+        """
+        Get username from a user ID.
+
+        Args:
+            user_id (int): User ID
+
+        Returns:
+            str: The username, or empty string if not found
+        """
+        def operation():
+            request = exp_pb2.GetUsernameByIDRequest(user_id=user_id)
+            
+            # This can be performed on any node
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            resp = stub.GetUsernameByID(request)
+            return resp.username
+        
+        return self._execute_with_retry(operation)
+    
+    def MarkMessageAsRead(self, user_id: int, session_token: str, message_uid: int) -> bool:
+        """
+        Mark the specified message as read.
+
+        Args:
+            user_id (int): User ID
+            session_token (str): Session token
+            message_uid (int): Message unique ID
+
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+
+            request = exp_pb2.MarkMessageAsReadRequest(
+                user_id=user_id,
+                session_token=token_bytes,
+                message_uid=message_uid
+            )
+            
+            # This must be sent to the leader
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            try:
+                stub.MarkMessageAsRead(request)
+                return True
+            except Exception as e:
+                logger.error(f"Failed to mark message as read: {e}")
+                return False
+        
+        return self._execute_with_retry(operation)
+    
+    def GetUserByUsername(self, username: str) -> Tuple[bool, Optional[int]]:
+        """
+        Retrieve a user by username.
+
+        Args:
+            username (str): Username to look up
+
+        Returns:
+            Tuple[bool, Optional[int]]: (found, user_id) tuple
+        """
+        def operation():
+            request = exp_pb2.GetUserByUsernameRequest(username=username)
+            
+            # This can be performed on any node
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            resp = stub.GetUserByUsername(request)
+
+            if resp.status == exp_pb2.FOUND:
+                return (True, resp.user_id)
+            else:
+                return (False, None)
+        
+        return self._execute_with_retry(operation)
+    
+    def hash_password(self, password: str) -> str:
+        """Hash a password using SHA-256."""
+        return hashlib.sha256(password.encode()).hexdigest()
+    
+    def disconnect(self):
+        """Close all gRPC channels."""
+        for channel in self.channels.values():
+            channel.close()
+        self.channels.clear()
+        self.stubs.clear()
+        self._connected = False
+        self.leader_id = None
+
+# Wrapper methods for compatibility with the original client interface
+    def create_account(self, username, password):
+        return self.CreateAccount(username, password)
+
+    def log_into_account(self, username, password):
+        return self.Login(username, password)
+
+    def list_accounts(self, user_id, session_token, wildcard):
+        return self.ListAccounts(user_id, session_token, wildcard)
+
+    def display_conversation(self, user_id, session_token, conversant_id):
+        return self.DisplayConversation(user_id, session_token, conversant_id)
+    
+    def send_message(self, sender_user_id, session_token, recipient_user_id, message_content):
+        return self.SendMessage(sender_user_id, session_token, recipient_user_id, message_content)
+
+    def read_messages(self, user_id, session_token, number_of_messages_req):
+        return self.ReadMessages(user_id, session_token, number_of_messages_req)
+
+    def delete_message(self, user_id, message_uid, session_token):
+        return self.DeleteMessage(user_id, message_uid, session_token)
+    
+    def delete_account(self, user_id, session_token):
+        return self.DeleteAccount(user_id, session_token)
+
+    def get_unread_messages(self, user_id, session_token):
+        return self.GetUnreadMessages(user_id, session_token)
+
+    def get_message_info(self, user_id, session_token, message_uid):
+        # Get a 4-tuple from GetMessageInformation
+        read_flag, sender_id, content_length, message_content = self.GetMessageInformation(user_id, session_token, message_uid)
+    
+        # Return only the 3 elements the GUI expects
+        return (read_flag, sender_id, message_content)
+    
+    def get_username_by_id(self, user_id):
+        return self.GetUsernameByID(user_id)
+
+    def mark_message_as_read(self, user_id, session_token, message_uid):
+        return self.MarkMessageAsRead(user_id, session_token, message_uid)
+    
+    def get_user_by_username(self, username):
+        return self.GetUserByUsername(username)
+ Maps node_id to MessagingServiceStub
+        self.leader_id = None
+        self._connected = False
+        
+        # Load cluster configuration
+        with open(cluster_config_path, 'r') as f:
+            self.cluster_config = json.load(f)
+        
+        # Initialize connections to all servers
+        self._init_connections()
+    
+    def _init_connections(self):
+        """Initialize gRPC connections to all servers in the cluster."""
+        for node_id, address in self.cluster_config.items():
+            try:
+                channel = grpc.insecure_channel(address)
+                self.channels[node_id] = channel
+                self.stubs[node_id] = exp_pb2_grpc.MessagingServiceStub(channel)
+                logger.info(f"Initialized connection to node {node_id} at {address}")
+            except Exception as e:
+                logger.warning(f"Failed to initialize connection to node {node_id}: {str(e)}")
+        
+        # Try to identify the leader
+        self._find_leader()
+    
+    def _find_leader(self) -> bool:
+        """
+        Try to identify the current leader in the cluster.
+        
+        Returns:
+            bool: True if a leader was found, False otherwise
+        """
+        # Try each server until we find the leader
+        for node_id, stub in self.stubs.items():
+            try:
+                # We'll use a simple request like GetUsernameByID to test
+                # If the node is not the leader, it should redirect us
+                response = stub.GetUsernameByID(
+                    exp_pb2.GetUsernameByIDRequest(user_id=0),
+                    timeout=1.0
+                )
+                
+                # If we reach here without an error, assume this is the leader
+                self.leader_id = node_id
+                logger.info(f"Found leader: node {node_id}")
+                self._connected = True
+                return True
+                
+            except grpc.RpcError as e:
+                # Check if the error message indicates another server is the leader
+                details = e.details() if hasattr(e, 'details') else ""
+                
+                if "Not the leader" in details:
+                    # Extract the leader address from the error message
+                    # Format is typically "Not the leader. Try {address}"
+                    parts = details.split("Try ")
+                    if len(parts) > 1:
+                        leader_address = parts[1].strip()
+                        
+                        # Find the node ID for this address
+                        for node_id, address in self.cluster_config.items():
+                            if address == leader_address:
+                                self.leader_id = node_id
+                                logger.info(f"Found leader: node {node_id}")
+                                self._connected = True
+                                return True
+                
+                # If we get a different error, continue trying other nodes
+                logger.debug(f"Node {node_id} is not the leader: {str(e)}")
+            
+            except Exception as e:
+                logger.warning(f"Error connecting to node {node_id}: {str(e)}")
+        
+        # If we reach here, we couldn't find a leader
+        logger.warning("Failed to identify a leader in the cluster")
+        self._connected = False
+        return False
+    
+    def _ensure_connected(self):
+        """
+        Ensure the client is connected before making an RPC.
+        
+        Raises:
+            ConnectionError: If unable to connect to any server in the cluster
+        """
+        if not self._connected and not self._find_leader():
+            raise ConnectionError("Could not connect to any server in the cluster")
+    
+    def _execute_with_retry(self, operation, *args, **kwargs):
+        """
+        Execute an operation with automatic retries and leader detection.
+        
+        Args:
+            operation: A callable that performs the gRPC call
+            *args, **kwargs: Arguments to pass to the operation
+        
+        Returns:
+            The result of the operation, or None if all retries failed
+        """
+        attempt = 0
+        last_error = None
+        
+        while attempt < self.max_retry_attempts:
+            try:
+                self._ensure_connected()
+                return operation(*args, **kwargs)
+            
+            except grpc.RpcError as e:
+                details = e.details() if hasattr(e, 'details') else ""
+                code = e.code() if hasattr(e, 'code') else None
+                
+                # If the error indicates this server is not the leader, update and retry
+                if "Not the leader" in details:
+                    logger.info(f"Server indicated it's not the leader. Finding new leader...")
+                    self._find_leader()
+                    attempt += 1
+                
+                # If the server is unavailable, try another one
+                elif code == grpc.StatusCode.UNAVAILABLE:
+                    logger.warning(f"Server unavailable. Trying to find a new leader...")
+                    self._find_leader()
+                    attempt += 1
+                
+                # For other errors, just retry
+                else:
+                    logger.error(f"RPC error: {str(e)}")
+                    attempt += 1
+                    last_error = e
+            
+            except Exception as e:
+                logger.error(f"Error executing operation: {str(e)}")
+                attempt += 1
+                last_error = e
+        
+        # If we've exhausted all retries, raise the last error
+        if last_error:
+            raise last_error
+        else:
+            raise ConnectionError("Failed to execute operation after multiple retries")
+    
+    def CreateAccount(self, username: str, password: str) -> str:
+        """
+        Create a new account.
+
+        Args:
+            username (str): The username for the new account
+            password (str): The password for the new account
+
+        Returns:
+            str: The 32-byte session token in hex.
+        """
+        def operation():
+            # Hash password -> 32 bytes
+            hashed_password = hashlib.sha256(password.encode()).digest()
+            
+            request = exp_pb2.CreateAccountRequest(
+                username=username,
+                password_hash=hashed_password
+            )
+            
+            # Use the leader stub if available
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                # If no leader is known, use a random stub
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            response = stub.CreateAccount(request)
+            return response.session_token.hex()
+        
+        return self._execute_with_retry(operation)
+    
+    def Login(self, username: str, password: str) -> Tuple[bool, str, int]:
+        """
+        Log into an existing account.
+
+        Args:
+            username (str): The username
+            password (str): The password
+
+        Returns:
+            Tuple[bool, str, int]: (success, session_token_hex, unread_count)
+        """
+        def operation():
+            hashed_password = hashlib.sha256(password.encode()).digest()
+            
+            request = exp_pb2.LoginRequest(
+                username=username,
+                password_hash=hashed_password
+            )
+            
+            # Use the leader stub if available
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                # If no leader is known, use a random stub
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            response = stub.Login(request)
+            success = (response.status == exp_pb2.STATUS_SUCCESS)
+            token_hex = response.session_token.hex()
+            unread_count = response.unread_count
+            return (success, token_hex, unread_count)
+        
+        return self._execute_with_retry(operation)
+    
+    def ListAccounts(self, user_id: int, session_token: str, wildcard: str) -> List[str]:
+        """
+        List matching accounts.
+
+        Args:
+            user_id (int): The user ID
+            session_token (str): The session token
+            wildcard (str): Wildcard pattern for matching usernames
+
+        Returns:
+            List[str]: A list of usernames
+        """
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+            
+            request = exp_pb2.ListAccountsRequest(
+                user_id=user_id,
+                session_token=token_bytes,
+                wildcard=wildcard
+            )
+            
+            # This operation can be performed on any node, not just the leader
+            # We'll still start with the leader for consistency
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            response = stub.ListAccounts(request)
+            return list(response.usernames)
+        
+        return self._execute_with_retry(operation)
+    
+    def DisplayConversation(self, user_id: int, session_token: str, conversant_id: int) -> List[Tuple[int, str, bool]]:
+        """
+        Display the conversation between user_id and conversant_id.
+
+        Args:
+            user_id (int): The user ID
+            session_token (str): The session token
+            conversant_id (int): The ID of the user to converse with
+
+        Returns:
+            A list of tuples (message_id, message_content, sender_flag).
+            sender_flag = True if the user was the sender, False otherwise.
+        """
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+            
+            request = exp_pb2.DisplayConversationRequest(
+                user_id=user_id,
+                session_token=token_bytes,
+                conversant_id=conversant_id
+            )
+            
+            # This operation can be performed on any node
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            response = stub.DisplayConversation(request)
+            
+            # Convert repeated ConversationMessage -> list of (msg_id, content, is_sender)
+            result = []
+            for msg in response.messages:
+                result.append((msg.message_id, msg.content, msg.sender_flag))
+            return result
+        
+        return self._execute_with_retry(operation)
+    
+    def SendMessage(self, sender_user_id: int, session_token: str, recipient_user_id: int, message_content: str) -> bool:
+        """
+        Send a message to another user.
+
+        Args:
+            sender_user_id (int): ID of the sender
+            session_token (str): Session token
+            recipient_user_id (int): ID of the recipient
+            message_content (str): Message content
+
+        Returns:
+            bool: True if sent successfully, False otherwise
+        """
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+            
+            request = exp_pb2.SendMessageRequest(
+                sender_user_id=sender_user_id,
+                session_token=token_bytes,
+                recipient_user_id=recipient_user_id,
+                message_content=message_content
+            )
+            
+            # This must be sent to the leader
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                # If no leader is known, try a random server
+                node_id = random.choice(list(self.stubs.keys()))
+                stub = self.stubs[node_id]
+            
+            try:
+                stub.SendMessage(request)
+                return True
+            except grpc.RpcError as e:
+                # Check if the error is due to not being the leader
+                if "Not the leader" in e.details() if hasattr(e, 'details') else "":
+                    # Find the real leader and try again
+                    self._find_leader()
+                    if self.leader_id:
+                        stub = self.stubs[self.leader_id]
+                        stub.SendMessage(request)
+                        return True
+                    else:
+                        return False
+                else:
+                    logger.error(f"Failed to send message: {e}")
+                    return False
+            except Exception as e:
+                logger.error(f"Failed to send message: {e}")
+                return False
+        
+        return self._execute_with_retry(operation)
+    

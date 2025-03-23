@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+import subprocess
+import time
+import os
+import sys
+import psutil
+
+# Adjust import path if needed
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PARENT_DIR = os.path.dirname(CURRENT_DIR)
+sys.path.insert(0, PARENT_DIR)
+
+from client import Client
+
+def measure_memory(process: psutil.Process):
+    """
+    Returns the RSS (resident set size) memory usage in MB of the given process.
+    """
+    mem_info = process.memory_info()
+    rss_mb = mem_info.rss / (1024 * 1024)
+    return rss_mb
+
+def make_repeated_calls(client, num_calls=10):
+    """
+    Make repeated gRPC calls to the server using the existing client connection.
+    As an example, we'll create an account in each loop and log in with it.
+    Replace or add whatever calls you want to test.
+    """
+    for i in range(num_calls):
+        username = f"mem_test_user_{i}"
+        password = "test_pass"
+        _ = client.create_account(username, password)
+        # Possibly call more RPCs here, e.g. Login, SendMessage, etc.
+
+def main():
+    # 1) Launch the server as a subprocess
+    server_path = os.path.join(PARENT_DIR, "server.py")
+    server_proc = subprocess.Popen(
+        ["python", server_path, "127.0.0.1", "50051"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+
+    print("[TEST] Starting server, waiting 2 seconds...")
+    time.sleep(2)
+
+    # 2) Wrap the server process with psutil
+    server_ps = psutil.Process(server_proc.pid)
+
+    # 3) Create a client & connect
+    client = Client(host="127.0.0.1", port=50051)
+    if not client.connect():
+        print("[TEST] Could not connect to server.")
+        server_proc.terminate()
+        return
+
+    print("[TEST] Connected to server. Measuring baseline memory...")
+
+    # 4) Measure baseline memory usage
+    baseline_mem = measure_memory(server_ps)
+    print(f"Baseline Server RSS: {baseline_mem:.2f} MB")
+
+    # 5) Make repeated calls in batches & measure memory each time
+    for batch_num in range(1, 4):  # e.g., three batches
+        print(f"\n[TEST] Starting batch #{batch_num} of repeated calls...")
+        make_repeated_calls(client, num_calls=10)
+
+        # Give a brief pause to let server handle final processing
+        time.sleep(1)
+
+        current_mem = measure_memory(server_ps)
+        print(f"Server RSS after batch #{batch_num}: {current_mem:.2f} MB")
+        diff = current_mem - baseline_mem
+        print(f"Change from baseline: {diff:.2f} MB")
+
+    # 6) Cleanup
+    print("\n[TEST] Disconnecting client and terminating server...")
+    client.disconnect()
+    server_proc.terminate()
+    try:
+        server_proc.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        server_proc.kill()
+
+    print("[TEST] Done.")
+
+if __name__ == "__main__":
+    """
+    Usage:
+        python test_grpc_memory.py
+
+    Make sure you have psutil installed:
+        pip install psutil
+    """
+    main()

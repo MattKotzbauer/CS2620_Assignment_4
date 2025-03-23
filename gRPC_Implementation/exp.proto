@@ -1,0 +1,252 @@
+syntax = "proto3";
+
+package messaging;
+
+// --------------------------------------------------------------------
+// Service definition
+// --------------------------------------------------------------------
+service MessagingService {
+  // 1) Create Account
+  rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse);
+
+  // 2) Log into Account
+  rpc Login(LoginRequest) returns (LoginResponse);
+
+  // 3) List Accounts
+  rpc ListAccounts(ListAccountsRequest) returns (ListAccountsResponse);
+
+  // 4) Display Conversation
+  rpc DisplayConversation(DisplayConversationRequest) 
+      returns (DisplayConversationResponse);
+
+  // 5) Send Message
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+
+  // 6) Read Messages
+  rpc ReadMessages(ReadMessagesRequest) returns (ReadMessagesResponse);
+
+  // 7) Delete Message
+  rpc DeleteMessage(DeleteMessageRequest) returns (DeleteMessageResponse);
+
+  // 8) Delete Account
+  rpc DeleteAccount(DeleteAccountRequest) returns (DeleteAccountResponse);
+
+  // 9) Get Unread Messages
+  rpc GetUnreadMessages(GetUnreadMessagesRequest) 
+      returns (GetUnreadMessagesResponse);
+
+  // 10) Get Message Information
+  rpc GetMessageInformation(GetMessageInformationRequest) 
+      returns (GetMessageInformationResponse);
+
+  // 11) Get Username by ID
+  rpc GetUsernameByID(GetUsernameByIDRequest) 
+      returns (GetUsernameByIDResponse);
+
+  // 12) Mark Message as Read
+  rpc MarkMessageAsRead(MarkMessageAsReadRequest) 
+      returns (MarkMessageAsReadResponse);
+
+  // 13) Get User by Username
+  rpc GetUserByUsername(GetUserByUsernameRequest) 
+      returns (GetUserByUsernameResponse);
+}
+
+// --------------------------------------------------------------------
+// Common / Shared Types
+// --------------------------------------------------------------------
+
+// You can reuse this enum for calls that need a simple success/failure:
+enum Status {
+  STATUS_SUCCESS = 0; // e.g., 0x00
+  STATUS_FAILURE = 1; // e.g., 0x01 or other failure codes
+}
+
+// For calls that specifically need "found" vs "not found", you can use:
+enum FoundStatus {
+  FOUND = 0;     // 0x00
+  NOT_FOUND = 1; // 0x01
+}
+
+// --------------------------------------------------------------------
+// 1) Create Account
+// --------------------------------------------------------------------
+message CreateAccountRequest {
+  string username       = 1; // UTF-8 username
+  bytes  password_hash  = 2; // 32-byte SHA-256 hash
+}
+
+message CreateAccountResponse {
+  bytes session_token = 1; // 32-byte session token
+}
+
+// --------------------------------------------------------------------
+// 2) Log into Account
+// --------------------------------------------------------------------
+message LoginRequest {
+  string username      = 1; // UTF-8 username
+  bytes  password_hash = 2; // 32-byte SHA-256 hash
+}
+
+message LoginResponse {
+  Status status         = 1; // 0 = success, 1 = failure
+  bytes  session_token  = 2; // 32-byte session token
+  uint32 unread_count   = 3; // 4-byte unread message count
+}
+
+// --------------------------------------------------------------------
+// 3) List Accounts
+// --------------------------------------------------------------------
+message ListAccountsRequest {
+  uint32 user_id       = 1; // 2 bytes in wire protocol, but we'll store as uint32
+  bytes  session_token = 2; // 32-byte session token
+  string wildcard      = 3; // UTF-8 "wildcard" filter
+}
+
+message ListAccountsResponse {
+  uint32 account_count     = 1;               // Number of accounts
+  repeated string usernames = 2;              // UTF-8 usernames
+}
+
+// --------------------------------------------------------------------
+// 4) Display Conversation
+// --------------------------------------------------------------------
+message DisplayConversationRequest {
+  uint32 user_id       = 1; // 2 bytes in wire protocol
+  bytes  session_token = 2; // 32-byte session token
+  uint32 conversant_id = 3; // 2 bytes in wire protocol
+}
+
+message ConversationMessage {
+  uint32 message_id   = 1; // 4-byte message ID
+  bool   sender_flag  = 2; // true if sent by requester, false otherwise
+  string content      = 3; // UTF-8 message content
+}
+
+message DisplayConversationResponse {
+  uint32 message_count                 = 1;
+  repeated ConversationMessage messages = 2;
+}
+
+// --------------------------------------------------------------------
+// 5) Send Message
+// --------------------------------------------------------------------
+message SendMessageRequest {
+  uint32 sender_user_id   = 1; // 2 bytes in wire
+  bytes  session_token    = 2; // 32-byte token
+  uint32 recipient_user_id= 3; // 2 bytes in wire
+  string message_content  = 4; // UTF-8 message
+}
+
+message SendMessageResponse {
+  // Empty response in wire protocol
+}
+
+// --------------------------------------------------------------------
+// 6) Read Messages
+// --------------------------------------------------------------------
+message ReadMessagesRequest {
+  uint32 user_id                = 1; // 2 bytes in wire
+  bytes  session_token          = 2; // 32-byte token
+  uint32 number_of_messages_req = 3; // 4 bytes in wire
+}
+
+message ReadMessagesResponse {
+  // Empty response in wire protocol
+}
+
+// --------------------------------------------------------------------
+// 7) Delete Message
+// --------------------------------------------------------------------
+message DeleteMessageRequest {
+  uint32 user_id       = 1; // 2 bytes in wire
+  uint32 message_uid   = 2; // 4 bytes in wire
+  bytes  session_token = 3; // 32-byte token
+}
+
+message DeleteMessageResponse {
+  // Empty response in wire protocol
+}
+
+// --------------------------------------------------------------------
+// 8) Delete Account
+// --------------------------------------------------------------------
+message DeleteAccountRequest {
+  uint32 user_id       = 1; // 2 bytes in wire
+  bytes  session_token = 2; // 32-byte token
+}
+
+message DeleteAccountResponse {
+  // Empty response in wire protocol
+}
+
+// --------------------------------------------------------------------
+// 9) Get Unread Messages
+// --------------------------------------------------------------------
+message GetUnreadMessagesRequest {
+  uint32 user_id       = 1; // 2 bytes in wire
+  bytes  session_token = 2; // 32-byte token
+}
+
+message UnreadMessageInfo {
+  uint32 message_uid   = 1; // 4 bytes
+  uint32 sender_id     = 2; // 2 bytes
+  uint32 receiver_id   = 3; // 2 bytes
+}
+
+message GetUnreadMessagesResponse {
+  uint32 count                        = 1; // 4-byte count
+  repeated UnreadMessageInfo messages = 2;
+}
+
+// --------------------------------------------------------------------
+// 10) Get Message Information
+// --------------------------------------------------------------------
+message GetMessageInformationRequest {
+  uint32 user_id       = 1; // 2 bytes
+  bytes  session_token = 2; // 32-byte token
+  uint32 message_uid   = 3; // 4 bytes
+}
+
+message GetMessageInformationResponse {
+  bool   read_flag        = 1; // Nonzero if already read (true/false in proto)
+  uint32 sender_id        = 2; // 2 bytes in wire
+  uint32 content_length   = 3; // 2 bytes in wire (often unnecessary in proto)
+  string message_content  = 4; // UTF-8
+}
+
+// --------------------------------------------------------------------
+// 11) Get Username by ID
+// --------------------------------------------------------------------
+message GetUsernameByIDRequest {
+  uint32 user_id = 1; // 2 bytes in wire
+}
+
+message GetUsernameByIDResponse {
+  string username = 1; // UTF-8 username
+}
+
+// --------------------------------------------------------------------
+// 12) Mark Message as Read
+// --------------------------------------------------------------------
+message MarkMessageAsReadRequest {
+  uint32 user_id       = 1; // 2 bytes
+  bytes  session_token = 2; // 32-byte token
+  uint32 message_uid   = 3; // 4 bytes
+}
+
+message MarkMessageAsReadResponse {
+  // Empty response in wire protocol
+}
+
+// --------------------------------------------------------------------
+// 13) Get User by Username
+// --------------------------------------------------------------------
+message GetUserByUsernameRequest {
+  string username = 1; // UTF-8
+}
+
+message GetUserByUsernameResponse {
+  FoundStatus status = 1;     // 0x00 if found, 0x01 if not found
+  uint32      user_id= 2;     // Only set if found
+}

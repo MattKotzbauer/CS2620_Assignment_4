@@ -1,0 +1,41 @@
+
+// exp.proto
+syntax = "proto3";
+
+package messaging;
+
+// Service definition
+service MessagingService {
+    // Create a new account
+    rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse);
+    
+    // Login to existing account
+    rpc Login(LoginRequest) returns (LoginResponse);
+}
+
+// Create Account Messages
+message CreateAccountRequest {
+    string username = 1;      // UTF-8 username
+    bytes password_hash = 2;  // 32-byte SHA-256 hash
+}
+
+message CreateAccountResponse {
+    bytes session_token = 1;  // 32-byte session token
+}
+
+// Login Messages
+message LoginRequest {
+    string username = 1;      // UTF-8 username
+    bytes password_hash = 2;  // 32-byte SHA-256 hash
+}
+
+message LoginResponse {
+    enum Status {
+        SUCCESS = 0;         // Corresponds to 0x00
+        FAILURE = 1;         // Any other value
+    }
+    Status status = 1;       // Login status
+    bytes session_token = 2; // 32-byte session token
+    uint32 unread_count = 3; // 4-byte unread message count
+}
+
