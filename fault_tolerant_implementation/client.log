@@ -100,3 +100,102 @@
 2025-03-23 13:26:16,461 [ERROR] Error executing operation: Could not connect to any server in the cluster
 2025-03-23 13:26:16,863 [WARNING] Failed to identify a leader in the cluster
 2025-03-23 13:26:16,864 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:50:17,352 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-23 13:50:17,354 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-23 13:50:17,355 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-23 13:50:17,356 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-23 13:50:17,357 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-23 13:50:17,372 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:17,374 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:17,375 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:50:17,577 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:17,579 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:50:17,980 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:17,982 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:50:18,783 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:18,784 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:50:18,985 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:18,986 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:50:19,388 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:19,388 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:50:20,190 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:20,193 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:50:20,395 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:20,396 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:50:20,798 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:50:20,800 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:51:29,908 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-23 13:51:29,909 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-23 13:51:29,909 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-23 13:51:29,910 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-23 13:51:29,910 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-23 13:51:29,921 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:29,922 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:29,923 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:51:30,125 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:30,126 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:51:30,528 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:30,529 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:51:31,332 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:31,333 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:51:31,536 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:31,537 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:51:31,939 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:31,941 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:51:32,743 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:32,745 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:51:32,947 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:32,948 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:51:33,351 [WARNING] Failed to identify a leader in the cluster
+2025-03-23 13:51:33,352 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-23 13:54:36,136 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-23 13:54:36,136 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-23 13:54:36,137 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-23 13:54:36,137 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-23 13:54:36,138 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-23 13:54:36,141 [INFO] Found leader: node node1
+2025-03-23 13:54:36,145 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:36.144485796-04:00"}"
+>
+2025-03-23 13:54:36,349 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T13:54:36.349084986-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-23 13:54:36,753 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:36.753438933-04:00"}"
+>
+2025-03-23 13:54:37,558 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:37.55850345-04:00"}"
+>
+2025-03-23 13:54:37,764 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:37.763529524-04:00"}"
+>
+2025-03-23 13:54:38,167 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:38.167424437-04:00"}"
+>
+2025-03-23 13:54:38,973 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:38.973433515-04:00"}"
+>
+2025-03-23 13:54:39,178 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:39.178099878-04:00"}"
+>
+2025-03-23 13:54:39,582 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:39.582363813-04:00"}"
+>

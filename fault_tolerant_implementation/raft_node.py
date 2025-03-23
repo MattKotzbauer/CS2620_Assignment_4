@@ -126,7 +126,7 @@ class RaftNode:
         # ''')
         c.execute('''
         CREATE TABLE IF NOT EXISTS log_entries (
-g        log_index INTEGER PRIMARY KEY,  # Renamed to avoid reserved keyword
+        log_index INTEGER PRIMARY KEY,
         term INTEGER,
         command TEXT
         )
