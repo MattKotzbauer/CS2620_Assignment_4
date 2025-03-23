@@ -36,7 +36,7 @@ class NodeState:
     CANDIDATE = "CANDIDATE"
     LEADER = "LEADER"
 
-class RaftNode:
+class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     """Implementation of a Raft consensus node for the chat system."""
     
     def __init__(self, node_id: str, cluster_config: Dict[str, str], data_dir: str):
@@ -170,6 +170,9 @@ class RaftNode:
     
     def _load_state_from_db(self):
         """Load the node's state from the database."""
+
+        print(f"Loaded {len(self.user_base.users)} users and {len(self.message_base.messages)} messages from DB")
+        
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
         
@@ -305,11 +308,20 @@ class RaftNode:
     
     def _init_peer_connections(self):
         """Initialize gRPC connections to peer nodes."""
+        print(f"[DEBUG] Node {self.node_id} initializing peer connections")
         for node_id, address in self.cluster_config.items():
             if node_id != self.node_id:
-                channel = grpc.insecure_channel(address)
-                stub = exp_pb2_grpc.RaftServiceStub(channel)
-                self.peers[node_id] = stub
+                try:
+                    print(f"[DEBUG] Node {self.node_id} connecting to peer {node_id} at {address}")
+                    channel = grpc.insecure_channel(address)
+                    stub = exp_pb2_grpc.RaftServiceStub(channel)
+                    self.peers[node_id] = stub
+                    print(f"[DEBUG] Successfully created stub for {node_id}")
+                except Exception as e:
+                    print(f"[DEBUG] Error creating stub for {node_id}: {str(e)}")
+                # channel = grpc.insecure_channel(address)
+                # stub = exp_pb2_grpc.RaftServiceStub(channel)
+                # self.peers[node_id] = stub
     
     def _run_raft_loop(self):
         """Main Raft algorithm loop."""
@@ -740,8 +752,12 @@ class RaftNode:
         # Leader processing
         try:
             # Check if username exists
+            print(f"Checking if username {username} already exists: {self.user_trie.trie.get(username)}")
             if self.user_trie.trie.get(username):
+                print(f"Username {username} already exists")
                 return False, "Username already exists"
+
+            print(f"Assigned user ID {user_id} for new account {username}")
             
             # Generate user ID
             if self.user_base._deleted_user_ids:

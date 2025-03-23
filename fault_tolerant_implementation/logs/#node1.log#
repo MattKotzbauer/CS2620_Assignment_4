@@ -1,0 +1,628 @@
+logs/node1.log: 
+2025-03-23 14:07:48,953 [INFO] Database initialized at data/node1/node_node1.db
+2025-03-23 14:07:48,989 [INFO] Loaded state from database: 0 users, 0 messages
+2025-03-23 14:07:48,999 [INFO] Initialized Raft node node1 at 127.0.0.1:50051
+2025-03-23 14:07:49,006 [INFO] Server started as node node1 listening on [::]:50051
+2025-03-23 14:07:49,007 [INFO] Cluster configuration: {'node1': '127.0.0.1:50051', 'node2': '127.0.0.1:50052', 'node3': '127.0.0.1:50053', 'node4': '127.0.0.1:50054', 'node5': '127.0.0.1:50055'}
+2025-03-23 14:07:50,610 [INFO] Node node1 became candidate for term 180
+2025-03-23 14:07:50,720 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:50.719873942-04:00"}"
+>
+2025-03-23 14:07:50,724 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.724668541-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,834 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:50.834385366-04:00"}"
+>
+2025-03-23 14:07:50,836 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:50.836690026-04:00"}"
+>
+2025-03-23 14:07:50,892 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.891728047-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,895 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.894779179-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,949 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.949471512-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,955 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.955538885-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:08:21,782 [INFO] Received GetUsernameByID request for user 0
+2025-03-23 14:08:21,787 [INFO] Received Login request for user: alice
+2025-03-23 14:08:21,790 [INFO] Received GetUsernameByID request for user 0
+2025-03-23 14:08:21,995 [INFO] Received Login request for user: alice
+2025-03-23 14:08:22,001 [INFO] Received GetUsernameByID request for user 0
+2025-03-23 14:08:22,408 [INFO] Received Login request for user: alice
+2025-03-23 14:08:22,411 [INFO] Received GetUsernameByID request for user 0
+2025-03-23 14:08:23,215 [INFO] Received Login request for user: bob
+2025-03-23 14:08:23,224 [INFO] Received GetUsernameByID request for user 0
+2025-03-23 14:08:23,429 [INFO] Received Login request for user: bob
+2025-03-23 14:08:23,434 [INFO] Received GetUsernameByID request for user 0
+2025-03-23 14:08:23,837 [INFO] Received Login request for user: bob
+2025-03-23 14:08:23,839 [INFO] Received GetUsernameByID request for user 0
+2025-03-23 14:08:24,643 [INFO] Received Login request for user: charlie
+2025-03-23 14:08:24,645 [INFO] Received GetUsernameByID request for user 0
+2025-03-23 14:08:24,850 [INFO] Received Login request for user: charlie
+2025-03-23 14:08:24,853 [INFO] Received GetUsernameByID request for user 0
+2025-03-23 14:08:25,257 [INFO] Received Login request for user: charlie
+2025-03-23 14:08:25,260 [INFO] Received GetUsernameByID request for user 0
+
+2025-03-23 14:07:49,874 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:49.874519371-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:49,876 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:49.875895222-04:00"}"
+>
+2025-03-23 14:07:49,929 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:49.929000977-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:49,931 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:49.931128694-04:00"}"
+>
+2025-03-23 14:07:50,023 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:50,111 [INFO] Node node1 became candidate for term 179
+2025-03-23 14:07:50,220 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:50.219869618-04:00"}"
+>
+2025-03-23 14:07:50,225 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:50.225547123-04:00"}"
+>
+2025-03-23 14:07:50,307 [INFO] Node node1 became leader for term 179
+2025-03-23 14:07:50,309 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.309485235-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,310 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.310673291-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,363 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.363622411-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,365 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:50.36523859-04:00"}"
+>
+2025-03-23 14:07:50,419 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:50.419314856-04:00"}"
+>
+2025-03-23 14:07:50,422 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.422091853-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,477 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.477544397-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,479 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.479084453-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,534 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.534444343-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,537 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.537358107-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,593 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:50.592941681-04:00"}"
+>
+2025-03-23 14:07:50,597 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.597320528-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,652 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:50.652101624-04:00"}"
+>
+2025-03-23 14:07:50,654 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:50.654182739-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:50,756 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:51,104 [INFO] Node node1 became candidate for term 181
+2025-03-23 14:07:51,160 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:51.159583049-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:51,163 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:51.163028735-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:51,264 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:51.263813557-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:51,267 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:51.266969976-04:00"}"
+>
+2025-03-23 14:07:51,392 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:51.391947207-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:51,395 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:51.394792277-04:00"}"
+>
+2025-03-23 14:07:51,492 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:51.492526083-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:51,495 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:51.495432122-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:51,599 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:51.59936168-04:00"}"
+>
+2025-03-23 14:07:51,601 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:51.600856829-04:00"}"
+>
+2025-03-23 14:07:51,735 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:51,834 [INFO] Node node1 became candidate for term 183
+2025-03-23 14:07:51,981 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:51.981486278-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:51,984 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:51.984593128-04:00"}"
+>
+2025-03-23 14:07:52,077 [INFO] Node node1 became leader for term 183
+2025-03-23 14:07:52,080 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:52.08024015-04:00"}"
+>
+2025-03-23 14:07:52,082 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:52.082728304-04:00"}"
+>
+2025-03-23 14:07:52,137 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:52.137268549-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:52,141 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:52.141352594-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:52,196 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:52.195987577-04:00"}"
+>
+2025-03-23 14:07:52,198 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:52.198337786-04:00"}"
+>
+2025-03-23 14:07:52,255 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:52.255004234-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:52,256 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:52.256570565-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:52,312 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:52.312574998-04:00"}"
+>
+2025-03-23 14:07:52,314 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:52.314462844-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:52,370 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:52.370012824-04:00"}"
+>
+2025-03-23 14:07:52,371 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:52.371610966-04:00"}"
+>
+2025-03-23 14:07:52,466 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:52,881 [INFO] Node node1 became candidate for term 185
+2025-03-23 14:07:52,934 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:52.934166035-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:52,936 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:52.936162223-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:53,027 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:53,418 [INFO] Node node1 became candidate for term 187
+2025-03-23 14:07:53,511 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:53,800 [INFO] Node node1 became candidate for term 189
+2025-03-23 14:07:53,854 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:53.854009071-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:53,858 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:53.858646642-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:53,914 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:53.913941038-04:00"}"
+>
+2025-03-23 14:07:53,917 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:53.917210486-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:53,972 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:53.971998993-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:53,974 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:53.974312575-04:00"}"
+>
+2025-03-23 14:07:54,029 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:54.029365925-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:54,033 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:54.033032471-04:00"}"
+>
+2025-03-23 14:07:54,088 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:54.088413495-04:00"}"
+>
+2025-03-23 14:07:54,091 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:54.091729225-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:54,148 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:54.148109978-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:54,149 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:54.149422173-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:54,204 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:54.204733335-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:54,207 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:54.206906346-04:00"}"
+>
+2025-03-23 14:07:54,289 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:54,716 [INFO] Node node1 became candidate for term 191
+2025-03-23 14:07:54,820 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:55,289 [INFO] Node node1 became candidate for term 194
+2025-03-23 14:07:55,431 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:55.431359507-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:55,433 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:55.432859962-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:55,512 [INFO] Node node1 became leader for term 194
+2025-03-23 14:07:55,515 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:55.514985605-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:55,516 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:55.516484945-04:00"}"
+>
+2025-03-23 14:07:55,571 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:55.570754588-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:55,573 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:55.573162182-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:55,630 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:55.630341182-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:55,632 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:55.632239599-04:00"}"
+>
+2025-03-23 14:07:56,532 [INFO] Node node1 became candidate for term 196
+2025-03-23 14:07:56,631 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:57,022 [INFO] Node node1 became candidate for term 199
+2025-03-23 14:07:57,074 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:57.074298616-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:57,075 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:57.07569967-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:57,128 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:57.128434085-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:57,131 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:57.130962542-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:57,224 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:57,468 [INFO] Node node1 became candidate for term 201
+2025-03-23 14:07:57,623 [WARNING] Failed to request vote from node2: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.DEADLINE_EXCEEDED
+	details = "Deadline Exceeded"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Deadline Exceeded", grpc_status:4, created_time:"2025-03-23T14:07:57.622962865-04:00"}"
+>
+2025-03-23 14:07:57,626 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:57.626161799-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:57,634 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:57.63370436-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:57,833 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:57.833215931-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:57,836 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:57.83603854-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:57,882 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:07:57,992 [INFO] Node node1 became candidate for term 203
+2025-03-23 14:07:58,093 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.093379465-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,095 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.094782423-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,181 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.181089583-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,182 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.182544477-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,236 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:58.236613304-04:00"}"
+>
+2025-03-23 14:07:58,239 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.238974666-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,294 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.294107857-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,296 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.295635058-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,349 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.349733719-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,351 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.351443397-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,406 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.406379479-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,409 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.408997989-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,465 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.464888551-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,467 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:58.467488196-04:00"}"
+>
+2025-03-23 14:07:58,522 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:58.522279653-04:00"}"
+>
+2025-03-23 14:07:58,523 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:07:58.523462844-04:00"}"
+>
+2025-03-23 14:07:58,578 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.578429237-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,581 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.581252898-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,637 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.637484488-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,639 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.639501719-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,694 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.694266901-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,696 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:07:58.696539483-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:07:58,790 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:08:00,932 [INFO] Node node1 became candidate for term 208
+2025-03-23 14:08:01,040 [INFO] Node node1 reverted to follower (higher term)
+2025-03-23 14:08:02,816 [INFO] Node node1 became candidate for term 215
+2025-03-23 14:08:02,970 [WARNING] Failed to request vote from node2: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.DEADLINE_EXCEEDED
+	details = "Deadline Exceeded"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:08:02.969906451-04:00", grpc_status:4, grpc_message:"Deadline Exceeded"}"
+>
+2025-03-23 14:08:02,971 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:08:02.971606916-04:00"}"
+>
+2025-03-23 14:08:02,972 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:08:02.972521523-04:00"}"
+>
+2025-03-23 14:08:03,179 [WARNING] Failed to request vote from node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:08:03.17883645-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>
+2025-03-23 14:08:03,181 [WARNING] Failed to request vote from node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:08:03.180950415-04:00"}"
+>
+2025-03-23 14:08:03,219 [INFO] Node node1 became leader for term 215
+2025-03-23 14:08:03,221 [WARNING] Failed to send AppendEntries to node3: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Method not found!", grpc_status:12, created_time:"2025-03-23T14:08:03.221753231-04:00"}"
+>
+2025-03-23 14:08:03,223 [WARNING] Failed to send AppendEntries to node4: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Method not found!"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T14:08:03.223388899-04:00", grpc_status:12, grpc_message:"Method not found!"}"
+>

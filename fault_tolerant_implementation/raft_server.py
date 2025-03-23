@@ -36,23 +36,7 @@ class RaftService(object):
     @staticmethod
     def add_to_server(servicer, server):
         """Register the servicer for RaftService."""
-        server.add_generic_rpc_handlers((
-            grpc.method_handlers_generic_handler(
-                'RaftService',
-                {
-                    'RequestVote': grpc.unary_unary_rpc_method_handler(
-                        servicer.RequestVote,
-                        request_deserializer=exp_pb2.RequestVoteRequest.FromString,
-                        response_serializer=exp_pb2.RequestVoteResponse.SerializeToString,
-                    ),
-                    'AppendEntries': grpc.unary_unary_rpc_method_handler(
-                        servicer.AppendEntries,
-                        request_deserializer=exp_pb2.AppendEntriesRequest.FromString,
-                        response_serializer=exp_pb2.AppendEntriesResponse.SerializeToString,
-                    ),
-                },
-            ),
-        ))
+        exp_pb2_grpc.add_RaftServiceServicer_to_server(servicer, server)
 
 class RaftMessagingServicer(exp_pb2_grpc.MessagingServiceServicer):
     """
@@ -475,13 +459,19 @@ def serve(node_id, cluster_config, data_dir, port=50051):
     
     # Create the gRPC server
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+
+    print(f"[DEBUG] Registering services for node {node_id}")
+    print(f"[DEBUG] RaftNode inherits from: {RaftNode.__mro__}")
+    print(f"[DEBUG] RaftNode implements RequestVote: {'RequestVote' in dir(raft_node)}")
+    print(f"[DEBUG] RaftNode implements AppendEntries: {'AppendEntries' in dir(raft_node)}")
     
     # Add the messaging service
     messaging_servicer = RaftMessagingServicer(raft_node)
     exp_pb2_grpc.add_MessagingServiceServicer_to_server(messaging_servicer, server)
     
     # Add the Raft service
-    RaftService.add_to_server(raft_node, server)
+    # RaftService.add_to_server(raft_node, server)
+    exp_pb2_grpc.add_RaftServiceServicer_to_server(raft_node, server)
     
     # Start the server
     server_address = f"[::]:{port}"
