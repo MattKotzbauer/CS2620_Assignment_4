@@ -17,10 +17,6 @@ function wait_for_node() {
   exit 1
 }
 
-kill -9 $(lsof -ti tcp:50051 2>/dev/null) 2>/dev/null
-kill -9 $(lsof -ti tcp:50052 2>/dev/null) 2>/dev/null
-kill -9 $(lsof -ti tcp:50053 2>/dev/null) 2>/dev/null
-
 echo "Starting node1..."
 python raft_server.py --node-id node1 --config cluster_config_3.json \
   --data-dir data/node1 --port 50051 > logs/node1.log 2>&1 &

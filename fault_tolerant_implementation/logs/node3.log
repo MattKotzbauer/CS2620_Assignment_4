@@ -1,9 +1,5 @@
-2025-03-23 20:28:47,572 [INFO] Database initialized at data/node3/node_node3.db
-2025-03-23 20:28:47,600 [INFO] Loaded state from database: 0 users, 0 messages
-2025-03-23 20:28:47,607 [INFO] Initialized Raft node node3 at 127.0.0.1:50053
-2025-03-23 20:28:47,612 [INFO] Server started as node node3 listening on 0.0.0.0:50053
-2025-03-23 20:28:47,613 [INFO] Cluster configuration: {'node1': '127.0.0.1:50051', 'node2': '127.0.0.1:50052', 'node3': '127.0.0.1:50053'}
-2025-03-23 20:28:57,878 [INFO] Node node3 became candidate for term 739
-2025-03-23 20:28:57,977 [INFO] Node node3 reverted to follower (higher term)
-2025-03-23 20:29:08,124 [INFO] Node node3 became candidate for term 744
-2025-03-23 20:29:08,235 [INFO] Node node3 reverted to follower (higher term)
+2025-03-24 10:51:08,091 [INFO] Database initialized at data/node3/node_node3.db
+2025-03-24 10:51:08,110 [INFO] Loaded state from database: 0 users, 0 messages
+2025-03-24 10:51:08,136 [INFO] Initialized Raft node node3 at 127.0.0.1:50053
+2025-03-24 10:51:08,155 [INFO] Server started as node node3 listening on 0.0.0.0:50053
+2025-03-24 10:51:08,156 [INFO] Cluster configuration: {'node1': '127.0.0.1:50051', 'node2': '127.0.0.1:50052', 'node3': '127.0.0.1:50053'}
