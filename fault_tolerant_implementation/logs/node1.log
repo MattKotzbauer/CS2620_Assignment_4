@@ -1,7 +1,0 @@
-2025-03-24 10:51:06,275 [INFO] Database initialized at data/node1/node_node1.db
-2025-03-24 10:51:06,296 [INFO] Loaded state from database: 0 users, 0 messages
-2025-03-24 10:51:06,327 [INFO] Initialized Raft node node1 at 127.0.0.1:50051
-2025-03-24 10:51:06,337 [INFO] Server started as node node1 listening on 0.0.0.0:50051
-2025-03-24 10:51:06,337 [INFO] Cluster configuration: {'node1': '127.0.0.1:50051', 'node2': '127.0.0.1:50052', 'node3': '127.0.0.1:50053'}
-2025-03-24 10:51:16,358 [INFO] Node node1 became candidate for term 4604
-2025-03-24 10:51:16,663 [INFO] Node node1 became leader for term 4604
