@@ -1,0 +1,5 @@
+2025-03-24 11:22:23,670 [INFO] Database initialized at data/node3/node_node3.db
+2025-03-24 11:22:23,719 [INFO] Loaded state from database: 0 users, 0 messages
+2025-03-24 11:22:23,731 [INFO] Initialized Raft node node3 at 127.0.0.1:50053
+2025-03-24 11:22:23,741 [INFO] Server started as node node3 listening on 0.0.0.0:50053
+2025-03-24 11:22:23,743 [INFO] Cluster configuration: {'node1': '127.0.0.1:50051', 'node2': '127.0.0.1:50052', 'node3': '127.0.0.1:50053'}
