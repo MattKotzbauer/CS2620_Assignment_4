@@ -1,71 +1,109 @@
 #!/bin/bash
-# start_cluster.sh - Script to start a 5-node Raft cluster for 2-fault tolerance
+# start_5node_cluster.sh - Script to start a 5-node Raft cluster with improved startup logic
 
-# Create data directories if they don't exist
-mkdir -p data/node1
-mkdir -p data/node2
-mkdir -p data/node3
-mkdir -p data/node4
-mkdir -p data/node5
+###
+# 1. Helper function to wait for a node's log to show it has started
+###
+function wait_for_node() {
+  local node_id="$1"
+  local logfile="$2"
+  local phrase="Server started as node $node_id"
 
-# Create logs directory if it doesn't exist
+  echo "Waiting for $node_id to be ready..."
+
+  # Poll the logfile up to 30 seconds
+  for i in {1..30}; do
+      if grep -q "$phrase" "$logfile"; then
+          echo "$node_id is ready!"
+          return 0
+      fi
+      sleep 1
+  done
+
+  echo "ERROR: $node_id not ready after 30 seconds."
+  exit 1
+}
+
+###
+# 2. Kill anything already using the ports 50051..50055
+###
+echo "Killing processes on ports 50051..50055 if any..."
+for port in 50051 50052 50053 50054 50055; do
+  kill -9 $(lsof -ti tcp:$port 2>/dev/null) 2>/dev/null
+done
+
+###
+# 3. Create data/log dirs
+###
+mkdir -p data/node1 data/node2 data/node3 data/node4 data/node5
 mkdir -p logs
 
+###
+# 4. Start nodes one at a time, waiting for each to be ready
+###
 echo "Starting 5-node Raft cluster for 2-fault tolerance..."
 
-# Start node 1
-echo "Starting node 1..."
-python raft_server.py --node-id node1 --config cluster_config.json --data-dir data/node1 --port 50051 > logs/node1.log 2>&1 &
+# Node 1
+echo "Starting node1 (port 50051)..."
+python raft_server.py --node-id node1 \
+  --config cluster_config.json \
+  --data-dir data/node1 \
+  --port 50051 \
+  > logs/node1.log 2>&1 &
 NODE1_PID=$!
-echo "Node 1 started with PID $NODE1_PID"
+wait_for_node "node1" "logs/node1.log"
 
-# Wait a moment for the first node to initialize
-sleep 10
-
-# Start node 2
-echo "Starting node 2..."
-python raft_server.py --node-id node2 --config cluster_config.json --data-dir data/node2 --port 50052 > logs/node2.log 2>&1 &
+# Node 2
+echo "Starting node2 (port 50052)..."
+python raft_server.py --node-id node2 \
+  --config cluster_config.json \
+  --data-dir data/node2 \
+  --port 50052 \
+  > logs/node2.log 2>&1 &
 NODE2_PID=$!
-echo "Node 2 started with PID $NODE2_PID"
+wait_for_node "node2" "logs/node2.log"
 
-# Wait a moment
-sleep 10
-
-# Start node 3
-echo "Starting node 3..."
-python raft_server.py --node-id node3 --config cluster_config.json --data-dir data/node3 --port 50053 > logs/node3.log 2>&1 &
+# Node 3
+echo "Starting node3 (port 50053)..."
+python raft_server.py --node-id node3 \
+  --config cluster_config.json \
+  --data-dir data/node3 \
+  --port 50053 \
+  > logs/node3.log 2>&1 &
 NODE3_PID=$!
-echo "Node 3 started with PID $NODE3_PID"
+wait_for_node "node3" "logs/node3.log"
 
-# Wait a moment
-sleep 10
-
-# Start node 4
-echo "Starting node 4..."
-python raft_server.py --node-id node4 --config cluster_config.json --data-dir data/node4 --port 50054 > logs/node4.log 2>&1 &
+# Node 4
+echo "Starting node4 (port 50054)..."
+python raft_server.py --node-id node4 \
+  --config cluster_config.json \
+  --data-dir data/node4 \
+  --port 50054 \
+  > logs/node4.log 2>&1 &
 NODE4_PID=$!
-echo "Node 4 started with PID $NODE4_PID"
+wait_for_node "node4" "logs/node4.log"
 
-# Wait a moment
-sleep 10
-
-# Start node 5
-echo "Starting node 5..."
-python raft_server.py --node-id node5 --config cluster_config.json --data-dir data/node5 --port 50055 > logs/node5.log 2>&1 &
+# Node 5
+echo "Starting node5 (port 50055)..."
+python raft_server.py --node-id node5 \
+  --config cluster_config.json \
+  --data-dir data/node5 \
+  --port 50055 \
+  > logs/node5.log 2>&1 &
 NODE5_PID=$!
-echo "Node 5 started with PID $NODE5_PID"
+wait_for_node "node5" "logs/node5.log"
 
-# Write PIDs to a file for later cleanup
+# Store PIDs
 echo "$NODE1_PID $NODE2_PID $NODE3_PID $NODE4_PID $NODE5_PID" > cluster_pids.txt
 
-echo "Cluster is now running. PIDs: $NODE1_PID $NODE2_PID $NODE3_PID $NODE4_PID $NODE5_PID"
+echo "All 5 nodes started. PIDs: $NODE1_PID $NODE2_PID $NODE3_PID $NODE4_PID $NODE5_PID"
 echo "To stop the cluster, run: kill \$(cat cluster_pids.txt)"
 
-echo "Waiting for cluster to stabilize and elect a leader..."
-sleep 10
-echo "Cluster should now be stable with an elected leader."
+echo "Creating helper scripts..."
 
-# Create a helper script to monitor logs
+###
+# 5. Helper script to monitor logs
+###
 cat > monitor_logs.sh << 'EOL'
 #!/bin/bash
 # monitor_logs.sh - Monitors all node logs in real-time
@@ -83,11 +121,12 @@ else
   tail -f logs/node*.log
 fi
 EOL
-
 chmod +x monitor_logs.sh
-echo "Created monitor_logs.sh to watch all node logs"
+echo "  -> Created monitor_logs.sh (for watching all node logs)."
 
-# Create a helper script to kill specific nodes
+###
+# 6. Helper script to kill a node
+###
 cat > kill_node.sh << 'EOL'
 #!/bin/bash
 # kill_node.sh - Kill a specific node to test fault tolerance
@@ -95,7 +134,7 @@ cat > kill_node.sh << 'EOL'
 
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <node_number>"
-  echo "Example: $0 1    # Kills node 1"
+  echo "Example: $0 1    # Kills node1"
   exit 1
 fi
 
@@ -111,11 +150,12 @@ echo "Killing node $NODE_NUM (PID: $NODE_PID)..."
 kill $NODE_PID
 echo "Node $NODE_NUM killed"
 EOL
-
 chmod +x kill_node.sh
-echo "Created kill_node.sh to test fault tolerance"
+echo "  -> Created kill_node.sh (to kill a specific node)."
 
-# Create a helper script to restart a node
+###
+# 7. Helper script to restart a node
+###
 cat > restart_node.sh << 'EOL'
 #!/bin/bash
 # restart_node.sh - Restart a specific node
@@ -123,7 +163,7 @@ cat > restart_node.sh << 'EOL'
 
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <node_number>"
-  echo "Example: $0 1    # Restarts node 1"
+  echo "Example: $0 1    # Restarts node1"
   exit 1
 fi
 
@@ -139,18 +179,19 @@ if [ ! -z "$NODE_PID" ]; then
 fi
 
 echo "Starting node $NODE_NUM on port $PORT..."
-python raft_server.py --node-id node$NODE_NUM --config cluster_config.json --data-dir data/node$NODE_NUM --port $PORT > logs/node$NODE_NUM.log 2>&1 &
+python raft_server.py --node-id node$NODE_NUM \
+  --config cluster_config.json \
+  --data-dir data/node$NODE_NUM \
+  --port $PORT \
+  > logs/node$NODE_NUM.log 2>&1 &
 NEW_PID=$!
 
 echo "Node $NODE_NUM restarted with PID $NEW_PID"
 EOL
-
 chmod +x restart_node.sh
-echo "Created restart_node.sh to restart downed nodes"
+echo "  -> Created restart_node.sh (to restart downed nodes)."
 
-echo "Your 5-node Raft cluster is ready for testing fault tolerance!"
 echo ""
-echo "Helper scripts:"
-echo "  - ./monitor_logs.sh     # Watch logs from all nodes"
-echo "  - ./kill_node.sh <num>  # Kill a specific node (1-5)"
-echo "  - ./restart_node.sh <num>  # Restart a specific node (1-5)"
+echo "Cluster startup complete!"
+echo "Use ./monitor_logs.sh to view logs, or ./kill_node.sh / ./restart_node.sh to test failures."
+

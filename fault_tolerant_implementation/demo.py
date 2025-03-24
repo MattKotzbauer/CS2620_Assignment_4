@@ -86,6 +86,7 @@ def demo_fault_tolerance():
         time.sleep(2)
     
     run_command("./start_cluster.sh")
+    time.sleep(10)
     
     # Step 3: Connect a client to the cluster
     print_step(3, "Connecting client to the cluster")

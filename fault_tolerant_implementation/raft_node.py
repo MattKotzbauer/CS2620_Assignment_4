@@ -764,7 +764,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 print(f"Username {username} already exists")
                 return False, "Username already exists"
 
-            print(f"Assigned user ID {user_id} for new account {username}")
+            user_id = -1
             
             # Generate user ID
             if self.user_base._deleted_user_ids:
@@ -772,7 +772,9 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             else:
                 user_id = self.user_base._next_user_id
                 self.user_base._next_user_id += 1
-            
+
+            print(f"Assigned user ID {user_id} for new account {username}")
+                
             # Generate session token
             token = hashlib.sha256(f"{user_id}_{hash(time.time())}".encode()).hexdigest()
             self.session_tokens.tokens[user_id] = token

@@ -66,57 +66,37 @@ class FaultTolerantClient:
     
     def _find_leader(self) -> bool:
         """
-        Try to identify the current leader in the cluster.
-        
-        Returns:
-            bool: True if a leader was found, False otherwise
+        Try to identify the current leader by pinging each node.
         """
-        # Try each server until we find the leader
         for node_id, stub in self.stubs.items():
             try:
-                # We'll use a simple request like GetUsernameByID to test
-                # If the node is not the leader, it should redirect us
-                response = stub.GetUsernameByID(
-                    exp_pb2.GetUsernameByIDRequest(user_id=0),
-                    timeout=1.0
-                )
-                
-                # If we reach here without an error, assume this is the leader
+                request = exp_pb2.LeaderPingRequest()
+                stub.LeaderPing(request, timeout=10.0)
+                # If we got here without an exception, node_id is leader
                 self.leader_id = node_id
                 logger.info(f"Found leader: node {node_id}")
                 self._connected = True
                 return True
-                
+
             except grpc.RpcError as e:
-                # Check if the error message indicates another server is the leader
-                details = e.details() if hasattr(e, 'details') else ""
-                
-                if "Not the leader" in details:
-                    # Extract the leader address from the error message
-                    # Format is typically "Not the leader. Try {address}"
-                    parts = details.split("Try ")
-                    if len(parts) > 1:
-                        leader_address = parts[1].strip()
-                        
-                        # Find the node ID for this address
-                        for node_id, address in self.cluster_config.items():
-                            if address == leader_address:
-                                self.leader_id = node_id
-                                logger.info(f"Found leader: node {node_id}")
-                                self._connected = True
-                                return True
-                
-                # If we get a different error, continue trying other nodes
-                logger.debug(f"Node {node_id} is not the leader: {str(e)}")
-            
-            except Exception as e:
-                logger.warning(f"Error connecting to node {node_id}: {str(e)}")
-        
-        # If we reach here, we couldn't find a leader
-        logger.warning("Failed to identify a leader in the cluster")
+                details = e.details() or ""
+                # If "Not the leader" appears, we see if it gave us a redirect
+                if "Not the leader. Try " in details:
+                    new_addr = details.split("Try ")[1].strip()
+                    # Now we can see if that maps to some node_id in cluster_config
+                    for possible_id, address in self.cluster_config.items():
+                        if address == new_addr:
+                            self.leader_id = possible_id
+                            logger.info(f"Found leader via redirect: node {possible_id}")
+                            self._connected = True
+                            return True
+            # Otherwise, keep trying the next node
+
+        logger.warning("Failed to identify a leader in the cluster via LeaderPing")
         self._connected = False
         return False
-    
+
+        
     def _ensure_connected(self):
         """
         Ensure the client is connected before making an RPC.

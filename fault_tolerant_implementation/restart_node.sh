@@ -4,7 +4,7 @@
 
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <node_number>"
-  echo "Example: $0 1    # Restarts node 1"
+  echo "Example: $0 1    # Restarts node1"
   exit 1
 fi
 
@@ -20,7 +20,11 @@ if [ ! -z "$NODE_PID" ]; then
 fi
 
 echo "Starting node $NODE_NUM on port $PORT..."
-python raft_server.py --node-id node$NODE_NUM --config cluster_config.json --data-dir data/node$NODE_NUM --port $PORT > logs/node$NODE_NUM.log 2>&1 &
+python raft_server.py --node-id node$NODE_NUM \
+  --config cluster_config.json \
+  --data-dir data/node$NODE_NUM \
+  --port $PORT \
+  > logs/node$NODE_NUM.log 2>&1 &
 NEW_PID=$!
 
 echo "Node $NODE_NUM restarted with PID $NEW_PID"

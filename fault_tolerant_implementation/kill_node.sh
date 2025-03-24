@@ -4,7 +4,7 @@
 
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <node_number>"
-  echo "Example: $0 1    # Kills node 1"
+  echo "Example: $0 1    # Kills node1"
   exit 1
 fi
 

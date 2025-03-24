@@ -50,6 +50,10 @@ service MessagingService {
   // 13) Get User by Username
   rpc GetUserByUsername(GetUserByUsernameRequest) 
       returns (GetUserByUsernameResponse);
+
+  // 14) LeaderPing
+  rpc LeaderPing(LeaderPingRequest) returns (LeaderPingResponse);
+  
 }
 
 // --------------------------------------------------------------------
@@ -298,4 +302,12 @@ message AppendEntriesRequest {
 message AppendEntriesResponse {
   uint64 term = 1;            // current term, for leader to update itself
   bool success = 2;           // true if follower contained entry matching prev_log_index and prev_log_term
+}
+
+message LeaderPingRequest {
+  // No fields needed—this is just a "test" request
+}
+
+message LeaderPingResponse {
+  // Empty response on success—followers will send an error instead
 }

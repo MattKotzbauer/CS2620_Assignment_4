@@ -102,6 +102,11 @@ class MessagingServiceStub(object):
                 request_serializer=exp__pb2.GetUserByUsernameRequest.SerializeToString,
                 response_deserializer=exp__pb2.GetUserByUsernameResponse.FromString,
                 _registered_method=True)
+        self.LeaderPing = channel.unary_unary(
+                '/messaging.MessagingService/LeaderPing',
+                request_serializer=exp__pb2.LeaderPingRequest.SerializeToString,
+                response_deserializer=exp__pb2.LeaderPingResponse.FromString,
+                _registered_method=True)
 
 
 class MessagingServiceServicer(object):
@@ -201,6 +206,13 @@ class MessagingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LeaderPing(self, request, context):
+        """14) LeaderPing
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MessagingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -268,6 +280,11 @@ def add_MessagingServiceServicer_to_server(servicer, server):
                     servicer.GetUserByUsername,
                     request_deserializer=exp__pb2.GetUserByUsernameRequest.FromString,
                     response_serializer=exp__pb2.GetUserByUsernameResponse.SerializeToString,
+            ),
+            'LeaderPing': grpc.unary_unary_rpc_method_handler(
+                    servicer.LeaderPing,
+                    request_deserializer=exp__pb2.LeaderPingRequest.FromString,
+                    response_serializer=exp__pb2.LeaderPingResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -624,6 +641,33 @@ class MessagingService(object):
             '/messaging.MessagingService/GetUserByUsername',
             exp__pb2.GetUserByUsernameRequest.SerializeToString,
             exp__pb2.GetUserByUsernameResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def LeaderPing(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/messaging.MessagingService/LeaderPing',
+            exp__pb2.LeaderPingRequest.SerializeToString,
+            exp__pb2.LeaderPingResponse.FromString,
             options,
             channel_credentials,
             insecure,

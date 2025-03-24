@@ -1,828 +1,96 @@
-2025-03-23 12:24:01,788 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 12:24:01,790 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 12:24:01,790 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 12:24:01,791 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 12:24:01,792 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 12:24:01,806 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:01,807 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:01,808 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 12:24:02,010 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:02,011 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 12:24:02,413 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:02,414 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 12:24:03,216 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:03,217 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 12:24:03,419 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:03,421 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 12:24:03,823 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:03,825 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 12:24:04,627 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:04,628 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 12:24:04,831 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:04,832 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 12:24:05,234 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 12:24:05,236 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:10:20,405 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 13:10:20,406 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 13:10:20,407 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 13:10:20,407 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 13:10:20,407 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 13:10:20,415 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:20,416 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:20,416 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:10:20,618 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:20,619 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:10:21,022 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:21,023 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:10:21,826 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:21,829 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:10:22,032 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:22,033 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:10:22,437 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:22,438 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:10:23,241 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:23,242 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:10:23,445 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:23,446 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:10:23,848 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:10:23,849 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:11:32,994 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 13:11:32,995 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 13:11:32,996 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 13:11:32,997 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 13:11:32,998 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 13:11:33,007 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:00,660 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 13:25:00,661 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 13:25:00,662 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 13:25:00,662 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 13:25:00,663 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 13:25:00,670 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:00,671 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:00,672 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:25:00,874 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:00,875 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:25:01,278 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:01,279 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:25:02,083 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:02,084 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:25:02,287 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:02,289 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:25:02,691 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:02,693 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:25:03,496 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:03,497 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:25:03,699 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:03,700 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:25:04,103 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:25:04,104 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:26:13,420 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 13:26:13,421 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 13:26:13,423 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 13:26:13,425 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 13:26:13,426 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 13:26:13,433 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:13,435 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:13,435 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:26:13,637 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:13,638 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:26:14,040 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:14,041 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:26:14,845 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:14,846 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:26:15,049 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:15,050 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:26:15,453 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:15,453 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:26:16,255 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:16,257 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:26:16,460 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:16,461 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:26:16,863 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:26:16,864 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:50:17,352 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 13:50:17,354 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 13:50:17,355 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 13:50:17,356 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 13:50:17,357 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 13:50:17,372 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:17,374 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:17,375 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:50:17,577 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:17,579 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:50:17,980 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:17,982 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:50:18,783 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:18,784 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:50:18,985 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:18,986 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:50:19,388 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:19,388 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:50:20,190 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:20,193 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:50:20,395 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:20,396 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:50:20,798 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:50:20,800 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:51:29,908 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 13:51:29,909 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 13:51:29,909 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 13:51:29,910 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 13:51:29,910 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 13:51:29,921 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:29,922 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:29,923 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:51:30,125 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:30,126 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:51:30,528 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:30,529 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:51:31,332 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:31,333 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:51:31,536 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:31,537 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:51:31,939 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:31,941 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:51:32,743 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:32,745 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:51:32,947 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:32,948 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:51:33,351 [WARNING] Failed to identify a leader in the cluster
-2025-03-23 13:51:33,352 [ERROR] Error executing operation: Could not connect to any server in the cluster
-2025-03-23 13:54:36,136 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 13:54:36,136 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 13:54:36,137 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 13:54:36,137 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 13:54:36,138 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 13:54:36,141 [INFO] Found leader: node node1
-2025-03-23 13:54:36,145 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+2025-03-24 14:05:28,107 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:05:28,109 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:05:28,110 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:05:28,111 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:05:28,112 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:05:28,120 [INFO] Found leader: node node1
+2025-03-24 14:05:28,126 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
 	status = StatusCode.INTERNAL
 	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:36.144485796-04:00"}"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-24T14:05:28.125128502-04:00"}"
 >
-2025-03-23 13:54:36,349 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+2025-03-24 14:05:28,355 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
 	status = StatusCode.INTERNAL
 	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T13:54:36.349084986-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-24T14:05:28.355157098-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
 >
-2025-03-23 13:54:36,753 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+2025-03-24 14:05:28,759 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
 	status = StatusCode.INTERNAL
 	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:36.753438933-04:00"}"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-24T14:05:28.759483497-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
 >
-2025-03-23 13:54:37,558 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+2025-03-24 14:06:03,471 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:06:03,473 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:06:03,474 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:06:03,475 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:06:03,476 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:06:03,482 [INFO] Found leader via redirect: node node2
+2025-03-24 14:06:03,488 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
 	status = StatusCode.INTERNAL
 	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:37.55850345-04:00"}"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50052 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-24T14:06:03.488434006-04:00"}"
 >
-2025-03-23 13:54:37,764 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+2025-03-24 14:06:03,695 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
 	status = StatusCode.INTERNAL
 	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:37.763529524-04:00"}"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50052 {created_time:"2025-03-24T14:06:03.695153592-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
 >
-2025-03-23 13:54:38,167 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+2025-03-24 14:06:04,101 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
 	status = StatusCode.INTERNAL
 	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:38.167424437-04:00"}"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50052 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-24T14:06:04.101230609-04:00"}"
 >
-2025-03-23 13:54:38,973 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:38.973433515-04:00"}"
->
-2025-03-23 13:54:39,178 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:39.178099878-04:00"}"
->
-2025-03-23 13:54:39,582 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T13:54:39.582363813-04:00"}"
->
-2025-03-23 13:55:49,065 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 13:55:49,066 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 13:55:49,067 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 13:55:49,069 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 13:55:49,070 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 13:55:49,076 [INFO] Found leader: node node1
-2025-03-23 14:00:48,148 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 14:00:48,149 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 14:00:48,150 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 14:00:48,153 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 14:00:48,154 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 14:00:48,160 [INFO] Found leader: node node1
-2025-03-23 14:00:48,162 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T14:00:48.162202094-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 14:00:48,365 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T14:00:48.365052421-04:00"}"
->
-2025-03-23 14:00:48,770 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T14:00:48.769772952-04:00"}"
->
-2025-03-23 14:00:49,575 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T14:00:49.575305125-04:00"}"
->
-2025-03-23 14:00:49,780 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T14:00:49.780445361-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 14:00:50,187 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T14:00:50.187680627-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 14:00:50,994 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T14:00:50.994481335-04:00"}"
->
-2025-03-23 14:00:51,200 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T14:00:51.200314214-04:00"}"
->
-2025-03-23 14:00:51,605 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T14:00:51.605270943-04:00"}"
->
-2025-03-23 14:02:01,455 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 14:02:01,456 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 14:02:01,456 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 14:02:01,457 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 14:02:01,457 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 14:02:01,460 [INFO] Found leader: node node1
-2025-03-23 14:07:08,871 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 14:07:08,872 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 14:07:08,874 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 14:07:08,875 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 14:07:08,876 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 14:07:08,883 [INFO] Found leader: node node1
-2025-03-23 14:07:08,889 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:07:08,893 [INFO] Found leader: node node1
-2025-03-23 14:07:09,098 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:07:09,102 [INFO] Found leader: node node1
-2025-03-23 14:07:09,506 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:07:09,510 [INFO] Found leader: node node1
-2025-03-23 14:07:10,313 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:07:10,316 [INFO] Found leader: node node1
-2025-03-23 14:07:10,520 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:07:10,522 [INFO] Found leader: node node1
-2025-03-23 14:07:10,929 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:07:10,933 [INFO] Found leader: node node1
-2025-03-23 14:07:11,738 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:07:11,741 [INFO] Found leader: node node1
-2025-03-23 14:07:11,948 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:07:11,950 [INFO] Found leader: node node1
-2025-03-23 14:07:12,356 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:07:12,361 [INFO] Found leader: node node1
-2025-03-23 14:08:21,773 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 14:08:21,775 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 14:08:21,777 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 14:08:21,778 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 14:08:21,779 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 14:08:21,784 [INFO] Found leader: node node1
-2025-03-23 14:08:21,789 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:08:21,792 [INFO] Found leader: node node1
-2025-03-23 14:08:21,999 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:08:22,005 [INFO] Found leader: node node1
-2025-03-23 14:08:22,410 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:08:22,412 [INFO] Found leader: node node1
-2025-03-23 14:08:23,220 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:08:23,226 [INFO] Found leader: node node1
-2025-03-23 14:08:23,431 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:08:23,435 [INFO] Found leader: node node1
-2025-03-23 14:08:23,838 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:08:23,841 [INFO] Found leader: node node1
-2025-03-23 14:08:24,644 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:08:24,646 [INFO] Found leader: node node1
-2025-03-23 14:08:24,852 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:08:24,856 [INFO] Found leader: node node1
-2025-03-23 14:08:25,259 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:08:25,266 [INFO] Found leader: node node1
-2025-03-23 14:20:02,742 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 14:20:02,743 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 14:20:02,744 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 14:20:02,744 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 14:20:02,746 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 14:20:02,750 [INFO] Found leader: node node1
-2025-03-23 14:20:02,752 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T14:20:02.7524417-04:00"}"
->
-2025-03-23 14:20:02,957 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T14:20:02.957021658-04:00"}"
->
-2025-03-23 14:20:03,360 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T14:20:03.360097407-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 14:20:04,165 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T14:20:04.164789033-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 14:20:04,368 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T14:20:04.368161872-04:00"}"
->
-2025-03-23 14:20:04,772 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T14:20:04.772603371-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 14:20:05,576 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:20:05,577 [INFO] Found leader: node node1
-2025-03-23 14:20:05,782 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:20:05,783 [INFO] Found leader: node node1
-2025-03-23 14:20:06,190 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:20:06,194 [INFO] Found leader: node node1
-2025-03-23 14:21:15,540 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 14:21:15,541 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 14:21:15,542 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 14:21:15,542 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 14:21:15,543 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 14:21:15,545 [INFO] Found leader: node node1
-2025-03-23 14:21:15,547 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:21:15,549 [INFO] Found leader: node node1
-2025-03-23 14:21:15,752 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:21:15,755 [INFO] Found leader: node node1
-2025-03-23 14:21:16,158 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:21:16,160 [INFO] Found leader: node node1
-2025-03-23 14:21:16,963 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:21:16,965 [INFO] Found leader: node node1
-2025-03-23 14:21:17,167 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:21:17,169 [INFO] Found leader: node node1
-2025-03-23 14:21:17,572 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:21:17,573 [INFO] Found leader: node node1
-2025-03-23 14:21:18,378 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:21:18,380 [INFO] Found leader: node node1
-2025-03-23 14:21:18,586 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:21:18,590 [INFO] Found leader: node node1
-2025-03-23 14:21:18,995 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 14:21:18,997 [INFO] Found leader: node node1
-2025-03-23 16:56:21,324 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 16:56:21,325 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 16:56:21,326 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 16:56:21,327 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 16:56:21,329 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 16:56:21,333 [INFO] Found leader: node node1
-2025-03-23 16:56:21,336 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T16:56:21.335925142-04:00"}"
->
-2025-03-23 16:56:21,543 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:56:21,546 [INFO] Found leader: node node1
-2025-03-23 16:56:21,951 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:56:21,955 [INFO] Found leader: node node1
-2025-03-23 16:56:22,762 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T16:56:22.762009797-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 16:56:22,967 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T16:56:22.967293911-04:00"}"
->
-2025-03-23 16:56:23,374 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T16:56:23.374285889-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 16:56:24,181 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T16:56:24.180571816-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 16:56:24,384 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T16:56:24.384223785-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 16:56:24,788 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T16:56:24.788070161-04:00"}"
->
-2025-03-23 16:57:35,604 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 16:57:35,605 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 16:57:35,606 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 16:57:35,607 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 16:57:35,608 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 16:57:35,613 [INFO] Found leader: node node1
-2025-03-23 16:57:35,616 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:57:35,617 [INFO] Found leader: node node1
-2025-03-23 16:57:35,820 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:57:35,822 [INFO] Found leader: node node1
-2025-03-23 16:57:36,227 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:57:36,230 [INFO] Found leader: node node1
-2025-03-23 16:57:37,034 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:57:37,036 [INFO] Found leader: node node1
-2025-03-23 16:57:37,240 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:57:37,244 [INFO] Found leader: node node1
-2025-03-23 16:57:37,648 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:57:37,651 [INFO] Found leader: node node1
-2025-03-23 16:57:38,456 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:57:38,461 [INFO] Found leader: node node1
-2025-03-23 16:57:38,664 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:57:38,667 [INFO] Found leader: node node1
-2025-03-23 16:57:39,071 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 16:57:39,073 [INFO] Found leader: node node1
-2025-03-23 17:06:16,744 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:06:16,745 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:06:16,745 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:06:16,746 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:06:16,746 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:06:16,751 [INFO] Found leader: node node1
-2025-03-23 17:07:27,825 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:07:27,827 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:07:27,827 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:07:27,828 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:07:27,829 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:07:27,833 [INFO] Found leader: node node3
-2025-03-23 17:07:27,859 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:07:27,861 [INFO] Found leader: node node3
-2025-03-23 17:07:28,065 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:07:28,068 [INFO] Found leader: node node3
-2025-03-23 17:07:28,470 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:07:28,472 [INFO] Found leader: node node3
-2025-03-23 17:07:29,280 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:07:29,284 [INFO] Found leader: node node3
-2025-03-23 17:07:29,488 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:07:29,492 [INFO] Found leader: node node3
-2025-03-23 17:07:29,896 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:07:29,900 [INFO] Found leader: node node3
-2025-03-23 17:10:03,572 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:10:03,573 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:10:03,573 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:10:03,574 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:10:03,574 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:10:03,581 [INFO] Found leader: node node3
-2025-03-23 17:10:03,583 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:10:03,584 [INFO] Found leader: node node3
-2025-03-23 17:10:03,800 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:10:03,805 [INFO] Found leader: node node3
-2025-03-23 17:10:04,216 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:10:04,221 [INFO] Found leader: node node3
-2025-03-23 17:10:05,031 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:10:05,036 [INFO] Found leader: node node3
-2025-03-23 17:10:05,243 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:10:05,247 [INFO] Found leader: node node3
-2025-03-23 17:10:05,660 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:10:05,663 [INFO] Found leader: node node3
-2025-03-23 17:10:06,473 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:10:06,478 [INFO] Found leader: node node3
-2025-03-23 17:10:06,685 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:10:06,690 [INFO] Found leader: node node3
-2025-03-23 17:10:07,096 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:10:07,100 [INFO] Found leader: node node3
-2025-03-23 17:11:18,970 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:11:18,971 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:11:18,972 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:11:18,973 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:11:18,973 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:11:18,977 [INFO] Found leader: node node1
-2025-03-23 17:11:19,030 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:11:19,033 [INFO] Found leader: node node1
-2025-03-23 17:11:19,238 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:11:19,240 [INFO] Found leader: node node1
-2025-03-23 17:11:19,644 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:11:19,647 [INFO] Found leader: node node1
-2025-03-23 17:11:20,454 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:11:20,457 [INFO] Found leader: node node1
-2025-03-23 17:11:20,659 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:11:20,675 [INFO] Found leader: node node1
-2025-03-23 17:11:21,078 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:11:21,079 [INFO] Found leader: node node1
-2025-03-23 17:15:31,074 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:15:31,075 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:15:31,076 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:15:31,076 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:15:31,077 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:15:31,084 [INFO] Found leader: node node1
-2025-03-23 17:15:31,086 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:15:31,088 [INFO] Found leader: node node1
-2025-03-23 17:15:31,294 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:15:31,297 [INFO] Found leader: node node1
-2025-03-23 17:15:31,702 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:15:31,705 [INFO] Found leader: node node1
-2025-03-23 17:15:32,510 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:15:32,512 [INFO] Found leader: node node1
-2025-03-23 17:15:32,717 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:15:32,721 [INFO] Found leader: node node1
-2025-03-23 17:15:33,124 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:15:33,127 [INFO] Found leader: node node1
-2025-03-23 17:15:33,933 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:15:33,936 [INFO] Found leader: node node1
-2025-03-23 17:15:34,142 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:15:34,145 [INFO] Found leader: node node1
-2025-03-23 17:15:34,549 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:15:34,551 [INFO] Found leader: node node1
-2025-03-23 17:16:45,352 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:16:45,353 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:16:45,354 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:16:45,355 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:16:45,356 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:16:45,362 [INFO] Found leader: node node1
-2025-03-23 17:16:45,408 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:16:45,410 [INFO] Found leader: node node1
-2025-03-23 17:16:45,622 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:16:45,629 [INFO] Found leader: node node1
-2025-03-23 17:16:46,035 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:16:46,038 [INFO] Found leader: node node1
-2025-03-23 17:16:46,844 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:16:46,848 [INFO] Found leader: node node1
-2025-03-23 17:16:47,051 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:16:47,054 [INFO] Found leader: node node1
-2025-03-23 17:16:47,458 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:16:47,460 [INFO] Found leader: node node1
-2025-03-23 17:30:04,557 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:30:04,559 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:30:04,560 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:30:04,561 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:30:04,562 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:30:04,571 [INFO] Found leader: node node1
-2025-03-23 17:30:04,582 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:30:04,585 [INFO] Found leader: node node1
-2025-03-23 17:30:04,791 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:30:04,795 [INFO] Found leader: node node1
-2025-03-23 17:30:05,201 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:30:05,204 [INFO] Found leader: node node1
-2025-03-23 17:30:06,010 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:30:06,014 [INFO] Found leader: node node1
-2025-03-23 17:30:06,221 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:30:06,224 [INFO] Found leader: node node1
-2025-03-23 17:30:06,631 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:30:06,635 [INFO] Found leader: node node1
-2025-03-23 17:30:07,439 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:30:07,445 [INFO] Found leader: node node1
-2025-03-23 17:30:07,648 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:30:07,655 [INFO] Found leader: node node1
-2025-03-23 17:30:08,059 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:30:08,061 [INFO] Found leader: node node1
-2025-03-23 17:31:18,256 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:31:18,258 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:31:18,258 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:31:18,259 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:31:18,260 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:31:18,266 [INFO] Found leader: node node1
-2025-03-23 17:31:18,342 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:31:18,345 [INFO] Found leader: node node1
-2025-03-23 17:31:18,548 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:31:18,551 [INFO] Found leader: node node1
-2025-03-23 17:31:18,954 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:31:18,956 [INFO] Found leader: node node1
-2025-03-23 17:31:19,760 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:31:19,765 [INFO] Found leader: node node1
-2025-03-23 17:31:19,970 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:31:19,972 [INFO] Found leader: node node1
-2025-03-23 17:31:20,376 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:31:20,379 [INFO] Found leader: node node1
-2025-03-23 17:54:21,480 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:54:21,481 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:54:21,482 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:54:21,483 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:54:21,484 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:54:21,488 [INFO] Found leader: node node1
-2025-03-23 17:54:21,493 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:54:21,495 [INFO] Found leader: node node1
-2025-03-23 17:54:21,702 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:54:21,705 [INFO] Found leader: node node1
-2025-03-23 17:54:22,113 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:54:22,116 [INFO] Found leader: node node1
-2025-03-23 17:54:22,922 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:54:22,926 [INFO] Found leader: node node1
-2025-03-23 17:54:23,132 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:54:23,136 [INFO] Found leader: node node1
-2025-03-23 17:54:23,542 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:54:23,545 [INFO] Found leader: node node1
-2025-03-23 17:54:24,355 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:54:24,363 [INFO] Found leader: node node1
-2025-03-23 17:54:24,568 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:54:24,572 [INFO] Found leader: node node1
-2025-03-23 17:54:24,978 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:54:24,983 [INFO] Found leader: node node1
-2025-03-23 17:55:35,500 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:55:35,501 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:55:35,502 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:55:35,503 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:55:35,504 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:55:35,508 [INFO] Found leader: node node1
-2025-03-23 17:55:35,591 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:55:35,594 [INFO] Found leader: node node1
-2025-03-23 17:55:35,797 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:55:35,802 [INFO] Found leader: node node1
-2025-03-23 17:55:36,207 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:55:36,210 [INFO] Found leader: node node1
-2025-03-23 17:55:37,016 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:55:37,020 [INFO] Found leader: node node1
-2025-03-23 17:55:37,224 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:55:37,228 [INFO] Found leader: node node1
-2025-03-23 17:55:37,631 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:55:37,634 [INFO] Found leader: node node1
-2025-03-23 17:59:49,408 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 17:59:49,409 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 17:59:49,409 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 17:59:49,409 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 17:59:49,410 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 17:59:49,415 [INFO] Found leader: node node1
-2025-03-23 17:59:49,417 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:59:49,418 [INFO] Found leader: node node1
-2025-03-23 17:59:49,623 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:59:49,627 [INFO] Found leader: node node1
-2025-03-23 17:59:50,033 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:59:50,036 [INFO] Found leader: node node1
-2025-03-23 17:59:50,841 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:59:50,844 [INFO] Found leader: node node1
-2025-03-23 17:59:51,050 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:59:51,054 [INFO] Found leader: node node1
-2025-03-23 17:59:51,458 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:59:51,463 [INFO] Found leader: node node1
-2025-03-23 17:59:52,270 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:59:52,273 [INFO] Found leader: node node1
-2025-03-23 17:59:52,480 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:59:52,484 [INFO] Found leader: node node1
-2025-03-23 17:59:52,889 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 17:59:52,892 [INFO] Found leader: node node1
-2025-03-23 18:01:03,805 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 18:01:03,806 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 18:01:03,806 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 18:01:03,807 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 18:01:03,807 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 18:01:03,810 [INFO] Found leader: node node1
-2025-03-23 18:01:03,856 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:01:03,858 [INFO] Found leader: node node1
-2025-03-23 18:01:04,061 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:01:04,063 [INFO] Found leader: node node1
-2025-03-23 18:01:04,465 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:01:04,467 [INFO] Found leader: node node1
-2025-03-23 18:01:05,270 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:01:05,272 [INFO] Found leader: node node1
-2025-03-23 18:01:05,475 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:01:05,478 [INFO] Found leader: node node1
-2025-03-23 18:01:05,881 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:01:05,883 [INFO] Found leader: node node1
-2025-03-23 18:09:17,301 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 18:09:17,302 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 18:09:17,303 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 18:09:17,304 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 18:09:17,305 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 18:09:17,309 [INFO] Found leader: node node1
-2025-03-23 18:09:17,312 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T18:09:17.312263834-04:00"}"
->
-2025-03-23 18:09:17,517 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T18:09:17.516822845-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 18:09:17,922 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T18:09:17.921886063-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 18:09:18,727 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T18:09:18.727734257-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 18:09:18,934 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T18:09:18.933611749-04:00"}"
->
-2025-03-23 18:09:19,342 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T18:09:19.342563026-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 18:09:20,147 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-23T18:09:20.147408713-04:00"}"
->
-2025-03-23 18:09:20,357 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T18:09:20.356894898-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 18:09:20,759 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.INTERNAL
-	details = "Failed to create account"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-23T18:09:20.759408807-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
->
-2025-03-23 18:10:34,834 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 18:10:34,835 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 18:10:34,836 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 18:10:34,836 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 18:10:34,837 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 18:10:34,840 [INFO] Found leader: node node1
-2025-03-23 18:10:34,901 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:10:34,904 [INFO] Found leader: node node1
-2025-03-23 18:10:35,107 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:10:35,109 [INFO] Found leader: node node1
-2025-03-23 18:10:35,512 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:10:35,515 [INFO] Found leader: node node1
-2025-03-23 18:21:32,301 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 18:21:32,302 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 18:21:32,302 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 18:21:32,303 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 18:21:32,304 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 18:21:32,308 [INFO] Found leader: node node1
-2025-03-23 18:21:32,312 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:21:32,315 [INFO] Found leader: node node1
-2025-03-23 18:21:32,520 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:21:32,522 [INFO] Found leader: node node1
-2025-03-23 18:21:32,928 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:21:32,938 [INFO] Found leader: node node1
-2025-03-23 18:21:33,744 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:21:33,748 [INFO] Found leader: node node1
-2025-03-23 18:21:33,953 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:21:33,956 [INFO] Found leader: node node1
-2025-03-23 18:21:34,360 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:21:34,362 [INFO] Found leader: node node1
-2025-03-23 18:21:35,166 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:21:35,168 [INFO] Found leader: node node1
-2025-03-23 18:21:35,373 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:21:35,376 [INFO] Found leader: node node1
-2025-03-23 18:21:35,779 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:21:35,788 [INFO] Found leader: node node1
-2025-03-23 18:23:19,372 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 18:23:19,372 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 18:23:19,373 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 18:23:19,373 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 18:23:19,374 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 18:23:19,375 [INFO] Found leader: node node1
-2025-03-23 18:23:19,420 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:23:19,427 [INFO] Found leader: node node1
-2025-03-23 18:23:19,630 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:23:19,632 [INFO] Found leader: node node1
-2025-03-23 18:23:20,035 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:23:20,038 [INFO] Found leader: node node1
-2025-03-23 18:23:20,841 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:23:20,844 [INFO] Found leader: node node1
-2025-03-23 18:23:21,048 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:23:21,050 [INFO] Found leader: node node1
-2025-03-23 18:23:21,457 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:23:21,460 [INFO] Found leader: node node1
-2025-03-23 18:26:28,027 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 18:26:28,030 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 18:26:28,031 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 18:26:28,031 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 18:26:28,031 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 18:26:28,037 [INFO] Found leader: node node1
-2025-03-23 18:26:28,040 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:26:28,041 [INFO] Found leader: node node1
-2025-03-23 18:26:28,245 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:26:28,248 [INFO] Found leader: node node1
-2025-03-23 18:26:28,654 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:26:28,658 [INFO] Found leader: node node1
-2025-03-23 18:26:29,465 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:26:29,470 [INFO] Found leader: node node1
-2025-03-23 18:26:29,675 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:26:29,679 [INFO] Found leader: node node1
-2025-03-23 18:26:30,086 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:26:30,089 [INFO] Found leader: node node1
-2025-03-23 18:26:30,897 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:26:30,901 [INFO] Found leader: node node1
-2025-03-23 18:26:31,108 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:26:31,110 [INFO] Found leader: node node1
-2025-03-23 18:26:31,514 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:26:31,516 [INFO] Found leader: node node1
-2025-03-23 18:28:14,889 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
-2025-03-23 18:28:14,890 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
-2025-03-23 18:28:14,891 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
-2025-03-23 18:28:14,892 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
-2025-03-23 18:28:14,893 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
-2025-03-23 18:28:14,897 [INFO] Found leader: node node1
-2025-03-23 18:28:14,997 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:28:15,000 [INFO] Found leader: node node1
-2025-03-23 18:28:15,205 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:28:15,209 [INFO] Found leader: node node1
-2025-03-23 18:28:15,614 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:28:15,617 [INFO] Found leader: node node1
-2025-03-23 18:28:16,422 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:28:16,426 [INFO] Found leader: node node1
-2025-03-23 18:28:16,629 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:28:16,633 [INFO] Found leader: node node1
-2025-03-23 18:28:17,038 [INFO] Server indicated it's not the leader. Finding new leader...
-2025-03-23 18:28:17,043 [INFO] Found leader: node node1
+2025-03-24 14:14:01,639 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:14:01,641 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:14:01,643 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:14:01,644 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:14:01,646 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:14:01,652 [INFO] Found leader: node node1
+2025-03-24 14:15:00,461 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:15:00,462 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:15:00,463 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:15:00,464 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:15:00,465 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:15:00,470 [INFO] Found leader: node node1
+2025-03-24 14:15:50,419 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:15:50,421 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:15:50,422 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:15:50,423 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:15:50,425 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:15:50,430 [INFO] Found leader via redirect: node node3
+2025-03-24 14:36:56,469 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:36:56,471 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:36:56,472 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:36:56,473 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:36:56,474 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:36:56,478 [INFO] Found leader: node node1
+2025-03-24 14:37:54,242 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:37:54,244 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:37:54,245 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:37:54,246 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:37:54,247 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:37:54,253 [INFO] Found leader: node node1
+2025-03-24 14:40:06,360 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:40:06,361 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:40:06,362 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:40:06,363 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:40:06,364 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:40:06,368 [INFO] Found leader via redirect: node node2
+2025-03-24 14:51:57,599 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:51:57,601 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:51:57,602 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:51:57,603 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:51:57,604 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:51:57,609 [INFO] Found leader: node node1
+2025-03-24 14:56:14,374 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:56:14,376 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:56:14,377 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:56:14,378 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:56:14,380 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:56:14,385 [INFO] Found leader: node node1
+2025-03-24 14:57:12,540 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-24 14:57:12,541 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-24 14:57:12,542 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-24 14:57:12,543 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-24 14:57:12,545 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-24 14:57:12,550 [INFO] Found leader: node node1

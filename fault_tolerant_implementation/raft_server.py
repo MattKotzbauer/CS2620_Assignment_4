@@ -45,6 +45,25 @@ class RaftMessagingServicer(exp_pb2_grpc.MessagingServiceServicer):
     
     def __init__(self, raft_node):
         self.raft_node = raft_node
+
+    def LeaderPing(self, request, context):
+        """
+        A simple RPC that only succeeds if this node is currently the Raft leader.
+        Otherwise, return an error with redirect info.
+        """
+        if self.raft_node.state != NodeState.LEADER:
+            # If we know the leader's address, suggest it for redirection
+            if self.raft_node.leader_id and self.raft_node.leader_id in self.raft_node.cluster_config:
+                leader_addr = self.raft_node.cluster_config[self.raft_node.leader_id]
+                context.set_details(f"Not the leader. Try {leader_addr}")
+            else:
+                context.set_details("No leader available")
+            context.set_code(grpc.StatusCode.FAILED_PRECONDITION)
+            return exp_pb2.LeaderPingResponse()
+    
+        # If we're leader, return success (an empty response)
+        return exp_pb2.LeaderPingResponse()
+
     
     def CreateAccount(self, request, context):
         """
