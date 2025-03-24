@@ -1,7 +1,8 @@
-from typing import Dict, List, Tuple, Optional, Set
+from typing import Dict, List, Tuple, Optional, Set, Union
 from collections import defaultdict
 from core_entities import User, Message
 from tst_implementation import TernarySearchTree
+
 
 class GlobalUserBase:
     """
@@ -13,14 +14,33 @@ class GlobalUserBase:
         self._next_user_id: int = 1
         self._deleted_user_ids: Set[int] = set()
 
+# class GlobalUserTrie:
+    # """
+    # Maintains a Ternary Search Tree for username lookups, supporting pattern matching
+    # with wildcards (* for any sequence, ? for any character).
+    # """
+    # def __init__(self):
+        # self.trie: TernarySearchTree[User] = TernarySearchTree[User]()
 class GlobalUserTrie:
-    """
-    Maintains a Ternary Search Tree for username lookups, supporting pattern matching
-    with wildcards (* for any sequence, ? for any character).
-    """
     def __init__(self):
-        self.trie: TernarySearchTree[User] = TernarySearchTree[User]()
+        self.store = {}
+    
+    def add(self, word: str, value: User):
+        self.store[word] = value
+    
+    def get(self, word: str) -> Optional[User]:
+        return self.store.get(word)
+    
+    def regex_search(self, pattern: str, return_values: bool = False) -> List[Union[str, User]]:
+        # Very basic search for debugging purposes
+        results = []
+        for key, value in self.store.items():
+            if re.fullmatch(pattern.replace("*", ".*").replace("?", "."), key):
+                results.append(value if return_values else key)
+        return results
 
+
+        
 # (this guy is a massive todo)
 class GlobalSessionTokens:
     """

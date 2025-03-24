@@ -20,7 +20,7 @@ NODE1_PID=$!
 echo "Node 1 started with PID $NODE1_PID"
 
 # Wait a moment for the first node to initialize
-sleep 2
+sleep 10
 
 # Start node 2
 echo "Starting node 2..."
@@ -29,7 +29,7 @@ NODE2_PID=$!
 echo "Node 2 started with PID $NODE2_PID"
 
 # Wait a moment
-sleep 2
+sleep 10
 
 # Start node 3
 echo "Starting node 3..."
@@ -38,7 +38,7 @@ NODE3_PID=$!
 echo "Node 3 started with PID $NODE3_PID"
 
 # Wait a moment
-sleep 2
+sleep 10
 
 # Start node 4
 echo "Starting node 4..."
@@ -47,7 +47,7 @@ NODE4_PID=$!
 echo "Node 4 started with PID $NODE4_PID"
 
 # Wait a moment
-sleep 2
+sleep 10
 
 # Start node 5
 echo "Starting node 5..."

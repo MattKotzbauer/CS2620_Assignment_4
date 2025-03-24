@@ -194,14 +194,18 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         # Load users
         c.execute("SELECT user_id, username, password_hash, data FROM users")
         for user_id, username, password_hash, data in c.fetchall():
+            print(f"Loading user from DB: {user_id}, {username}, data: {data}")
+
             user_data = json.loads(data)
             user = User(user_id, username, password_hash)
             user.unread_messages = deque(user_data.get("unread_messages", []))
             user.recent_conversants = user_data.get("recent_conversants", [])
             
             self.user_base.users[user_id] = user
-            self.user_trie.trie.add(username, user)
-        
+            self.user_trie.add(username, user)
+        print(f"Loaded state: {len(self.user_base.users)} users, {len(self.message_base.messages)} messages")
+
+            
         # Load messages
         c.execute("SELECT message_id, sender_id, receiver_id, content, has_been_read, timestamp FROM messages")
         for msg_id, sender_id, receiver_id, content, has_been_read, timestamp in c.fetchall():
@@ -268,6 +272,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             "unread_messages": list(user.unread_messages),
             "recent_conversants": user.recent_conversants
         }
+        print(f"Persisting user: {user.userID}, {user.username}, {user_data}")
         
         c.execute("INSERT OR REPLACE INTO users VALUES (?, ?, ?, ?)",
                  (user.userID, user.username, user.passwordHash, json.dumps(user_data)))
@@ -304,7 +309,8 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     
     def _generate_election_timeout(self):
         """Generate a random election timeout between 150-300ms."""
-        return random.uniform(0.3, 0.6)  # in seconds for easier testing
+        # return random.uniform(0.3, 0.6)  # in seconds for easier testing
+        return random.uniform(2.0, 4.0)
     
     def _init_peer_connections(self):
         """Initialize gRPC connections to peer nodes."""
@@ -510,7 +516,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             # Create user
             user = User(user_id, username, password_hash)
             self.user_base.users[user_id] = user
-            self.user_trie.trie.add(username, user)
+            self.user_trie.add(username, user)
             
             # Persist user
             self._persist_user(user)
@@ -530,7 +536,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 conn.close()
                 
                 # Delete from memory
-                self.user_trie.trie.delete(user.username)
+                self.user_trie.delete(user.username)
                 del self.user_base.users[user_id]
                 if user_id in self.session_tokens.tokens:
                     del self.session_tokens.tokens[user_id]
@@ -732,6 +738,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     # Client-facing methods
     
     def create_account(self, username: str, password_hash: str) -> Tuple[bool, str]:
+        print("Attempting to create account")
         """Create a new user account."""
         # Check if this node is the leader
         if self.state != NodeState.LEADER:
@@ -752,8 +759,8 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         # Leader processing
         try:
             # Check if username exists
-            print(f"Checking if username {username} already exists: {self.user_trie.trie.get(username)}")
-            if self.user_trie.trie.get(username):
+            print(f"Checking if username {username} already exists: {self.user_trie.get(username)}")
+            if self.user_trie.get(username):
                 print(f"Username {username} already exists")
                 return False, "Username already exists"
 
@@ -807,7 +814,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         # This can work on any node, doesn't need to be the leader
         try:
             # Find the user
-            user = self.user_trie.trie.get(username)
+            user = self.user_trie.get(username)
             if not user:
                 return (False, 0, "", 0)
                 
@@ -863,7 +870,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         """
         # This can work on any node, doesn't need to be the leader
         try:
-            matching_users = self.user_trie.trie.regex_search(wildcard, return_values=False)
+            matching_users = self.user_trie.regex_search(wildcard, return_values=False)
             return sorted(matching_users)
         except Exception as e:
             logger.error(f"Error in list_accounts: {str(e)}")
@@ -1176,7 +1183,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         """
         # This can work on any node, doesn't need to be the leader
         try:
-            user = self.user_trie.trie.get(username)
+            user = self.user_trie.get(username)
             if user:
                 return (True, user.userID)
             return (False, None)

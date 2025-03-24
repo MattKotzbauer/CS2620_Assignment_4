@@ -474,7 +474,8 @@ def serve(node_id, cluster_config, data_dir, port=50051):
     exp_pb2_grpc.add_RaftServiceServicer_to_server(raft_node, server)
     
     # Start the server
-    server_address = f"[::]:{port}"
+    # server_address = f"[::]:{port}"
+    server_address = f"0.0.0.0:{port}"
     server.add_insecure_port(server_address)
     server.start()
     
