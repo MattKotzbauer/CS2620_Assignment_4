@@ -310,7 +310,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     def _generate_election_timeout(self):
         """Generate a random election timeout between 150-300ms."""
         # return random.uniform(0.3, 0.6)  # in seconds for easier testing
-        return random.uniform(2.0, 4.0)
+        return random.uniform(10.0, 11.0)
     
     def _init_peer_connections(self):
         """Initialize gRPC connections to peer nodes."""
@@ -380,7 +380,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                     last_log_term=self.log[-1][0] if self.log else 0
                 )
                 
-                response = stub.RequestVote(request, timeout=0.1)
+                response = stub.RequestVote(request, timeout=10)
                 
                 if response.vote_granted:
                     votes_received += 1
@@ -444,7 +444,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                     leader_commit=self.commit_index
                 )
                 
-                response = stub.AppendEntries(request, timeout=0.1)
+                response = stub.AppendEntries(request, timeout=10)
                 
                 if response.success:
                     # Update nextIndex and matchIndex for this follower
@@ -1195,6 +1195,6 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         """Stop the node gracefully."""
         self.running = False
         if self.raft_thread.is_alive():
-            self.raft_thread.join(timeout=1.0)
+            self.raft_thread.join(timeout=10)
         
         logger.info(f"Stopping Raft node {self.node_id}")

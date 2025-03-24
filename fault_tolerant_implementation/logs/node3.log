@@ -1,12 +1,9 @@
-2025-03-23 20:11:33,212 [INFO] Database initialized at data/node3/node_node3.db
-2025-03-23 20:11:33,250 [INFO] Loaded state from database: 0 users, 0 messages
-2025-03-23 20:11:33,260 [INFO] Initialized Raft node node3 at 127.0.0.1:50053
-2025-03-23 20:11:33,267 [INFO] Server started as node node3 listening on 0.0.0.0:50053
-2025-03-23 20:11:33,270 [INFO] Cluster configuration: {'node1': '127.0.0.1:50051', 'node2': '127.0.0.1:50052', 'node3': '127.0.0.1:50053'}
-2025-03-23 20:11:34,252 [INFO] Node node3 became candidate for term 65
-2025-03-23 20:11:34,463 [WARNING] Failed to request vote from node2: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.DEADLINE_EXCEEDED
-	details = "Deadline Exceeded"
-	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-23T20:11:34.462440281-04:00", grpc_status:4, grpc_message:"Deadline Exceeded"}"
->
-2025-03-23 20:11:34,464 [INFO] Node node3 became leader for term 65
+2025-03-23 20:28:47,572 [INFO] Database initialized at data/node3/node_node3.db
+2025-03-23 20:28:47,600 [INFO] Loaded state from database: 0 users, 0 messages
+2025-03-23 20:28:47,607 [INFO] Initialized Raft node node3 at 127.0.0.1:50053
+2025-03-23 20:28:47,612 [INFO] Server started as node node3 listening on 0.0.0.0:50053
+2025-03-23 20:28:47,613 [INFO] Cluster configuration: {'node1': '127.0.0.1:50051', 'node2': '127.0.0.1:50052', 'node3': '127.0.0.1:50053'}
+2025-03-23 20:28:57,878 [INFO] Node node3 became candidate for term 739
+2025-03-23 20:28:57,977 [INFO] Node node3 reverted to follower (higher term)
+2025-03-23 20:29:08,124 [INFO] Node node3 became candidate for term 744
+2025-03-23 20:29:08,235 [INFO] Node node3 reverted to follower (higher term)
