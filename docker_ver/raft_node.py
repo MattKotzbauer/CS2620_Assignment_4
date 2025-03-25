@@ -738,11 +738,12 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     # Client-facing methods
     
     def create_account(self, username: str, password_hash: str) -> Tuple[bool, str]:
-        print("Attempting to create account")
+        logger.info("(raft_node.py): Attempting to create account for %s", username)
         """Create a new user account."""
         # Check if this node is the leader
         if self.state != NodeState.LEADER:
             if self.leader_id and self.leader_id in self.peers:
+                logger.info("(raft_node.py): Node is not the leader. Attempting to forward request.")
                 # Forward to leader
                 try:
                     stub = self.peers[self.leader_id]
@@ -759,9 +760,9 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         # Leader processing
         try:
             # Check if username exists
-            print(f"Checking if username {username} already exists: {self.user_trie.get(username)}")
+            logger.info(f"(raft_node.py): Checking if username {username} already exists: {self.user_trie.get(username)}")
             if self.user_trie.get(username):
-                print(f"Username {username} already exists")
+                logger.info(f"(raft_node.py): Username {username} already exists")
                 return False, "Username already exists"
 
             user_id = -1
@@ -773,7 +774,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 user_id = self.user_base._next_user_id
                 self.user_base._next_user_id += 1
 
-            print(f"Assigned user ID {user_id} for new account {username}")
+            logger.info(f"(raft_node.py): Assigned user ID {user_id} for new account {username}")
                 
             # Generate session token
             token = hashlib.sha256(f"{user_id}_{hash(time.time())}".encode()).hexdigest()
@@ -790,11 +791,13 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 "user_id": user_id,
                 "timestamp": int(time.time())
             }
-            
+
+            logger.info("(raft_node.py): Appending CREATE_ACCOUNT log entry for user %s", username)
             # Append to log
             self.log.append((self.current_term, command))
             self._persist_log_entry(len(self.log) - 1, self.current_term, command)
-            
+
+            logger.info("(raft_node.py): Successfully created account. Returning to client.")
             # Return success and session token
             return True, token
             
@@ -1184,13 +1187,15 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             Tuple[bool, Optional[int]]: (found, user_id)
         """
         # This can work on any node, doesn't need to be the leader
+        logger.info(f"(raft_node.py): get_user_by_username called on node {self.node_id} for {username}")
         try:
             user = self.user_trie.get(username)
             if user:
+                logger.info(f"(raft_node.py): Found user ID {user.userID} for {username}")
                 return (True, user.userID)
             return (False, None)
         except Exception as e:
-            logger.error(f"Error in get_user_by_username: {str(e)}")
+            logger.info(f"(raft_node.py): No user found for {username}, error: {str(e)}")
             return (False, None)
     
     def stop(self):

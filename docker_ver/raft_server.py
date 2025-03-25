@@ -74,11 +74,14 @@ class RaftMessagingServicer(exp_pb2_grpc.MessagingServiceServicer):
         username = request.username
         password_hash = request.password_hash.hex()
         
-        logger.info(f"Received CreateAccount request for user: {username}")
-        
+        logger.info(f"(raft_server.py): Received CreateAccount request for user: {username}, at node: {self.raft_node.node_id}")
+
         success, token = self.raft_node.create_account(username, password_hash)
         
         if not success:
+
+            logger.info(f"(raft_server.py): create_account failed: {token}")
+            
             # If we're not the leader, inform the client
             if self.raft_node.state != NodeState.LEADER and self.raft_node.leader_id:
                 # Return the leader's address so the client can redirect

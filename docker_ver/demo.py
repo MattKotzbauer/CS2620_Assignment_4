@@ -88,6 +88,7 @@ def demo_fault_tolerance():
     for username in users:
         try:
             token = client.create_account(username, f"password-{username}")
+            time.sleep(2)
             user_tokens[username] = token
             print(f"Created account for {username}, token: {token[:10]}...")
             found, user_id = client.get_user_by_username(username)
