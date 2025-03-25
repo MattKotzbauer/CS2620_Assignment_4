@@ -1,63 +1,63 @@
-2025-03-25 15:47:12,550 [INFO] Initialized connection to node node1 at localhost:50051
-2025-03-25 15:47:12,551 [INFO] Initialized connection to node node2 at localhost:50052
-2025-03-25 15:47:12,553 [INFO] Initialized connection to node node3 at localhost:50053
-2025-03-25 15:47:12,554 [INFO] Initialized connection to node node4 at localhost:50054
-2025-03-25 15:47:12,555 [INFO] Initialized connection to node node5 at localhost:50055
-2025-03-25 15:47:12,660 [INFO] Found leader: node node5
-2025-03-25 15:47:12,738 [INFO] Found leader: node node5
-2025-03-25 15:47:12,817 [INFO] Found leader: node node5
-2025-03-25 15:47:13,208 [INFO] Found leader: node node5
-2025-03-25 15:47:13,304 [INFO] Found leader: node node5
-2025-03-25 15:47:13,753 [INFO] Found leader: node node5
-2025-03-25 15:47:13,851 [INFO] Found leader: node node5
-2025-03-25 15:47:14,301 [INFO] Found leader: node node5
-2025-03-25 15:47:14,391 [INFO] Found leader: node node5
-2025-03-25 15:47:14,901 [INFO] Found leader: node node5
-2025-03-25 15:47:15,375 [INFO] Found leader: node node5
-2025-03-25 15:47:15,973 [INFO] Found leader: node node5
-2025-03-25 15:47:16,557 [INFO] Found leader: node node5
-2025-03-25 15:47:17,123 [INFO] Found leader: node node5
-2025-03-25 15:47:17,228 [INFO] Found leader: node node5
-2025-03-25 15:47:17,344 [INFO] Found leader: node node5
-2025-03-25 15:47:17,348 [INFO] Initialized connection to node node1 at localhost:50051
-2025-03-25 15:47:17,349 [INFO] Initialized connection to node node2 at localhost:50052
-2025-03-25 15:47:17,349 [INFO] Initialized connection to node node3 at localhost:50053
-2025-03-25 15:47:17,350 [INFO] Initialized connection to node node4 at localhost:50054
-2025-03-25 15:47:17,351 [INFO] Initialized connection to node node5 at localhost:50055
-2025-03-25 15:47:17,471 [INFO] Found leader: node node5
-2025-03-25 15:47:17,575 [INFO] Found leader: node node5
-2025-03-25 15:47:43,637 [INFO] Initialized connection to node node1 at localhost:50051
-2025-03-25 15:47:43,638 [INFO] Initialized connection to node node2 at localhost:50052
-2025-03-25 15:47:43,639 [INFO] Initialized connection to node node3 at localhost:50053
-2025-03-25 15:47:43,640 [INFO] Initialized connection to node node4 at localhost:50054
-2025-03-25 15:47:43,640 [INFO] Initialized connection to node node5 at localhost:50055
-2025-03-25 15:47:43,689 [INFO] Found leader: node node3
-2025-03-25 15:47:43,738 [INFO] Found leader: node node3
-2025-03-25 15:47:43,740 [INFO] Initialized connection to node node1 at localhost:50051
-2025-03-25 15:47:43,741 [INFO] Initialized connection to node node2 at localhost:50052
-2025-03-25 15:47:43,741 [INFO] Initialized connection to node node3 at localhost:50053
-2025-03-25 15:47:43,741 [INFO] Initialized connection to node node4 at localhost:50054
-2025-03-25 15:47:43,742 [INFO] Initialized connection to node node5 at localhost:50055
-2025-03-25 15:47:43,793 [INFO] Found leader: node node3
-2025-03-25 15:47:43,837 [INFO] Found leader: node node3
-2025-03-25 15:48:04,944 [INFO] Found leader: node node3
-2025-03-25 15:48:07,501 [INFO] Found leader: node node3
-2025-03-25 15:48:07,769 [INFO] Found leader: node node3
-2025-03-25 15:48:08,076 [INFO] Found leader: node node3
-2025-03-25 15:48:24,509 [INFO] Found leader: node node3
-2025-03-25 15:48:24,834 [INFO] Found leader: node node3
-2025-03-25 15:48:58,961 [INFO] Initialized connection to node node1 at node1:50051
-2025-03-25 15:48:58,963 [INFO] Initialized connection to node node2 at node2:50052
-2025-03-25 15:48:58,963 [INFO] Initialized connection to node node3 at node3:50053
-2025-03-25 15:48:58,965 [INFO] Initialized connection to node node4 at node4:50054
-2025-03-25 15:48:58,966 [INFO] Initialized connection to node node5 at node5:50055
-2025-03-25 15:49:14,954 [WARNING] Failed to identify a leader in the cluster via LeaderPing
-2025-03-25 15:49:15,099 [WARNING] Failed to identify a leader in the cluster via LeaderPing
-2025-03-25 15:49:17,280 [WARNING] Failed to identify a leader in the cluster via LeaderPing
-2025-03-25 15:49:19,425 [WARNING] Failed to identify a leader in the cluster via LeaderPing
-2025-03-25 15:49:21,584 [WARNING] Failed to identify a leader in the cluster via LeaderPing
-2025-03-25 15:49:23,783 [WARNING] Failed to identify a leader in the cluster via LeaderPing
-2025-03-25 15:49:25,940 [WARNING] Failed to identify a leader in the cluster via LeaderPing
-2025-03-25 15:49:26,085 [WARNING] Failed to identify a leader in the cluster via LeaderPing
-2025-03-25 15:49:26,244 [WARNING] Failed to identify a leader in the cluster via LeaderPing
-2025-03-25 15:49:26,384 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:02:26,713 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 16:02:26,714 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 16:02:26,716 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 16:02:26,717 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 16:02:26,717 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 16:02:26,824 [INFO] Found leader: node node5
+2025-03-25 16:02:26,901 [INFO] Found leader: node node5
+2025-03-25 16:02:26,982 [INFO] Found leader: node node5
+2025-03-25 16:02:27,316 [INFO] Found leader: node node5
+2025-03-25 16:02:27,407 [INFO] Found leader: node node5
+2025-03-25 16:02:27,851 [INFO] Found leader: node node5
+2025-03-25 16:02:27,964 [INFO] Found leader: node node5
+2025-03-25 16:02:28,325 [INFO] Found leader: node node5
+2025-03-25 16:02:28,487 [INFO] Found leader: node node5
+2025-03-25 16:02:28,917 [INFO] Found leader: node node5
+2025-03-25 16:02:29,433 [INFO] Found leader: node node5
+2025-03-25 16:02:29,897 [INFO] Found leader: node node5
+2025-03-25 16:02:30,458 [INFO] Found leader: node node5
+2025-03-25 16:02:30,969 [INFO] Found leader: node node5
+2025-03-25 16:02:31,062 [INFO] Found leader: node node5
+2025-03-25 16:02:31,167 [INFO] Found leader: node node5
+2025-03-25 16:02:31,173 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 16:02:31,173 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 16:02:31,174 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 16:02:31,175 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 16:02:31,175 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 16:02:31,306 [INFO] Found leader: node node5
+2025-03-25 16:02:31,438 [INFO] Found leader: node node5
+2025-03-25 16:02:57,455 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 16:02:57,456 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 16:02:57,457 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 16:02:57,457 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 16:02:57,458 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 16:02:57,466 [INFO] Found leader: node node1
+2025-03-25 16:02:57,471 [INFO] Found leader: node node1
+2025-03-25 16:02:57,473 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 16:02:57,474 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 16:02:57,474 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 16:02:57,474 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 16:02:57,475 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 16:02:57,479 [INFO] Found leader: node node1
+2025-03-25 16:02:57,482 [INFO] Found leader: node node1
+2025-03-25 16:03:18,638 [INFO] Found leader: node node1
+2025-03-25 16:03:18,849 [INFO] Found leader: node node1
+2025-03-25 16:03:19,266 [INFO] Found leader: node node1
+2025-03-25 16:03:30,388 [INFO] Found leader: node node1
+2025-03-25 16:03:46,612 [INFO] Found leader: node node1
+2025-03-25 16:03:46,867 [INFO] Found leader: node node1
+2025-03-25 16:04:20,474 [INFO] Initialized connection to node node1 at node1:50051
+2025-03-25 16:04:20,475 [INFO] Initialized connection to node node2 at node2:50052
+2025-03-25 16:04:20,475 [INFO] Initialized connection to node node3 at node3:50053
+2025-03-25 16:04:20,477 [INFO] Initialized connection to node node4 at node4:50054
+2025-03-25 16:04:20,479 [INFO] Initialized connection to node node5 at node5:50055
+2025-03-25 16:04:39,277 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:04:39,419 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:04:41,573 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:04:43,712 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:04:45,844 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:04:48,005 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:04:50,152 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:04:50,283 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:04:50,424 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 16:04:50,562 [WARNING] Failed to identify a leader in the cluster via LeaderPing

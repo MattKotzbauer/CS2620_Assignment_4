@@ -42,6 +42,9 @@ class FaultTolerantClient:
         self.stubs = {}     # Maps node_id to MessagingServiceStub
         self.leader_id = None
         self._connected = False
+        self.dead_nodes = {} # Maps node_id to timestamp of last failure
+        self.dead_timeout = 3 # Seconds to wait before retrying a dead node
+        
         
         # Load cluster configuration
         with open(cluster_config_path, 'r') as f:
@@ -96,28 +99,29 @@ class FaultTolerantClient:
         self._connected = False
         return False
 
-    
+
     def _ensure_connected(self):
-        # Try to refresh connections for nodes missing from stubs.
+        current_time = time.time()
+        # Try to refresh connections for nodes missing from stubs,
+        # but only for nodes that are not in dead_nodes or where the timeout expired.
         for node_id, address in self.cluster_config.items():
             if node_id not in self.stubs:
+                if node_id in self.dead_nodes and (current_time - self.dead_nodes[node_id] < self.dead_timeout):
+                    continue  # Skip reinitialization for recently dead nodes.
                 try:
                     channel = grpc.insecure_channel(address)
                     self.channels[node_id] = channel
                     self.stubs[node_id] = exp_pb2_grpc.MessagingServiceStub(channel)
                     logger.info(f"Reinitialized connection to node {node_id} at {address}")
+                    if node_id in self.dead_nodes:
+                        del self.dead_nodes[node_id]
                 except Exception as e:
                     logger.warning(f"Failed to reinitialize connection to node {node_id}: {str(e)}")
-    
+                    self.dead_nodes[node_id] = current_time
+
         if not self._find_leader():
             raise ConnectionError("Could not connect to any server in the cluster")
 
-    """
-    def _ensure_connected(self):
-
-        if not self._connected and not self._find_leader():
-            raise ConnectionError("Could not connect to any server in the cluster")
-    """
 
     def _execute_with_retry(self, operation, *args, **kwargs):
         attempt = 0
@@ -136,7 +140,8 @@ class FaultTolerantClient:
                 if code in (grpc.StatusCode.UNAVAILABLE, grpc.StatusCode.DEADLINE_EXCEEDED):
                     # If the current leader is unreachable, remove it from the pool
                     if self.leader_id and self.leader_id in self.stubs:
-                        logger.info(f"Removing unreachable leader {self.leader_id} from stubs")
+                        logger.info(f"Marking unreachable leader {self.leader_id} as dead")
+                        self.dead_nodes[self.leader_id] = time.time()
                         del self.stubs[self.leader_id]
                         self.leader_id = None
                     else:
@@ -144,6 +149,8 @@ class FaultTolerantClient:
                         for node_id in list(self.stubs.keys()):
                             try:
                                 # Optionally, you could perform a quick health-check here
+                                logger.info(f"Marking unreachable node {node_id} as dead")
+                                self.dead_nodes[node_id] = time.time()
                                 del self.stubs[node_id]
                                 logger.info(f"Removed unreachable node {node_id} from stubs")
                             except Exception:
@@ -159,58 +166,6 @@ class FaultTolerantClient:
             raise last_error
         raise ConnectionError("Failed to execute operation after multiple retries")
 
-    
-
-    """
-    def _execute_with_retry(self, operation, *args, **kwargs):
-
-        attempt = 0
-        last_error = None
-        
-        while attempt < self.max_retry_attempts:
-            try:
-                self._ensure_connected()
-                return operation(*args, **kwargs)
-            
-            except grpc.RpcError as e:
-                details = e.details() if hasattr(e, 'details') else ""
-                code = e.code() if hasattr(e, 'code') else None
-                print(f"_execute_with_retry: caught RpcError code={code}, details={details}")
-                logger.info(f"_execute_with_retry: caught RpcError code={code}, details={details}")
-                
-                # If the error indicates this server is not the leader, update and retry
-                if "Not the leader" in details:
-                    # logger.info(f"Server indicated it's not the leader. Finding new leader...")
-                    self._find_leader()
-                    attempt += 1
-                
-                # If the server is unavailable, try another one
-                elif code == grpc.StatusCode.UNAVAILABLE:
-                    logger.warning(f"Server unavailable. Trying to find a new leader...")
-                    self._find_leader()
-                    attempt += 1
-                
-                # For other errors, just retry
-                else:
-                    logger.error(f"RPC error: {str(e)}")
-                    attempt += 1
-                    last_error = e
-            
-            except Exception as e:
-                logger.error(f"Error executing operation: {str(e)}")
-                attempt += 1
-                last_error = e
-            
-            # Add a small delay before retrying (with exponential backoff)
-            backoff_time = 0.1 * (2 ** attempt)
-            time.sleep(backoff_time)
-        
-        # If we've exhausted all retries, raise the last error
-        if last_error:
-            raise last_error
-        else:
-            raise ConnectionError("Failed to execute operation after multiple retries")
-    """
     
     def CreateAccount(self, username: str, password: str) -> str:
         """
@@ -352,20 +307,9 @@ class FaultTolerantClient:
             return result
         
         return self._execute_with_retry(operation)
-    
+
+    """
     def SendMessage(self, sender_user_id: int, session_token: str, recipient_user_id: int, message_content: str) -> bool:
-        """
-        Send a message to another user.
-
-        Args:
-            sender_user_id (int): ID of the sender
-            session_token (str): Session token
-            recipient_user_id (int): ID of the recipient
-            message_content (str): Message content
-
-        Returns:
-            bool: True if sent successfully, False otherwise
-        """
         def operation():
             token_bytes = bytes.fromhex(session_token)
             
@@ -406,6 +350,29 @@ class FaultTolerantClient:
                 return False
         
         return self._execute_with_retry(operation)
+
+    """
+    def SendMessage(self, sender_user_id: int, session_token: str, recipient_user_id: int, message_content: str) -> bool:
+        def operation():
+            token_bytes = bytes.fromhex(session_token)
+            request = exp_pb2.SendMessageRequest(
+                sender_user_id=sender_user_id,
+                session_token=token_bytes,
+                recipient_user_id=recipient_user_id,
+                message_content=message_content
+            )
+            # Prefer the leader's stub if available, else pick one at random.
+            if self.leader_id and self.leader_id in self.stubs:
+                stub = self.stubs[self.leader_id]
+            else:
+                stub = random.choice(list(self.stubs.values()))
+
+            # Try sending the message. Any error here will be retried.
+            stub.SendMessage(request)
+            return True
+
+        return self._execute_with_retry(operation)
+
     
     def ReadMessages(self, user_id: int, session_token: str, number_of_messages_req: int) -> bool:
         """
