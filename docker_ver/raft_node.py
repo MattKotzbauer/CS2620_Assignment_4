@@ -428,39 +428,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             self._become_leader()
         else:
             logger.warning("Not enough votes received in election. Retrying election cycle...")
-        
-        """
-        # Request votes from all other nodes
-        for peer_id, stub in self.peers.items():
-            try:
-                request = exp_pb2.RequestVoteRequest(
-                    term=self.current_term,
-                    candidate_id=self.node_id,
-                    last_log_index=len(self.log) - 1,
-                    last_log_term=self.log[-1][0] if self.log else 0
-                )
-                
-                response = stub.RequestVote(request, timeout=1)
-                
-                if response.vote_granted:
-                    votes_received += 1
-                
-                # If we discover a higher term, revert to follower
-                if response.term > self.current_term:
-                    self.current_term = response.term
-                    self.state = NodeState.FOLLOWER
-                    self.voted_for = None
-                    self._persist_raft_state()
-                    logger.info(f"Node {self.node_id} reverted to follower (higher term)")
-                    return
-                
-            except Exception as e:
-                logger.warning(f"Failed to request vote from {peer_id}: {str(e)}")
-        
-        # Check if we've received a majority of votes
-        if votes_received > len(self.cluster_config) / 2:
-            self._become_leader()
-        """
+            self._become_candidate()
         
     def _become_leader(self):
         """Transition to leader state."""
@@ -845,12 +813,16 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     
     def RequestVote(self, request, context):
         """Handle RequestVote RPC."""
+        logger.info(f"Received RequestVote from candidate {request.candidate_id} for term {request.term}")
+        logger.info(f"My current term: {self.current_term}, voted_for: {self.voted_for}")
         # If term < currentTerm, reject
         if request.term < self.current_term:
+            logger.info("Candidate's term is lower than my term. Rejecting vote.")
             return exp_pb2.RequestVoteResponse(term=self.current_term, vote_granted=False)
         
         # If term > currentTerm, update term and convert to follower
         if request.term > self.current_term:
+            logger.info("Candidate's term is higher. Updating my term and resetting vote.")
             self.current_term = request.term
             self.state = NodeState.FOLLOWER
             self.voted_for = None
@@ -860,6 +832,9 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         last_log_index = len(self.log) - 1
         last_log_term = self.log[last_log_index][0] if self.log else 0
         
+        logger.info(f"My last log index: {last_log_index}, last log term: {last_log_term}")
+        logger.info(f"Candidate's last log index: {request.last_log_index}, term: {request.last_log_term}")
+
         log_ok = (request.last_log_term > last_log_term or 
                  (request.last_log_term == last_log_term and 
                   request.last_log_index >= last_log_index))
@@ -868,9 +843,13 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         vote_granted = (self.voted_for is None or self.voted_for == request.candidate_id) and log_ok
         
         if vote_granted:
+            logger.info(f"Granting vote to candidate {request.candidate_id}.")
             self.voted_for = request.candidate_id
             self.last_heartbeat = time.time()  # Reset timer when granting vote
             self._persist_raft_state()
+        else:
+            logger.info(f"Not granting vote to candidate {request.candidate_id}. "
+                        f"Already voted for {self.voted_for} or log condition not met.")
         
         return exp_pb2.RequestVoteResponse(term=self.current_term, vote_granted=vote_granted)
     
