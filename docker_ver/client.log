@@ -1,28 +1,56 @@
-2025-03-25 14:21:26,175 [INFO] Initialized connection to node node1 at localhost:50051
-2025-03-25 14:21:26,176 [INFO] Initialized connection to node node2 at localhost:50052
-2025-03-25 14:21:26,176 [INFO] Initialized connection to node node3 at localhost:50053
-2025-03-25 14:21:26,178 [INFO] Initialized connection to node node4 at localhost:50054
-2025-03-25 14:21:26,179 [INFO] Initialized connection to node node5 at localhost:50055
-2025-03-25 14:21:26,285 [INFO] Found leader: node node5
-2025-03-25 14:21:26,367 [INFO] Found leader: node node5
-2025-03-25 14:21:31,096 [INFO] Initialized connection to node node1 at localhost:50051
-2025-03-25 14:21:31,097 [INFO] Initialized connection to node node2 at localhost:50052
-2025-03-25 14:21:31,098 [INFO] Initialized connection to node node3 at localhost:50053
-2025-03-25 14:21:31,098 [INFO] Initialized connection to node node4 at localhost:50054
-2025-03-25 14:21:31,099 [INFO] Initialized connection to node node5 at localhost:50055
-2025-03-25 14:21:31,216 [INFO] Found leader: node node5
-2025-03-25 14:21:31,314 [INFO] Found leader: node node5
-2025-03-25 14:21:57,292 [INFO] Initialized connection to node node1 at localhost:50051
-2025-03-25 14:21:57,294 [INFO] Initialized connection to node node2 at localhost:50052
-2025-03-25 14:21:57,295 [INFO] Initialized connection to node node3 at localhost:50053
-2025-03-25 14:21:57,295 [INFO] Initialized connection to node node4 at localhost:50054
-2025-03-25 14:21:57,297 [INFO] Initialized connection to node node5 at localhost:50055
-2025-03-25 14:21:57,309 [INFO] Found leader: node node1
-2025-03-25 14:21:57,316 [INFO] Found leader: node node1
-2025-03-25 14:21:57,319 [INFO] Initialized connection to node node1 at localhost:50051
-2025-03-25 14:21:57,320 [INFO] Initialized connection to node node2 at localhost:50052
-2025-03-25 14:21:57,321 [INFO] Initialized connection to node node3 at localhost:50053
-2025-03-25 14:21:57,322 [INFO] Initialized connection to node node4 at localhost:50054
-2025-03-25 14:21:57,323 [INFO] Initialized connection to node node5 at localhost:50055
-2025-03-25 14:21:57,330 [INFO] Found leader: node node1
-2025-03-25 14:21:57,334 [INFO] Found leader: node node1
+2025-03-25 14:32:31,673 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 14:32:31,675 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 14:32:31,676 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 14:32:31,678 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 14:32:31,680 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 14:32:31,839 [INFO] Found leader: node node4
+2025-03-25 14:32:31,909 [INFO] Found leader: node node4
+2025-03-25 14:32:36,796 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 14:32:36,797 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 14:32:36,797 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 14:32:36,798 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 14:32:36,798 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 14:32:36,876 [INFO] Found leader: node node4
+2025-03-25 14:32:36,963 [INFO] Found leader: node node4
+2025-03-25 14:33:03,065 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 14:33:03,066 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 14:33:03,068 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 14:33:03,070 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 14:33:03,072 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 14:33:03,133 [INFO] Found leader: node node2
+2025-03-25 14:33:03,176 [INFO] Found leader: node node2
+2025-03-25 14:33:03,178 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 14:33:03,179 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 14:33:03,180 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 14:33:03,180 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 14:33:03,181 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 14:33:03,211 [INFO] Found leader: node node2
+2025-03-25 14:33:03,238 [INFO] Found leader: node node2
+2025-03-25 14:33:26,646 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNAVAILABLE: ipv4:127.0.0.1:50054: ConnectEx: Connection refused (No connection could be made because the target machine actively refused it.
+ -- 10061)"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-25T18:33:26.6295665+00:00", grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNAVAILABLE: ipv4:127.0.0.1:50054: ConnectEx: Connection refused (No connection could be made because the target machine actively refused it.\r\n -- 10061)"}"
+>
+2025-03-25 14:33:26,675 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNAVAILABLE: ipv4:127.0.0.1:50054: ConnectEx: Connection refused (No connection could be made because the target machine actively refused it.
+ -- 10061)"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-25T18:33:26.6567599+00:00", grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNAVAILABLE: ipv4:127.0.0.1:50054: ConnectEx: Connection refused (No connection could be made because the target machine actively refused it.\r\n -- 10061)"}"
+>
+2025-03-25 14:33:26,711 [INFO] _execute_with_retry: caught RpcError code=StatusCode.UNAVAILABLE, details=failed to connect to all addresses; last error: UNAVAILABLE: ipv4:127.0.0.1:50054: ConnectEx: Connection refused (No connection could be made because the target machine actively refused it.
+ -- 10061)
+2025-03-25 14:33:26,712 [WARNING] Server unavailable. Trying to find a new leader...
+2025-03-25 14:33:29,067 [INFO] Found leader: node node2
+2025-03-25 14:33:29,314 [INFO] _execute_with_retry: caught RpcError code=StatusCode.UNAUTHENTICATED, details=Invalid session token
+2025-03-25 14:33:29,314 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAUTHENTICATED
+	details = "Invalid session token"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {grpc_message:"Invalid session token", grpc_status:16, created_time:"2025-03-25T18:33:29.2758682+00:00"}"
+>
+2025-03-25 14:33:29,750 [INFO] _execute_with_retry: caught RpcError code=StatusCode.UNAUTHENTICATED, details=Invalid session token
+2025-03-25 14:33:29,751 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAUTHENTICATED
+	details = "Invalid session token"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {created_time:"2025-03-25T18:33:29.7275894+00:00", grpc_status:16, grpc_message:"Invalid session token"}"
+>

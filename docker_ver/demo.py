@@ -182,7 +182,9 @@ def demo_fault_tolerance():
     if new_leader and new_leader != leader_node:
         print(f"New leader is node {new_leader}")
         for node_num in range(1, 6):
-            if str(node_num) != leader_node and str(node_num) != new_leader:
+            # if str(node_num) != leader_node and str(node_num) != new_leader:
+            node_name = f"node{node_num}"
+            if node_name != leader_node and node_name != new_leader:
                 print(f"Killing node {node_num} using docker-compose stop...")
                 run_command(f"docker-compose stop node{node_num}")
                 second_killed_node = str(node_num)
