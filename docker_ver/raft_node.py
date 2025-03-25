@@ -511,6 +511,11 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         if self.state != NodeState.LEADER:
             return
 
+        healthy_count = 1 + sum(1 for peer in self.peers if self.match_index.get(peer, -1) != -1)
+        if healthy_count < (len(self.cluster_config) // 2) + 1:
+            logger.warning("Not enough healthy nodes to reach quorum; commit index not updated.")
+            return
+        
         # Leader's own log is always replicated locally.
         leader_index = len(self.log) - 1
 
