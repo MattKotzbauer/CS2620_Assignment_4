@@ -381,7 +381,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                     last_log_term=self.log[-1][0] if self.log else 0
                 )
                 
-                response = stub.RequestVote(request, timeout=10)
+                response = stub.RequestVote(request, timeout=1)
                 
                 if response.vote_granted:
                     votes_received += 1
@@ -445,7 +445,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                     leader_commit=self.commit_index
                 )
                 
-                response = stub.AppendEntries(request, timeout=10)
+                response = stub.AppendEntries(request, timeout=1)
                 
                 if response.success:
                     # Update nextIndex and matchIndex for this follower
@@ -874,15 +874,20 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         Returns:
             bool: True if the token is valid, False otherwise
         """
+        logger.info(f"(raft_node.py) validate_session: user_id={user_id}, provided_token={session_token[:10]}...")
         # Check if the user exists
         if user_id not in self.user_base.users:
+            logger.info("(raft_node.py) no such user_id in user_base")
             return False
             
         # Check if the user has a session token
         if user_id not in self.session_tokens.tokens:
+            logger.info("(raft_node.py) no session token for that user_id in session_tokens")
             return False
             
         # Check if the token matches
+        stored = self.session_tokens.tokens[user_id]
+        logger.info(f"(raft_node.py) stored_token={stored[:10]}..., provided={session_token[:10]}...")
         return self.session_tokens.tokens[user_id] == session_token
     
     def list_accounts(self, wildcard: str) -> List[str]:
@@ -1242,6 +1247,6 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         """Stop the node gracefully."""
         self.running = False
         if self.raft_thread.is_alive():
-            self.raft_thread.join(timeout=10)
+            self.raft_thread.join(timeout=1)
         
         logger.info(f"Stopping Raft node {self.node_id}")

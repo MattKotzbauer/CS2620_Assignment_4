@@ -195,7 +195,7 @@ def demo_fault_tolerance():
         second_killed_node = second_node
     
     print("Waiting for the cluster to stabilize...")
-    time.sleep(5)
+    time.sleep(10)
     
     # Step 9: Continue operations with 2 nodes down.
     print_step(9, "Continuing operations with 2 nodes down")

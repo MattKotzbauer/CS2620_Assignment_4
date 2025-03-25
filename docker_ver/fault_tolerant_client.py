@@ -129,10 +129,12 @@ class FaultTolerantClient:
             except grpc.RpcError as e:
                 details = e.details() if hasattr(e, 'details') else ""
                 code = e.code() if hasattr(e, 'code') else None
+                print(f"_execute_with_retry: caught RpcError code={code}, details={details}")
+                logger.info(f"_execute_with_retry: caught RpcError code={code}, details={details}")
                 
                 # If the error indicates this server is not the leader, update and retry
                 if "Not the leader" in details:
-                    logger.info(f"Server indicated it's not the leader. Finding new leader...")
+                    # logger.info(f"Server indicated it's not the leader. Finding new leader...")
                     self._find_leader()
                     attempt += 1
                 
