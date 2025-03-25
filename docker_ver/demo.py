@@ -324,10 +324,10 @@ def demo_fault_tolerance():
     print("3. Cluster unavailability when 3 nodes are down (as expected)")
     print("4. Recovery after node restarts")
     print("5. Complete data persistence across full cluster restarts")
-    print("\nYour chat system now provides:")
-    print("• 2-fault tolerance: Can survive any 2 node failures")
-    print("• Strong consistency: All nodes maintain the same state")
-    print("• Persistence: All data survives complete system restarts")
+    # print("\nYour chat system now provides:")
+    # print("• 2-fault tolerance: Can survive any 2 node failures")
+    # print("• Strong consistency: All nodes maintain the same state")
+    # print("• Persistence: All data survives complete system restarts")
 
 if __name__ == "__main__":
     demo_fault_tolerance()
