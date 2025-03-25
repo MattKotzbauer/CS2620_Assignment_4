@@ -1,0 +1,65 @@
+version: "3.8"
+services:
+  node1:
+    image: raft_server:latest
+    container_name: node1
+    command: [ "--node-id", "node1", "--config", "cluster_config.json", "--data-dir", "data/node1", "--port", "50051" ]
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./data/node1:/app/data/node1
+      - ./cluster_config.json:/app/cluster_config.json
+    networks:
+      - raft-net
+
+  node2:
+    image: raft_server:latest
+    container_name: node2
+    command: [ "--node-id", "node2", "--config", "cluster_config.json", "--data-dir", "data/node2", "--port", "50052" ]
+    ports:
+      - "50052:50052"
+    volumes:
+      - ./data/node2:/app/data/node2
+      - ./cluster_config.json:/app/cluster_config.json
+    networks:
+      - raft-net
+
+  node3:
+    image: raft_server:latest
+    container_name: node3
+    command: [ "--node-id", "node3", "--config", "cluster_config.json", "--data-dir", "data/node3", "--port", "50053" ]
+    ports:
+      - "50053:50053"
+    volumes:
+      - ./data/node3:/app/data/node3
+      - ./cluster_config.json:/app/cluster_config.json
+    networks:
+      - raft-net
+
+  node4:
+    image: raft_server:latest
+    container_name: node4
+    command: [ "--node-id", "node4", "--config", "cluster_config.json", "--data-dir", "data/node4", "--port", "50054" ]
+    ports:
+      - "50054:50054"
+    volumes:
+      - ./data/node4:/app/data/node4
+      - ./cluster_config.json:/app/cluster_config.json
+    networks:
+      - raft-net
+
+  node5:
+    image: raft_server:latest
+    container_name: node5
+    command: [ "--node-id", "node5", "--config", "cluster_config.json", "--data-dir", "data/node5", "--port", "50055" ]
+    ports:
+      - "50055:50055"
+    volumes:
+      - ./data/node5:/app/data/node5
+      - ./cluster_config.json:/app/cluster_config.json
+    networks:
+      - raft-net
+
+networks:
+  raft-net:
+    driver: bridge

@@ -3,3 +3,11 @@
 2025-03-24 14:56:56,824 [INFO] Initialized Raft node node5 at 127.0.0.1:50055
 2025-03-24 14:56:56,832 [INFO] Server started as node node5 listening on 0.0.0.0:50055
 2025-03-24 14:56:56,833 [INFO] Cluster configuration: {'node1': '127.0.0.1:50051', 'node2': '127.0.0.1:50052', 'node3': '127.0.0.1:50053', 'node4': '127.0.0.1:50054', 'node5': '127.0.0.1:50055'}
+2025-03-24 18:32:44,837 [INFO] Node node5 became candidate for term 11
+2025-03-24 18:32:44,966 [INFO] Node node5 reverted to follower (higher term)
+2025-03-24 18:34:07,996 [INFO] Node node5 became candidate for term 13
+2025-03-24 21:03:53,608 [INFO] Node node5 reverted to follower (higher term)
+2025-03-24 21:03:53,726 [INFO] Node node5 became candidate for term 15
+2025-03-24 21:59:54,798 [INFO] Node node5 reverted to follower (higher term)
+2025-03-24 21:59:54,865 [INFO] Node node5 became candidate for term 17
+2025-03-24 21:59:55,048 [INFO] Node node5 became leader for term 17

@@ -8,3 +8,11 @@
 2025-03-24 14:57:12,552 [INFO] Received Login request for user: alice
 2025-03-24 14:57:12,618 [INFO] Received Login request for user: bob
 2025-03-24 14:57:12,671 [INFO] Received Login request for user: charlie
+2025-03-24 18:32:44,837 [INFO] Node node1 reverted to follower (higher term)
+2025-03-24 18:32:44,965 [INFO] Node node1 became candidate for term 12
+2025-03-24 18:32:45,120 [INFO] Node node1 became leader for term 12
+2025-03-24 18:34:08,011 [INFO] Node node1 reverted to follower (higher term)
+2025-03-24 21:03:53,559 [INFO] Node node1 became candidate for term 14
+2025-03-24 21:03:53,745 [INFO] Node node1 reverted to follower (higher term)
+2025-03-24 21:59:54,760 [INFO] Node node1 became candidate for term 16
+2025-03-24 21:59:54,874 [INFO] Node node1 reverted to follower (higher term)
