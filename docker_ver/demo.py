@@ -120,7 +120,7 @@ def demo_fault_tolerance():
         else:
             print(f"Cannot send from {sender} to {recipient} - missing user information")
 
-    time.sleep(5)
+    time.sleep(1)
             
     # Step 6: Display conversations.
     print_step(6, "Displaying conversations to verify messages were sent")

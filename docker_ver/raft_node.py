@@ -955,22 +955,23 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             }
             
             # Append to log
+            appended_index = len(self.log)
             self.log.append((self.current_term, command))
             self._persist_log_entry(len(self.log) - 1, self.current_term, command)
 
-            # start_time = time.time()
-            # while True:
+            start_time = time.time()
+            while True:
                 # 1) 'commit_index' means the leader has determined it's safe to apply
                 # 2) 'last_applied' means we *actually* ran _apply_command on it
-                # if self.commit_index >= appended_index and self.last_applied >= appended_index:
-                    # break
+                if self.commit_index >= appended_index and self.last_applied >= appended_index:
+                    break
 
                 # If we wait too long, we might want to time out
-                # if time.time() - start_time > 5.0:  # 5 second timeout, for example
-                    # logger.warning("Timed out waiting for SEND_MESSAGE entry to commit/apply.")
-                    # return False
+                if time.time() - start_time > 5.0:  # 5 second timeout, for example
+                    logger.warning("Timed out waiting for SEND_MESSAGE entry to commit/apply.")
+                    return False
 
-                # time.sleep(0.01)  # Sleep briefly to avoid busy loop
+                time.sleep(0.01)  # Sleep briefly to avoid busy loop
 
             return True
             
