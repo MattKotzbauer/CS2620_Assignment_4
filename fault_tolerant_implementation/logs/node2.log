@@ -3,3 +3,7 @@
 2025-03-24 14:56:53,786 [INFO] Initialized Raft node node2 at 127.0.0.1:50052
 2025-03-24 14:56:53,797 [INFO] Server started as node node2 listening on 0.0.0.0:50052
 2025-03-24 14:56:53,799 [INFO] Cluster configuration: {'node1': '127.0.0.1:50051', 'node2': '127.0.0.1:50052', 'node3': '127.0.0.1:50053', 'node4': '127.0.0.1:50054', 'node5': '127.0.0.1:50055'}
+2025-03-24 18:34:07,997 [INFO] Node node2 became candidate for term 13
+2025-03-24 21:03:53,578 [INFO] Node node2 reverted to follower (higher term)
+2025-03-24 21:03:53,707 [INFO] Node node2 became candidate for term 15
+2025-03-24 21:59:54,776 [INFO] Node node2 reverted to follower (higher term)
