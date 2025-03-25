@@ -233,6 +233,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         self.state = NodeState.FOLLOWER
         self.leader_id = None
         self.voted_for = None
+        # self.last_heartbeat = 0
         self.last_heartbeat = time.time()
 
         # Update next_user_id and next_message_id based on existing data
