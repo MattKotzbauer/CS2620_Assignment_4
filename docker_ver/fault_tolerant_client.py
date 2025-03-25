@@ -96,28 +96,74 @@ class FaultTolerantClient:
         self._connected = False
         return False
 
-        
+    
     def _ensure_connected(self):
-        """
-        Ensure the client is connected before making an RPC.
-        
-        Raises:
-            ConnectionError: If unable to connect to any server in the cluster
-        """
+        # Try to refresh connections for nodes missing from stubs.
+        for node_id, address in self.cluster_config.items():
+            if node_id not in self.stubs:
+                try:
+                    channel = grpc.insecure_channel(address)
+                    self.channels[node_id] = channel
+                    self.stubs[node_id] = exp_pb2_grpc.MessagingServiceStub(channel)
+                    logger.info(f"Reinitialized connection to node {node_id} at {address}")
+                except Exception as e:
+                    logger.warning(f"Failed to reinitialize connection to node {node_id}: {str(e)}")
+    
+        if not self._find_leader():
+            raise ConnectionError("Could not connect to any server in the cluster")
+
+    """
+    def _ensure_connected(self):
+
         if not self._connected and not self._find_leader():
             raise ConnectionError("Could not connect to any server in the cluster")
-    
+    """
+
     def _execute_with_retry(self, operation, *args, **kwargs):
-        """
-        Execute an operation with automatic retries and leader detection.
-        
-        Args:
-            operation: A callable that performs the gRPC call
-            *args, **kwargs: Arguments to pass to the operation
-        
-        Returns:
-            The result of the operation, or None if all retries failed
-        """
+        attempt = 0
+        last_error = None
+
+        while attempt < self.max_retry_attempts:
+            try:
+                self._ensure_connected()
+                return operation(*args, **kwargs)
+            except grpc.RpcError as e:
+                details = e.details() or ""
+                code = e.code()
+                logger.info(f"_execute_with_retry: caught RpcError code={code}, details={details}")
+
+                # If the error indicates the server is unreachable, remove that node's stub.
+                if code in (grpc.StatusCode.UNAVAILABLE, grpc.StatusCode.DEADLINE_EXCEEDED):
+                    # If the current leader is unreachable, remove it from the pool
+                    if self.leader_id and self.leader_id in self.stubs:
+                        logger.info(f"Removing unreachable leader {self.leader_id} from stubs")
+                        del self.stubs[self.leader_id]
+                        self.leader_id = None
+                    else:
+                        # Otherwise, remove any stub that errors out
+                        for node_id in list(self.stubs.keys()):
+                            try:
+                                # Optionally, you could perform a quick health-check here
+                                del self.stubs[node_id]
+                                logger.info(f"Removed unreachable node {node_id} from stubs")
+                            except Exception:
+                                pass
+                    attempt += 1
+                else:
+                    attempt += 1
+                    last_error = e
+                    
+                time.sleep(0.1 * (2 ** attempt))
+
+        if last_error:
+            raise last_error
+        raise ConnectionError("Failed to execute operation after multiple retries")
+
+    
+
+    """
+    def _execute_with_retry(self, operation, *args, **kwargs):
+
         attempt = 0
         last_error = None
         
@@ -164,6 +210,7 @@ class FaultTolerantClient:
             raise last_error
         else:
             raise ConnectionError("Failed to execute operation after multiple retries")
+    """
     
     def CreateAccount(self, username: str, password: str) -> str:
         """

@@ -513,12 +513,16 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             username = command["username"]
             password_hash = command["password_hash"]
             user_id = command["user_id"]
+            session_token = command["session_token"]
             
             # Create user
             user = User(user_id, username, password_hash)
             self.user_base.users[user_id] = user
             self.user_trie.add(username, user)
-            
+
+            self.session_tokens.tokens[user_id] = session_token
+            self._persist_session_token(user_id, session_token)
+    
             # Persist user
             self._persist_user(user)
             
@@ -790,10 +794,12 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 
             # Generate session token
             token = hashlib.sha256(f"{user_id}_{hash(time.time())}".encode()).hexdigest()
-            self.session_tokens.tokens[user_id] = token
+
+            # (COMMENTING OUT the following 2 lines)
+            # self.session_tokens.tokens[user_id] = token
             
             # Persist session token
-            self._persist_session_token(user_id, token)
+            # self._persist_session_token(user_id, token)
             
             # Create log entry
             command = {
@@ -801,6 +807,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 "username": username,
                 "password_hash": password_hash,
                 "user_id": user_id,
+                "session_token": token,
                 "timestamp": int(time.time())
             }
 
