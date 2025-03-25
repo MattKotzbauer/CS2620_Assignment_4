@@ -382,6 +382,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     def _start_election(self):
         """Start a leader election."""
         # Increment current term and vote for self
+        self.unreachable_peers.clear()
         votes_received = 1  # Vote for self
         reachable_peers = []
         logger.debug(f"Node {self.node_id}: Starting election for term {self.current_term}")
@@ -402,7 +403,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                     last_log_term=self.log[-1][0] if self.log else 0
                 )
                 # Use a short timeout to quickly fail if the peer is unreachable.
-                response = stub.RequestVote(request, timeout=0.5)
+                response = stub.RequestVote(request, timeout=20.0)
                 reachable_peers.append(peer_id)
                 if response.vote_granted:
                     votes_received += 1
