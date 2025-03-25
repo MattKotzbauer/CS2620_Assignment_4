@@ -91,6 +91,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         
         # Initialize peers (gRPC connections to other nodes)
         self.peers = {}
+        self.unreachable_peers = set()
         self._init_peer_connections()
         
         # Start background threads
@@ -322,6 +323,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     def _init_peer_connections(self):
         """Initialize gRPC connections to peer nodes."""
         print(f"[DEBUG] Node {self.node_id} initializing peer connections")
+        self.unreachable_peers = set()
         for node_id, address in self.cluster_config.items():
             if node_id != self.node_id:
                 try:
@@ -336,21 +338,26 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 # stub = exp_pb2_grpc.RaftServiceStub(channel)
                 # self.peers[node_id] = stub
     
+                
     def _run_raft_loop(self):
         """Main Raft algorithm loop."""
         while self.running:
             current_time = time.time()
             
             if self.state == NodeState.FOLLOWER:
+                logger.debug(f"(raft_node.py): Node {self.node_id}: current_time={current_time}, last_heartbeat={self.last_heartbeat}, timeout={self.election_timeout}")
                 # Check if election timeout has elapsed
                 if current_time - self.last_heartbeat > self.election_timeout:
+                    logger.debug("Election timeout reached, triggering _become_candidate()")
                     self._become_candidate()
             
             elif self.state == NodeState.CANDIDATE:
+                logger.debug("Node is candidate; starting election (_start_election())")
                 # Start election
                 self._start_election()
             
             elif self.state == NodeState.LEADER:
+                logger.debug("Node is leader; sending heartbeats")
                 # Send heartbeats/AppendEntries
                 self._send_heartbeats()
             
@@ -367,7 +374,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         self.voted_for = self.node_id
         self.election_timeout = self._generate_election_timeout()
         self.last_heartbeat = time.time()
-        
+        logger.debug(f"Node {self.node_id} becomes candidate for term {self.current_term}. New election timeout: {self.election_timeout}")
         self._persist_raft_state()
         
         logger.info(f"Node {self.node_id} became candidate for term {self.current_term}")
@@ -376,7 +383,53 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         """Start a leader election."""
         # Increment current term and vote for self
         votes_received = 1  # Vote for self
+        reachable_peers = []
+        logger.debug(f"Node {self.node_id}: Starting election for term {self.current_term}")
+
+        for peer_id in self.cluster_config:
+            if peer_id == self.node_id:
+                continue
+            if peer_id in self.unreachable_peers:
+                continue  # Skip peers that are already marked as unreachable.
+            stub = self.peers.get(peer_id)
+            if not stub:
+                continue  # If there's no stub, skip this peer.
+            try:
+                request = exp_pb2.RequestVoteRequest(
+                    term=self.current_term,
+                    candidate_id=self.node_id,
+                    last_log_index=len(self.log) - 1,
+                    last_log_term=self.log[-1][0] if self.log else 0
+                )
+                # Use a short timeout to quickly fail if the peer is unreachable.
+                response = stub.RequestVote(request, timeout=0.5)
+                reachable_peers.append(peer_id)
+                if response.vote_granted:
+                    votes_received += 1
+                # If the peer has a higher term, immediately revert to follower.
+                if response.term > self.current_term:
+                    self.current_term = response.term
+                    self.state = NodeState.FOLLOWER
+                    self.voted_for = None
+                    self._persist_raft_state()
+                    logger.info(f"Node {self.node_id} reverted to follower (higher term {response.term}).")
+                    return
+            except Exception as e:
+                # Mark this peer as unreachable so that we skip it in subsequent election rounds.
+                self.unreachable_peers.add(peer_id)
+                logger.warning(f"Marking peer {peer_id} as unreachable: {str(e)}")
+
+        # Calculate the effective total nodes (self plus all reachable peers)
+        effective_total = len(reachable_peers) + 1
+        quorum_threshold = (effective_total // 2) + 1
+        logger.info(f"Election: votes_received={votes_received}, quorum_threshold={quorum_threshold}, reachable_peers={reachable_peers}")
+
+        if votes_received >= quorum_threshold:
+            self._become_leader()
+        else:
+            logger.warning("Not enough votes received in election. Retrying election cycle...")
         
+        """
         # Request votes from all other nodes
         for peer_id, stub in self.peers.items():
             try:
@@ -407,7 +460,8 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         # Check if we've received a majority of votes
         if votes_received > len(self.cluster_config) / 2:
             self._become_leader()
-    
+        """
+        
     def _become_leader(self):
         """Transition to leader state."""
         self.state = NodeState.LEADER
