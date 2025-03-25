@@ -475,9 +475,71 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         
         # Reset heartbeat timer
         self.last_heartbeat = time.time()
-    
+
+
+
     def _update_commit_index(self):
-        """Update the commit index based on matchIndex values."""
+        if self.state != NodeState.LEADER:
+            return
+
+        # Leader's own log is always replicated locally.
+        leader_index = len(self.log) - 1
+
+        # Select healthy peers (those that have a valid match index, not -1)
+        healthy_match_indices = [self.match_index[peer_id] for peer_id in self.peers 
+                                 if self.match_index.get(peer_id, -1) != -1]
+
+        # Include the leader's own index.
+        effective_indices = [leader_index] + healthy_match_indices
+        effective_indices_sorted = sorted(effective_indices, reverse=True)
+        logger.info(f"Effective match indices: {effective_indices_sorted}")
+
+        # Determine quorum based on the effective number of nodes.
+        quorum_count = (len(effective_indices) // 2) + 1
+        quorum_index = effective_indices_sorted[quorum_count - 1]
+        logger.info(f"Calculated quorum index: {quorum_index}")
+
+        # Update commit index for log entries from the current term, up to the quorum index.
+        for i in range(self.commit_index + 1, quorum_index + 1):
+            if i < len(self.log) and self.log[i][0] == self.current_term:
+                self.commit_index = i
+                self._persist_raft_state()
+                logger.info(f"Commit index updated to {i}")
+                break
+
+
+    """
+    def _update_commit_index(self):
+        if self.state != NodeState.LEADER:
+            return
+
+        # Log the current match_index values
+        logger.info(f"Current match_index dict: {self.match_index}")
+    
+        # Compute a list only for peers that have a match_index entry.
+        indices = [self.match_index[peer_id] for peer_id in self.peers if peer_id in self.match_index]
+        if not indices:
+            logger.info("No match indices available")
+            return
+
+        match_indices = sorted(indices, reverse=True)
+        logger.info(f"Sorted match indices: {match_indices}")
+
+        # Calculate majority using the count of peers in self.peers (or consider filtering unreachable peers)
+        majority_idx = match_indices[len(self.peers) // 2]
+        logger.info(f"Calculated majority index: {majority_idx}")
+
+        # Only update commit index for entries from the current term
+        for i in range(self.commit_index + 1, majority_idx + 1):
+            if i < len(self.log) and self.log[i][0] == self.current_term:
+                self.commit_index = i
+                self._persist_raft_state()
+                logger.info(f"Commit index updated to {i}")
+                break
+
+        
+
+    def _update_commit_index(self):
         if self.state != NodeState.LEADER:
             return
         
@@ -493,6 +555,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 self.commit_index = i
                 self._persist_raft_state()
                 break
+    """
     
     def _apply_committed_entries(self):
         """Apply committed log entries to the state machine."""
