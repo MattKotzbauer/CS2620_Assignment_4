@@ -88,7 +88,7 @@ def demo_fault_tolerance():
     for username in users:
         try:
             token = client.create_account(username, f"password-{username}")
-            time.sleep(2)
+            # time.sleep(2)
             user_tokens[username] = token
             print(f"Created account for {username}, token: {token[:10]}...")
             found, user_id = client.get_user_by_username(username)
@@ -120,7 +120,7 @@ def demo_fault_tolerance():
         else:
             print(f"Cannot send from {sender} to {recipient} - missing user information")
 
-    time.sleep(1)
+    # time.sleep(1)
             
     # Step 6: Display conversations.
     print_step(6, "Displaying conversations to verify messages were sent")

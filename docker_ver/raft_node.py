@@ -805,9 +805,19 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
 
             logger.info("(raft_node.py): Appending CREATE_ACCOUNT log entry for user %s", username)
             # Append to log
+            appended_index = len(self.log)
             self.log.append((self.current_term, command))
             self._persist_log_entry(len(self.log) - 1, self.current_term, command)
 
+            start_time = time.time()
+            while True:
+                if self.commit_index >= appended_index and self.last_applied >= appended_index:
+                    break
+                if time.time() - start_time > 5.0:
+                    logger.warning("Timed out waiting for CREATE_ACCOUNT entry to commit/apply.")
+                    return (False, "Timeout waiting for commit/apply.")
+                time.sleep(0.01)
+            
             logger.info("(raft_node.py): Successfully created account. Returning to client.")
             # Return success and session token
             return True, token
