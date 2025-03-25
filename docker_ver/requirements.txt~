@@ -1,9 +1,0 @@
-# gRPC core library for Python
-grpcio==1.51.1
-
-# Protobuf runtime library
-protobuf==4.22.3
-
-# Tools for generating Python stubs from .proto files (optional at runtime,
-# but needed if you regenerate exp_pb2.py and exp_pb2_grpc.py)
-grpcio-tools==1.51.1

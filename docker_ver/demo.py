@@ -67,7 +67,7 @@ def demo_fault_tolerance():
 
     # Step 3: Connect a client to the cluster.
     print_step(3, "Connecting client to the cluster")
-    client = FaultTolerantClient("cluster_config.json")
+    client = FaultTolerantClient("cluster_config_client.json")
     print("Client connected!")
     
     # Step 4: Create test accounts.
