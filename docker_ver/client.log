@@ -154,3 +154,67 @@
 	details = "Failed to create account"
 	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50054 {created_time:"2025-03-25T03:03:23.3735407+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
 >
+2025-03-24 23:09:31,149 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-24 23:09:31,150 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-24 23:09:31,151 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-24 23:09:31,151 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-24 23:09:31,152 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-24 23:09:31,390 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-24 23:09:31,590 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-24 23:09:31,591 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-24 23:09:31,988 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-24 23:09:31,988 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-24 23:09:32,528 [INFO] Found leader: node node4
+2025-03-24 23:19:40,169 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-24 23:19:40,170 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-24 23:19:40,171 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-24 23:19:40,172 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-24 23:19:40,173 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-24 23:19:40,406 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-24 23:19:40,589 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-24 23:19:42,768 [INFO] Found leader: node node5
+2025-03-24 23:19:42,806 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T03:19:42.7719283+00:00"}"
+>
+2025-03-24 23:19:43,043 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {created_time:"2025-03-25T03:19:43.0117701+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-24 23:19:43,493 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T03:19:43.4497468+00:00"}"
+>
+2025-03-24 23:19:44,355 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T03:19:44.3035688+00:00"}"
+>
+2025-03-24 23:19:44,607 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {created_time:"2025-03-25T03:19:44.5613422+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-24 23:19:45,052 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {created_time:"2025-03-25T03:19:45.0137444+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-24 23:19:45,893 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {created_time:"2025-03-25T03:19:45.8601839+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-24 23:19:46,143 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T03:19:46.0993213+00:00"}"
+>
+2025-03-24 23:19:46,589 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {created_time:"2025-03-25T03:19:46.551372+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>

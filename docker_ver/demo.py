@@ -68,6 +68,16 @@ def demo_fault_tolerance():
     # Step 3: Connect a client to the cluster.
     print_step(3, "Connecting client to the cluster")
     client = FaultTolerantClient("cluster_config_client.json")
+    # print("Client connected!")
+
+    max_attempts = 5
+    for attempt in range(1, max_attempts + 1):
+        if client._find_leader():
+            print(f"Found a leader on attempt {attempt}!")
+            break
+        else:
+            print(f"No leader found yet (attempt {attempt}/{max_attempts}). Sleeping 2s...")
+            time.sleep(2)
     print("Client connected!")
     
     # Step 4: Create test accounts.
