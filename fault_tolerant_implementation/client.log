@@ -145,3 +145,123 @@
 	details = "Failed to create account"
 	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:50051 {created_time:"2025-03-25T12:50:21.683961-04:00", grpc_status:13, grpc_message:"Failed to create account"}"
 >
+2025-03-25 13:14:43,102 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-25 13:14:43,104 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-25 13:14:43,105 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-25 13:14:43,105 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-25 13:14:43,105 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-25 13:14:43,118 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:43,121 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:43,121 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:14:43,324 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:43,325 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:14:43,734 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:43,734 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:14:44,539 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:44,539 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:14:44,743 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:44,743 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:14:45,152 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:45,153 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:14:45,956 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:45,956 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:14:46,162 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:46,162 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:14:46,572 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:14:46,572 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:16:54,325 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-25 13:16:54,326 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-25 13:16:54,326 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-25 13:16:54,326 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-25 13:16:54,327 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-25 13:16:54,338 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:54,341 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:54,341 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:16:54,544 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:54,544 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:16:54,950 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:54,950 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:16:55,757 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:55,757 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:16:55,964 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:55,964 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:16:56,374 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:56,374 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:16:57,182 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:57,182 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:16:57,385 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:57,385 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:16:57,796 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:16:57,796 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:41:42,842 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-25 13:41:42,843 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-25 13:41:42,843 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-25 13:41:42,844 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-25 13:41:42,844 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-25 13:41:42,862 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:42,865 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:42,865 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:41:43,069 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:43,069 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:41:43,471 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:43,472 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:41:44,276 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:44,276 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:41:44,482 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:44,482 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:41:44,894 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:44,894 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:41:45,701 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:45,701 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:41:45,907 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:45,907 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:41:46,317 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:41:46,318 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:48:34,895 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-25 13:48:34,897 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-25 13:48:34,898 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-25 13:48:34,898 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-25 13:48:34,898 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-25 13:48:34,923 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:34,925 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:34,925 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:48:35,131 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:35,131 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:48:35,547 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:35,547 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:48:36,354 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:36,355 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:48:36,561 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:36,562 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:48:36,971 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:36,971 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:48:37,781 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:37,781 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:48:37,986 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:37,986 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 13:48:38,396 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 13:48:38,396 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 15:39:14,522 [INFO] Initialized connection to node node1 at 127.0.0.1:50051
+2025-03-25 15:39:14,525 [INFO] Initialized connection to node node2 at 127.0.0.1:50052
+2025-03-25 15:39:14,525 [INFO] Initialized connection to node node3 at 127.0.0.1:50053
+2025-03-25 15:39:14,525 [INFO] Initialized connection to node node4 at 127.0.0.1:50054
+2025-03-25 15:39:14,525 [INFO] Initialized connection to node node5 at 127.0.0.1:50055
+2025-03-25 15:39:14,578 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:14,589 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:14,589 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 15:39:14,796 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:14,796 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 15:39:15,205 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:15,205 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 15:39:16,013 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:16,013 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 15:39:16,215 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:16,216 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 15:39:16,638 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:16,639 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 15:39:17,458 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:17,458 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 15:39:17,661 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:17,661 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 15:39:18,068 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 15:39:18,069 [ERROR] Error executing operation: Could not connect to any server in the cluster
