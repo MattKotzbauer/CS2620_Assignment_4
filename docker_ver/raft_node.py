@@ -170,8 +170,6 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     
     def _load_state_from_db(self):
         """Load the node's state from the database."""
-
-        print(f"Loaded {len(self.user_base.users)} users and {len(self.message_base.messages)} messages from DB")
         
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
@@ -194,7 +192,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         # Load users
         c.execute("SELECT user_id, username, password_hash, data FROM users")
         for user_id, username, password_hash, data in c.fetchall():
-            print(f"Loading user from DB: {user_id}, {username}, data: {data}")
+            logger.info(f"(raft_node.py) _load_state_from_db: Loading user from DB: {user_id}, {username}, data: {data}")
 
             user_data = json.loads(data)
             user = User(user_id, username, password_hash)
@@ -203,7 +201,6 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             
             self.user_base.users[user_id] = user
             self.user_trie.add(username, user)
-        print(f"Loaded state: {len(self.user_base.users)} users, {len(self.message_base.messages)} messages")
 
             
         # Load messages
@@ -227,7 +224,10 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         c.execute("SELECT user_id, token, expiry FROM session_tokens WHERE expiry > ?", (int(time.time()),))
         for user_id, token, expiry in c.fetchall():
             self.session_tokens.tokens[user_id] = token
-        
+
+        logger.info(f"(raft_node.py) _load_state_from_db: Loaded {len(self.user_base.users)} users and {len(self.message_base.messages)} messages from DB")
+        logger.info(f"(raft_node.py) _load_state_from_db: loaded {len(self.session_tokens.tokens)} session tokens.")
+
         conn.close()
         
         # Update next_user_id and next_message_id based on existing data
@@ -236,7 +236,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         if self.message_base.messages:
             self.message_base._next_message_id = max(self.message_base.messages.keys()) + 1
         
-        logger.info(f"Loaded state from database: {len(self.user_base.users)} users, {len(self.message_base.messages)} messages")
+        # logger.info(f"Loaded state from database: {len(self.user_base.users)} users, {len(self.message_base.messages)} messages")
     
     def _persist_raft_state(self):
         """Persist Raft state to the database."""

@@ -27,21 +27,37 @@ def run_command(command):
         print(f"Error: {result.stderr}")
     return result
 
+def find_leader_via_grpc():
+    """
+    Use the fault_tolerant_client's logic to identify the leader
+    by calling LeaderPing on each node in cluster_config_client.json.
+    Returns the node ID (like "node3") or None if none respond as leader.
+    """
+    dummy_client = FaultTolerantClient("cluster_config_client.json")  # or reuse an existing client
+    success = dummy_client._find_leader()  # This calls LeaderPing on each known stub
+    if success and dummy_client.leader_id:
+        return dummy_client.leader_id  # e.g. "node3"
+    return None
+
+
 def find_leader():
     """Find the current leader by examining the logs in the ./logs directory."""
-    print("Searching for current leader in logs...")
+    node = find_leader_via_grpc()
+    return node
+    
+    # print("Searching for current leader in logs...")
     # Assumes the logs are mounted to the host under ./logs/
-    result = subprocess.run("grep -l 'became leader for term' logs/node*.log", 
-                              shell=True, capture_output=True, text=True)
-    if not result.stdout:
-        print("No leader found in logs yet.")
-        return None
-    leader_logs = result.stdout.strip().split('\n')
-    latest_leader = leader_logs[-1]
+    # result = subprocess.run("grep -l 'became leader for term' logs/node*.log", 
+                              # shell=True, capture_output=True, text=True)
+    # if not result.stdout:
+        # print("No leader found in logs yet.")
+        # return None
+    # leader_logs = result.stdout.strip().split('\n')
+    # latest_leader = leader_logs[-1]
     # Extract node number from something like logs/node3.log
-    node_num = latest_leader.split('/')[-1].split('.')[0].replace('node', '')
-    print(f"Current leader appears to be node{node_num}")
-    return node_num
+    # node_num = latest_leader.split('/')[-1].split('.')[0].replace('node', '')
+    # print(f"Current leader appears to be node{node_num}")
+    # return node_num
 
 def demo_fault_tolerance():
     print_header("2-FAULT TOLERANCE AND PERSISTENCE DEMO")
@@ -140,13 +156,24 @@ def demo_fault_tolerance():
     leader_node = find_leader()
     if leader_node:
         print(f"Killing leader node {leader_node} using docker-compose stop...")
-        run_command(f"docker-compose stop node{leader_node}")
+        # run_command(f"docker-compose stop node{leader_node}")
+        run_command(f"docker-compose stop {leader_node}")
     else:
         print("No leader found; killing node1 as fallback")
         run_command("docker-compose stop node1")
     
     print("Waiting for the cluster to elect a new leader...")
-    time.sleep(10)
+    time.sleep(15)
+    
+    max_election_attempts = 5
+    for i in range(max_election_attempts):
+        new_leader = find_leader()  # calls your fault-tolerant gRPC approach
+        if new_leader:
+            print(f"New leader after node kill: {new_leader}")
+            break
+        else:
+            print(f"No leader found yet (attempt {i+1}/{max_election_attempts}). Sleeping 2s...")
+            time.sleep(2)
     
     # Step 8: Kill a second node.
     print_step(8, "Testing 2-fault tolerance by killing a second node")
