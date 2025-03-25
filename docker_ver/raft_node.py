@@ -545,12 +545,16 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 # In a real implementation, you might want to cascade delete messages
                 
         elif cmd_type == "SEND_MESSAGE":
+            
             message_id = command["message_id"]
             sender_id = command["sender_id"]
             receiver_id = command["receiver_id"]
             content = command["content"]
             timestamp = command["timestamp"]
-            
+
+            logger.info(f"(raft_node.py): _apply_command => SEND_MESSAGE from {sender_id} to {receiver_id}")
+            logger.info(f"(raft_node.py): Inserting message id={message_id} into message_base and conversations.")
+           
             # Create message
             message = Message(
                 message_id,
@@ -563,10 +567,17 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             
             # Update state
             self.message_base.messages[message_id] = message
-            
+
+            # TODO: dump content of self.conversations before and after
+            logger.info(f"(raft_node.py) Before append, keys={list(self.conversations.conversations.keys())}")
             # Update conversation
             conversation_key = tuple(sorted([sender_id, receiver_id]))
             self.conversations.conversations[conversation_key].append(message)
+            
+            logger.info(
+                f"(raft_node.py) After append, keys={list(self.conversations.conversations.keys())}. "
+                f"Added conversation_key={conversation_key} message_id={message_id}"
+            )
             
             # Update unread messages for receiver
             if receiver_id in self.user_base.users:
@@ -893,13 +904,16 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             List of Message objects containing the conversation
         """
         # This can work on any node, doesn't need to be the leader
+        logger.info(f"(raft_node.py): display_conversation called on node {self.node_id} between {user_id} and {conversant_id}")
         try:
             conversation_key = tuple(sorted([user_id, conversant_id]))
             if conversation_key in self.conversations.conversations:
+                convo = self.conversations.conversations[conversation_key]
+                logger.info(f"(raft_node.py): Found {len(convo)} messages in conversation {conversation_key}")
                 return self.conversations.conversations[conversation_key]
             return []
         except Exception as e:
-            logger.error(f"Error in display_conversation: {str(e)}")
+            logger.info(f"(raft_node.py): No conversation found for {conversation_key}")
             return []
     
     def send_message(self, sender_id: int, recipient_id: int, content: str) -> bool:
@@ -943,7 +957,21 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             # Append to log
             self.log.append((self.current_term, command))
             self._persist_log_entry(len(self.log) - 1, self.current_term, command)
-            
+
+            # start_time = time.time()
+            # while True:
+                # 1) 'commit_index' means the leader has determined it's safe to apply
+                # 2) 'last_applied' means we *actually* ran _apply_command on it
+                # if self.commit_index >= appended_index and self.last_applied >= appended_index:
+                    # break
+
+                # If we wait too long, we might want to time out
+                # if time.time() - start_time > 5.0:  # 5 second timeout, for example
+                    # logger.warning("Timed out waiting for SEND_MESSAGE entry to commit/apply.")
+                    # return False
+
+                # time.sleep(0.01)  # Sleep briefly to avoid busy loop
+
             return True
             
         except Exception as e:

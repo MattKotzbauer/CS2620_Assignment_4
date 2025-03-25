@@ -621,3 +621,445 @@
 2025-03-25 06:58:51,273 [WARNING] Failed to identify a leader in the cluster via LeaderPing
 2025-03-25 06:58:51,422 [WARNING] Failed to identify a leader in the cluster via LeaderPing
 2025-03-25 06:58:53,523 [INFO] Found leader: node node5
+2025-03-25 07:00:27,034 [INFO] Initialized connection to node node1 at node1:50051
+2025-03-25 07:00:27,035 [INFO] Initialized connection to node node2 at node2:50052
+2025-03-25 07:00:27,036 [INFO] Initialized connection to node node3 at node3:50053
+2025-03-25 07:00:27,037 [INFO] Initialized connection to node node4 at node4:50054
+2025-03-25 07:00:27,038 [INFO] Initialized connection to node node5 at node5:50055
+2025-03-25 07:00:46,222 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:46,353 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:46,353 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:46,702 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:46,702 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:47,229 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:47,230 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:48,167 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:48,167 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:48,530 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:48,530 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:49,070 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:49,071 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:50,001 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:50,002 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:50,355 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:50,358 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:50,900 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:50,901 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:51,906 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:51,907 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:52,242 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:52,243 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:00:52,903 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:00:52,903 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:13:36,345 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 07:13:36,348 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 07:13:36,349 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 07:13:36,350 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 07:13:36,351 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 07:13:36,480 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:13:36,571 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:13:38,613 [INFO] Found leader: node node2
+2025-03-25 07:14:21,770 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "No leader available"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {created_time:"2025-03-25T11:14:21.7414616+00:00", grpc_status:14, grpc_message:"No leader available"}"
+>
+2025-03-25 07:14:21,800 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "No leader available"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {grpc_message:"No leader available", grpc_status:14, created_time:"2025-03-25T11:14:21.7752805+00:00"}"
+>
+2025-03-25 07:14:35,773 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "IOCP/Socket: Connection aborted (An established connection was aborted by the software in your host machine.
+ -- 10053)"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-25T11:14:35.7490671+00:00", grpc_status:14, grpc_message:"IOCP/Socket: Connection aborted (An established connection was aborted by the software in your host machine.\r\n -- 10053)"}"
+>
+2025-03-25 07:14:51,942 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "No leader available"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {grpc_message:"No leader available", grpc_status:14, created_time:"2025-03-25T11:14:51.9228525+00:00"}"
+>
+2025-03-25 07:15:25,365 [INFO] Initialized connection to node node1 at node1:50051
+2025-03-25 07:15:25,367 [INFO] Initialized connection to node node2 at node2:50052
+2025-03-25 07:15:25,367 [INFO] Initialized connection to node node3 at node3:50053
+2025-03-25 07:15:25,368 [INFO] Initialized connection to node node4 at node4:50054
+2025-03-25 07:15:25,368 [INFO] Initialized connection to node node5 at node5:50055
+2025-03-25 07:15:46,792 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:46,918 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:49,057 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:51,223 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:53,394 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:55,540 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:57,741 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:57,741 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:15:58,144 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:58,144 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:15:58,701 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:58,702 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:15:59,637 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:59,638 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:15:59,992 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:15:59,993 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:16:00,540 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:16:00,540 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:16:01,492 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:16:01,493 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:16:01,846 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:16:01,847 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:16:02,418 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:16:02,420 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:16:03,460 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:16:03,460 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:16:03,803 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:16:03,804 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:16:04,360 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:16:04,360 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:18:47,595 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 07:18:47,596 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 07:18:47,597 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 07:18:47,597 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 07:18:47,598 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 07:18:47,728 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:18:47,823 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:18:49,865 [INFO] Found leader: node node2
+2025-03-25 07:19:49,607 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "No leader available"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {created_time:"2025-03-25T11:19:49.5855009+00:00", grpc_status:14, grpc_message:"No leader available"}"
+>
+2025-03-25 07:20:23,258 [INFO] Initialized connection to node node1 at node1:50051
+2025-03-25 07:20:23,259 [INFO] Initialized connection to node node2 at node2:50052
+2025-03-25 07:20:23,260 [INFO] Initialized connection to node node3 at node3:50053
+2025-03-25 07:20:23,260 [INFO] Initialized connection to node node4 at node4:50054
+2025-03-25 07:20:23,260 [INFO] Initialized connection to node node5 at node5:50055
+2025-03-25 07:20:44,580 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:44,734 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:46,884 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:49,072 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:51,219 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:53,379 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:55,524 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:55,524 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:20:55,869 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:55,870 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:20:56,410 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:56,411 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:20:57,354 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:57,354 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:20:57,702 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:57,703 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:20:58,242 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:58,242 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:20:59,186 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:59,186 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:20:59,521 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:20:59,523 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:21:00,116 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:21:00,117 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:21:01,058 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:21:01,058 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:21:01,390 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:21:01,391 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:21:01,946 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:21:01,946 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:23:55,495 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 07:23:55,497 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 07:23:55,497 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 07:23:55,498 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 07:23:55,499 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 07:23:55,631 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:23:55,723 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:23:57,759 [INFO] Found leader: node node2
+2025-03-25 07:27:46,337 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 07:27:46,339 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 07:27:46,340 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 07:27:46,341 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 07:27:46,343 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 07:27:46,474 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:27:46,526 [INFO] Found leader: node node3
+2025-03-25 07:27:46,547 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T11:27:46.5298691+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-25 07:27:46,770 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T11:27:46.7514522+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-25 07:27:47,208 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T11:27:47.1836951+00:00"}"
+>
+2025-03-25 07:27:48,044 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T11:27:48.0219487+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-25 07:27:48,282 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T11:27:48.2517047+00:00"}"
+>
+2025-03-25 07:27:48,709 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T11:27:48.6898387+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-25 07:27:49,546 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T11:27:49.5165113+00:00"}"
+>
+2025-03-25 07:27:49,780 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T11:27:49.7540128+00:00"}"
+>
+2025-03-25 07:27:50,214 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T11:27:50.1861209+00:00"}"
+>
+2025-03-25 07:29:05,886 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 07:29:05,886 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 07:29:05,889 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 07:29:05,890 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 07:29:05,891 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 07:29:06,095 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:29:06,288 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:29:08,396 [INFO] Found leader: node node5
+2025-03-25 07:30:29,039 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "No leader available"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50055 {created_time:"2025-03-25T11:30:29.0102771+00:00", grpc_status:14, grpc_message:"No leader available"}"
+>
+2025-03-25 07:31:02,451 [INFO] Initialized connection to node node1 at node1:50051
+2025-03-25 07:31:02,452 [INFO] Initialized connection to node node2 at node2:50052
+2025-03-25 07:31:02,453 [INFO] Initialized connection to node node3 at node3:50053
+2025-03-25 07:31:02,454 [INFO] Initialized connection to node node4 at node4:50054
+2025-03-25 07:31:02,454 [INFO] Initialized connection to node node5 at node5:50055
+2025-03-25 07:31:20,522 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:20,669 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:22,840 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:24,985 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:27,221 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:29,418 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:31,552 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:31,553 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:31,953 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:31,953 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:32,502 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:32,503 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:33,438 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:33,439 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:33,776 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:33,776 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:34,320 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:34,321 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:35,310 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:35,311 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:35,716 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:35,717 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:36,247 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:36,247 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:37,305 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:37,306 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:37,688 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:37,688 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:31:38,237 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:31:38,238 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:41:49,471 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 07:41:49,472 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 07:41:49,473 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 07:41:49,473 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 07:41:49,474 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 07:41:49,603 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:41:49,707 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:41:51,739 [INFO] Found leader: node node2
+2025-03-25 07:42:40,386 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "IOCP/Socket: Connection aborted (An established connection was aborted by the software in your host machine.
+ -- 10053)"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"IOCP/Socket: Connection aborted (An established connection was aborted by the software in your host machine.\r\n -- 10053)", grpc_status:14, created_time:"2025-03-25T11:42:40.360212+00:00"}"
+>
+2025-03-25 07:42:42,720 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "failed to connect to all addresses; last error: UNAVAILABLE: ipv4:127.0.0.1:50052: ConnectEx: Connection refused (No connection could be made because the target machine actively refused it.
+ -- 10061)"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2025-03-25T11:42:42.698657+00:00", grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNAVAILABLE: ipv4:127.0.0.1:50052: ConnectEx: Connection refused (No connection could be made because the target machine actively refused it.\r\n -- 10061)"}"
+>
+2025-03-25 07:42:42,750 [WARNING] Server unavailable. Trying to find a new leader...
+2025-03-25 07:42:45,194 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:42:45,517 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:42:45,518 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 07:42:46,044 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 07:42:46,044 [ERROR] Error executing operation: Could not connect to any server in the cluster
+2025-03-25 08:10:32,196 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 08:10:32,198 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 08:10:32,199 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 08:10:32,200 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 08:10:32,201 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 08:10:32,321 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:10:32,424 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:10:34,462 [INFO] Found leader: node node2
+2025-03-25 08:33:31,538 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 08:33:31,539 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 08:33:31,539 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 08:33:31,540 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 08:33:31,540 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 08:33:31,684 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:33:31,782 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:33:33,839 [INFO] Found leader: node node3
+2025-03-25 08:33:33,861 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T12:33:33.8426682+00:00"}"
+>
+2025-03-25 08:33:34,110 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T12:33:34.0673658+00:00"}"
+>
+2025-03-25 08:33:34,544 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:33:34.5186083+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-25 08:33:35,372 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:33:35.352425+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-25 08:33:35,601 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:33:35.5801522+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-25 08:33:36,031 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:33:36.0071971+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-25 08:33:36,860 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:33:36.8387899+00:00", grpc_status:13, grpc_message:"Failed to create account"}"
+>
+2025-03-25 08:33:37,089 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T12:33:37.0675006+00:00"}"
+>
+2025-03-25 08:33:37,517 [ERROR] RPC error: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to create account"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to create account", grpc_status:13, created_time:"2025-03-25T12:33:37.4955391+00:00"}"
+>
+2025-03-25 08:40:22,911 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 08:40:22,913 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 08:40:22,915 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 08:40:22,916 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 08:40:22,917 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 08:40:23,094 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:40:23,263 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:40:25,332 [INFO] Found leader: node node3
+2025-03-25 08:40:31,643 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to send message", grpc_status:13, created_time:"2025-03-25T12:40:31.6162298+00:00"}"
+>
+2025-03-25 08:40:31,734 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:40:31.6896829+00:00", grpc_status:13, grpc_message:"Failed to send message"}"
+>
+2025-03-25 08:40:31,836 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:40:31.8106093+00:00", grpc_status:13, grpc_message:"Failed to send message"}"
+>
+2025-03-25 08:40:31,901 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to send message", grpc_status:13, created_time:"2025-03-25T12:40:31.8723241+00:00"}"
+>
+2025-03-25 08:40:31,965 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to send message", grpc_status:13, created_time:"2025-03-25T12:40:31.9396377+00:00"}"
+>
+2025-03-25 08:41:10,695 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:41:10.672511+00:00", grpc_status:13, grpc_message:"Failed to send message"}"
+>
+2025-03-25 08:41:10,750 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {grpc_message:"Failed to send message", grpc_status:13, created_time:"2025-03-25T12:41:10.7261837+00:00"}"
+>
+2025-03-25 08:41:10,963 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:41:10.9460294+00:00", grpc_status:13, grpc_message:"Failed to send message"}"
+>
+2025-03-25 08:41:27,025 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "No leader available"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50053 {created_time:"2025-03-25T12:41:27.0037419+00:00", grpc_status:14, grpc_message:"No leader available"}"
+>
+2025-03-25 08:42:00,538 [INFO] Initialized connection to node node1 at node1:50051
+2025-03-25 08:42:00,538 [INFO] Initialized connection to node node2 at node2:50052
+2025-03-25 08:42:00,539 [INFO] Initialized connection to node node3 at node3:50053
+2025-03-25 08:42:00,540 [INFO] Initialized connection to node node4 at node4:50054
+2025-03-25 08:42:00,541 [INFO] Initialized connection to node node5 at node5:50055
+2025-03-25 08:42:21,923 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:42:22,071 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:42:24,197 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:42:26,363 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:42:28,534 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:42:30,667 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:43:07,076 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 08:43:07,077 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 08:43:07,077 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 08:43:07,079 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 08:43:07,079 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 08:43:07,213 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:43:07,315 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:43:09,341 [INFO] Found leader: node node2
+2025-03-25 08:43:15,636 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {grpc_message:"Failed to send message", grpc_status:13, created_time:"2025-03-25T12:43:15.6102451+00:00"}"
+>
+2025-03-25 08:43:15,709 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {grpc_message:"Failed to send message", grpc_status:13, created_time:"2025-03-25T12:43:15.6798199+00:00"}"
+>
+2025-03-25 08:43:15,776 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {created_time:"2025-03-25T12:43:15.749242+00:00", grpc_status:13, grpc_message:"Failed to send message"}"
+>
+2025-03-25 08:43:15,837 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {created_time:"2025-03-25T12:43:15.8122856+00:00", grpc_status:13, grpc_message:"Failed to send message"}"
+>
+2025-03-25 08:43:15,892 [ERROR] Failed to send message: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Failed to send message"
+	debug_error_string = "UNKNOWN:Error received from peer ipv6:%5B::1%5D:50052 {created_time:"2025-03-25T12:43:15.8690343+00:00", grpc_status:13, grpc_message:"Failed to send message"}"
+>
+2025-03-25 08:44:28,441 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 08:44:28,442 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 08:44:28,442 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 08:44:28,443 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 08:44:28,443 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 08:44:28,579 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:44:28,685 [WARNING] Failed to identify a leader in the cluster via LeaderPing
+2025-03-25 08:44:30,787 [INFO] Found leader: node node5

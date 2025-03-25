@@ -99,7 +99,7 @@ def demo_fault_tolerance():
                 print(f"  Warning: Couldn't retrieve user ID for {username}")
         except Exception as e:
             print(f"Error creating account for {username}: {e}")
-    
+
     # Step 5: Send messages between users.
     print_step(5, "Sending messages between users")
     message_pairs = [
@@ -119,7 +119,9 @@ def demo_fault_tolerance():
                 print("  Failed to send message ✗")
         else:
             print(f"Cannot send from {sender} to {recipient} - missing user information")
-    
+
+    time.sleep(5)
+            
     # Step 6: Display conversations.
     print_step(6, "Displaying conversations to verify messages were sent")
     for username1, username2 in [("alice", "bob"), ("alice", "charlie"), ("bob", "charlie")]:
@@ -247,6 +249,17 @@ def demo_fault_tolerance():
     print("Reconnecting the client...")
     client.disconnect()
     client = FaultTolerantClient("cluster_config.json")
+
+    max_attempts = 5
+    for attempt in range(1, max_attempts + 1):
+        if client._find_leader():
+            print(f"Found a leader on attempt {attempt}!")
+            break
+        else:
+            print(f"No leader found yet (attempt {attempt}/{max_attempts}). Sleeping 2s...")
+            time.sleep(2)
+    print("Client connected!")
+
     
     print("\nVerifying all data was persisted through complete cluster restart:")
     for username in users:
