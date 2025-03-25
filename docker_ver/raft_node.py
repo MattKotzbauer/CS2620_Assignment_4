@@ -229,7 +229,12 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         logger.info(f"(raft_node.py) _load_state_from_db: loaded {len(self.session_tokens.tokens)} session tokens.")
 
         conn.close()
-        
+
+        self.state = NodeState.FOLLOWER
+        self.leader_id = None
+        self.voted_for = None
+        self.last_heartbeat = time.time()
+
         # Update next_user_id and next_message_id based on existing data
         if self.user_base.users:
             self.user_base._next_user_id = max(self.user_base.users.keys()) + 1

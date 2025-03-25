@@ -66,11 +66,37 @@ class FaultTolerantClient:
         
         # Try to identify the leader
         self._find_leader()
-    
+
     def _find_leader(self) -> bool:
-        """
-        Try to identify the current leader by pinging each node.
-        """
+        # Try for a fixed number of attempts
+        for attempt in range(10):
+            for node_id, stub in self.stubs.items():
+                try:
+                    request = exp_pb2.LeaderPingRequest()
+                    stub.LeaderPing(request, timeout=5.0)
+                    self.leader_id = node_id
+                    logger.info(f"Found leader: node {node_id}")
+                    self._connected = True
+                    return True
+                except grpc.RpcError as e:
+                    details = e.details() or ""
+                    if "Not the leader. Try " in details:
+                        new_addr = details.split("Try ")[1].strip()
+                        for possible_id, address in self.cluster_config.items():
+                            if address == new_addr:
+                                self.leader_id = possible_id
+                                logger.info(f"Found leader via redirect: node {possible_id}")
+                                self._connected = True
+                                return True
+            logger.warning("Leader not found. Waiting for leader election to complete...")
+            time.sleep(2)
+        self._connected = False
+        return False
+
+        
+    """
+    def _find_leader(self) -> bool:
+        
         for node_id, stub in self.stubs.items():
             try:
                 request = exp_pb2.LeaderPingRequest()
@@ -98,7 +124,7 @@ class FaultTolerantClient:
         logger.warning("Failed to identify a leader in the cluster via LeaderPing")
         self._connected = False
         return False
-
+        """
 
     def _ensure_connected(self):
         current_time = time.time()
