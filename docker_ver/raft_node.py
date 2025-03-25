@@ -202,7 +202,6 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             self.user_base.users[user_id] = user
             self.user_trie.add(username, user)
 
-            
         # Load messages
         c.execute("SELECT message_id, sender_id, receiver_id, content, has_been_read, timestamp FROM messages")
         for msg_id, sender_id, receiver_id, content, has_been_read, timestamp in c.fetchall():
@@ -220,6 +219,11 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             conversation_key = tuple(sorted([sender_id, receiver_id]))
             self.conversations.conversations[conversation_key].append(message)
         
+        # Clean up expired tokens
+        self._cleanup_expired_tokens()
+        
+        # Load session tokens
+        c.execute("SELECT user_id, token, expiry FROM session_tokens WHERE expiry > ?", (int(time.time()),))
         # Load session tokens
         c.execute("SELECT user_id, token, expiry FROM session_tokens WHERE expiry > ?", (int(time.time()),))
         for user_id, token, expiry in c.fetchall():
@@ -299,25 +303,37 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         conn.close()
     
     def _persist_session_token(self, user_id: int, token: str, expiry: int = None):
-        """Persist a session token to the database."""
         if expiry is None:
-            # Default expiry: 1 day
-            expiry = int(time.time()) + 86400
+            expiry = int(time.time()) + 24 * 60 * 60  # 24 hours from now
             
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
-        
-        c.execute("INSERT OR REPLACE INTO session_tokens VALUES (?, ?, ?)",
+        c.execute("INSERT OR REPLACE INTO session_tokens (user_id, token, expiry) VALUES (?, ?, ?)",
                  (user_id, token, expiry))
-        
         conn.commit()
         conn.close()
-    
+
+    def _cleanup_expired_tokens(self):
+        current_time = int(time.time())
+        
+        # Clean up from database
+        conn = sqlite3.connect(self.db_path)
+        c = conn.cursor()
+        c.execute("DELETE FROM session_tokens WHERE expiry < ?", (current_time,))
+        expired_users = [row[0] for row in c.execute("SELECT user_id FROM session_tokens WHERE expiry < ?", (current_time,))]
+        conn.commit()
+        conn.close()
+        
+        # Clean up from memory
+        for user_id in expired_users:
+            if user_id in self.session_tokens.tokens:
+                del self.session_tokens.tokens[user_id]
+
     def _generate_election_timeout(self):
         """Generate a random election timeout between 150-300ms."""
         # return random.uniform(0.3, 0.6)  # in seconds for easier testing
         # return random.uniform(10.0, 13.0)
-        return random.uniform(5.0, 7.0)
+        return random.uniform(0.15, 0.3)  # 150-300ms
     
     def _init_peer_connections(self):
         """Initialize gRPC connections to peer nodes."""
@@ -336,41 +352,52 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 # stub = exp_pb2_grpc.RaftServiceStub(channel)
                 # self.peers[node_id] = stub
     
-    def _run_raft_loop(self):
-        """Main Raft algorithm loop."""
-        while self.running:
-            current_time = time.time()
-            
-            if self.state == NodeState.FOLLOWER:
-                # Check if election timeout has elapsed
-                if current_time - self.last_heartbeat > self.election_timeout:
-                    self._become_candidate()
-            
-            elif self.state == NodeState.CANDIDATE:
-                # Start election
-                self._start_election()
-            
-            elif self.state == NodeState.LEADER:
-                # Send heartbeats/AppendEntries
+def _run_raft_loop(self):
+    """Main Raft algorithm loop."""
+    while self.running:
+        current_time = time.time()
+        time_since_heartbeat = (current_time - self.last_heartbeat) * 1000  # Convert to ms
+        
+        if self.state == NodeState.FOLLOWER:
+            # Check if election timeout has elapsed
+            if time_since_heartbeat > self.election_timeout:
+                logger.info(f"Node {self.node_id} election timeout elapsed: {time_since_heartbeat:.2f}ms > {self.election_timeout}ms")
+                self._become_candidate()
+        
+        elif self.state == NodeState.CANDIDATE:
+            # Start election
+            self._start_election()
+        
+        elif self.state == NodeState.LEADER:
+            # Send heartbeats/AppendEntries more frequently (every 50ms)
+            if time_since_heartbeat > 50:
                 self._send_heartbeats()
-            
-            # Apply committed entries to state machine
-            self._apply_committed_entries()
-            
-            # Sleep briefly to avoid consuming too much CPU
-            time.sleep(0.05)
+                self.last_heartbeat = current_time
+        
+        # Apply committed entries to state machine
+        self._apply_committed_entries()
+        
+        # Sleep briefly to avoid consuming too much CPU
+        time.sleep(0.05)
     
-    def _become_candidate(self):
-        """Transition to candidate state and start an election."""
-        self.state = NodeState.CANDIDATE
-        self.current_term += 1
-        self.voted_for = self.node_id
-        self.election_timeout = self._generate_election_timeout()
-        self.last_heartbeat = time.time()
-        
-        self._persist_raft_state()
-        
-        logger.info(f"Node {self.node_id} became candidate for term {self.current_term}")
+def _become_candidate(self):
+    """Transition to candidate state and start an election."""
+    # Clear any existing leader since we're starting an election
+    prev_state = self.state
+    prev_leader = self.leader_id
+    self.leader_id = None
+    
+    # Update state for new election
+    self.state = NodeState.CANDIDATE
+    self.current_term += 1
+    self.voted_for = self.node_id
+    self.election_timeout = self._generate_election_timeout()
+    self.last_heartbeat = time.time()
+    
+    # Persist state changes
+    self._persist_raft_state()
+    
+    logger.info(f"Node {self.node_id} became candidate for term {self.current_term} (prev state={prev_state}, prev leader={prev_leader}, timeout={self.election_timeout}ms)")
     
     def _start_election(self):
         """Start a leader election."""
@@ -387,7 +414,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                     last_log_term=self.log[-1][0] if self.log else 0
                 )
                 
-                response = stub.RequestVote(request, timeout=1)
+                response = stub.RequestVote(request, timeout=2)
                 
                 if response.vote_granted:
                     votes_received += 1
@@ -589,6 +616,12 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             self.user_base.users[user_id] = user
             self.user_trie.add(username, user)
 
+            for existing_user_id in self.user_base.users:
+                if existing_user_id != user_id:
+                    conversation_key = tuple(sorted([user_id, existing_user_id]))
+                    if conversation_key not in self.conversations.conversations:
+                        self.conversations.conversations[conversation_key] = []
+                        
             self.session_tokens.tokens[user_id] = session_token
             self._persist_session_token(user_id, session_token)
     
@@ -789,37 +822,45 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         
         return exp_pb2.AppendEntriesResponse(term=self.current_term, success=True)
     
-    def RequestVote(self, request, context):
-        """Handle RequestVote RPC."""
-        # If term < currentTerm, reject
-        if request.term < self.current_term:
-            return exp_pb2.RequestVoteResponse(term=self.current_term, vote_granted=False)
-        
-        # If term > currentTerm, update term and convert to follower
-        if request.term > self.current_term:
-            self.current_term = request.term
-            self.state = NodeState.FOLLOWER
-            self.voted_for = None
-            self._persist_raft_state()
-        
-        # Determine if candidate's log is at least as up-to-date as ours
-        last_log_index = len(self.log) - 1
-        last_log_term = self.log[last_log_index][0] if self.log else 0
-        
-        log_ok = (request.last_log_term > last_log_term or 
-                 (request.last_log_term == last_log_term and 
-                  request.last_log_index >= last_log_index))
-        
-        # Grant vote if we haven't voted for someone else and log is ok
-        vote_granted = (self.voted_for is None or self.voted_for == request.candidate_id) and log_ok
-        
-        if vote_granted:
-            self.voted_for = request.candidate_id
-            self.last_heartbeat = time.time()  # Reset timer when granting vote
-            self._persist_raft_state()
-        
-        return exp_pb2.RequestVoteResponse(term=self.current_term, vote_granted=vote_granted)
+def RequestVote(self, request, context):
+    """Handle RequestVote RPC."""
+    # Reset heartbeat timer since we heard from a peer
+    current_time = time.time()
+    logger.info(f"Node {self.node_id} received vote request from {request.candidate_id} (time since last heartbeat: {(current_time - self.last_heartbeat)*1000:.2f}ms)")
     
+    # If term < currentTerm, reject
+    if request.term < self.current_term:
+        return exp_pb2.RequestVoteResponse(term=self.current_term, vote_granted=False)
+    
+    # If term > currentTerm, update term and convert to follower
+    if request.term > self.current_term:
+        self.current_term = request.term
+        self.state = NodeState.FOLLOWER
+        self.voted_for = None
+        self._persist_raft_state()
+    
+    # Determine if candidate's log is at least as up-to-date as ours
+    last_log_index = len(self.log) - 1
+    last_log_term = self.log[last_log_index][0] if self.log else 0
+    
+    log_ok = (request.last_log_term > last_log_term or 
+             (request.last_log_term == last_log_term and 
+              request.last_log_index >= last_log_index))
+    
+    # Grant vote if we haven't voted for someone else and log is ok
+    vote_granted = (self.voted_for is None or self.voted_for == request.candidate_id) and log_ok
+    
+    if vote_granted:
+        self.voted_for = request.candidate_id
+        self.last_heartbeat = time.time()  # Reset timer when granting vote
+        self.election_timeout = self._generate_election_timeout()  # Generate new timeout
+        self._persist_raft_state()
+        logger.info(f"Node {self.node_id} granted vote to {request.candidate_id} for term {self.current_term} (new timeout={self.election_timeout}ms)")
+    else:
+        logger.info(f"Node {self.node_id} rejected vote for {request.candidate_id} (term={self.current_term}, voted_for={self.voted_for}, log_ok={log_ok})")
+    
+    return exp_pb2.RequestVoteResponse(term=self.current_term, vote_granted=vote_granted)
+
     # Client-facing methods
     
     def create_account(self, username: str, password_hash: str) -> Tuple[bool, str]:
@@ -863,12 +904,6 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 
             # Generate session token
             token = hashlib.sha256(f"{user_id}_{hash(time.time())}".encode()).hexdigest()
-
-            # (COMMENTING OUT the following 2 lines)
-            # self.session_tokens.tokens[user_id] = token
-            
-            # Persist session token
-            # self._persist_session_token(user_id, token)
             
             # Create log entry
             command = {

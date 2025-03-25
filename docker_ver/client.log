@@ -109,3 +109,197 @@
 2025-03-25 16:48:59,099 [INFO] Initialized connection to node node5 at localhost:50055
 2025-03-25 16:48:59,206 [INFO] Found leader: node node5
 2025-03-25 16:48:59,305 [INFO] Found leader: node node5
+2025-03-25 18:26:23,588 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:26:23,589 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:26:23,589 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:26:23,589 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:26:23,589 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:26:23,620 [INFO] Found leader: node node3
+2025-03-25 18:26:23,625 [INFO] Found leader: node node3
+2025-03-25 18:26:23,628 [INFO] Found leader: node node3
+2025-03-25 18:26:23,631 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:26:23,840 [INFO] Found leader: node node3
+2025-03-25 18:26:23,842 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:26:24,248 [INFO] Found leader: node node3
+2025-03-25 18:26:24,249 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:26:25,059 [INFO] Found leader: node node3
+2025-03-25 18:26:25,062 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:26:25,272 [INFO] Found leader: node node3
+2025-03-25 18:26:25,275 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:26:25,691 [INFO] Found leader: node node3
+2025-03-25 18:26:25,694 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:26:26,502 [INFO] Found leader: node node3
+2025-03-25 18:26:26,503 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:26:26,708 [INFO] Found leader: node node3
+2025-03-25 18:26:26,708 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:26:27,121 [INFO] Found leader: node node3
+2025-03-25 18:26:27,124 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:26:27,930 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:26:27,930 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:26:27,930 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:26:27,930 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:26:27,931 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:26:27,937 [INFO] Found leader: node node3
+2025-03-25 18:26:27,941 [INFO] Found leader: node node3
+2025-03-25 18:26:53,349 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:26:53,351 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:26:53,351 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:26:53,351 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:26:53,352 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:26:53,376 [INFO] Found leader: node node2
+2025-03-25 18:26:53,382 [INFO] Found leader: node node2
+2025-03-25 18:26:53,383 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:26:53,383 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:26:53,383 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:26:53,383 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:26:53,383 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:26:53,390 [INFO] Found leader: node node2
+2025-03-25 18:26:53,392 [INFO] Found leader: node node2
+2025-03-25 18:36:07,079 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:36:07,080 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:36:07,080 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:36:07,080 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:36:07,080 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:36:07,135 [INFO] Found leader: node node5
+2025-03-25 18:36:07,138 [INFO] Found leader: node node5
+2025-03-25 18:36:07,142 [INFO] Found leader: node node5
+2025-03-25 18:36:07,144 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:36:07,354 [INFO] Found leader: node node5
+2025-03-25 18:36:07,355 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:36:07,776 [INFO] Found leader: node node5
+2025-03-25 18:36:07,778 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:36:08,591 [INFO] Found leader: node node5
+2025-03-25 18:36:08,594 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:36:08,805 [INFO] Found leader: node node3
+2025-03-25 18:36:08,808 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:36:09,225 [INFO] Found leader: node node3
+2025-03-25 18:36:09,228 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:36:10,039 [INFO] Found leader: node node3
+2025-03-25 18:36:10,041 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:36:10,245 [INFO] Found leader: node node3
+2025-03-25 18:36:10,247 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:36:10,660 [INFO] Found leader: node node3
+2025-03-25 18:36:10,662 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:36:11,464 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:36:11,464 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:36:11,465 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:36:11,465 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:36:11,465 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:36:11,473 [INFO] Found leader: node node3
+2025-03-25 18:36:11,478 [INFO] Found leader: node node3
+2025-03-25 18:36:36,910 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:36:36,911 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:36:36,912 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:36:36,912 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:36:36,912 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:36:36,943 [INFO] Found leader: node node4
+2025-03-25 18:36:36,962 [INFO] Found leader: node node4
+2025-03-25 18:36:36,964 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:36:36,964 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:36:36,964 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:36:36,964 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:36:36,964 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:36:36,972 [INFO] Found leader: node node4
+2025-03-25 18:36:36,975 [INFO] Found leader: node node4
+2025-03-25 18:53:41,251 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:53:41,252 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:53:41,252 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:53:41,252 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:53:41,252 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:53:41,324 [INFO] Found leader: node node3
+2025-03-25 18:53:41,325 [INFO] Found leader: node node3
+2025-03-25 18:53:41,327 [INFO] Found leader: node node3
+2025-03-25 18:53:41,328 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:53:41,534 [INFO] Found leader: node node3
+2025-03-25 18:53:41,536 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:53:41,949 [INFO] Found leader: node node3
+2025-03-25 18:53:41,952 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:53:42,758 [INFO] Found leader: node node3
+2025-03-25 18:53:42,759 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:53:42,964 [INFO] Found leader: node node3
+2025-03-25 18:53:42,965 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:53:43,373 [INFO] Found leader: node node3
+2025-03-25 18:53:43,376 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:53:44,184 [INFO] Found leader: node node3
+2025-03-25 18:53:44,186 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:53:44,393 [INFO] Found leader: node node3
+2025-03-25 18:53:44,394 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:53:44,801 [INFO] Found leader: node node3
+2025-03-25 18:53:44,803 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-25 18:53:45,605 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:53:45,605 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:53:45,605 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:53:45,605 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:53:45,606 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:53:45,617 [INFO] Found leader: node node3
+2025-03-25 18:53:45,621 [INFO] Found leader: node node3
+2025-03-25 18:54:12,421 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:54:12,423 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:54:12,423 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:54:12,424 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:54:12,424 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:54:12,442 [INFO] Found leader: node node2
+2025-03-25 18:54:12,447 [INFO] Found leader: node node2
+2025-03-25 18:54:12,448 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 18:54:12,448 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 18:54:12,448 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 18:54:12,448 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 18:54:12,448 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 18:54:12,453 [INFO] Found leader: node node2
+2025-03-25 18:54:12,457 [INFO] Found leader: node node2
+2025-03-25 19:02:06,465 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 19:02:06,465 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 19:02:06,466 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 19:02:06,466 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 19:02:06,466 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 19:02:06,518 [INFO] Found leader: node node3
+2025-03-25 19:02:06,521 [INFO] Found leader: node node3
+2025-03-25 19:02:06,527 [INFO] Found leader: node node3
+2025-03-25 19:02:06,954 [INFO] Found leader: node node3
+2025-03-25 19:02:06,961 [INFO] Found leader: node node3
+2025-03-25 19:02:07,159 [INFO] Found leader: node node3
+2025-03-25 19:02:07,168 [INFO] Found leader: node node3
+2025-03-25 19:02:07,269 [INFO] Found leader: node node3
+2025-03-25 19:02:07,283 [INFO] Found leader: node node3
+2025-03-25 19:02:07,373 [INFO] Found leader: node node3
+2025-03-25 19:02:07,546 [INFO] Found leader: node node3
+2025-03-25 19:02:07,633 [INFO] Found leader: node node3
+2025-03-25 19:02:07,730 [INFO] Found leader: node node3
+2025-03-25 19:02:07,826 [INFO] Found leader: node node3
+2025-03-25 19:02:07,831 [INFO] Found leader: node node3
+2025-03-25 19:02:07,838 [INFO] Found leader: node node3
+2025-03-25 19:02:07,840 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 19:02:07,840 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 19:02:07,840 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 19:02:07,840 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 19:02:07,841 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 19:02:07,849 [INFO] Found leader: node node3
+2025-03-25 19:02:07,852 [INFO] Found leader: node node3
+2025-03-25 19:02:33,374 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 19:02:33,375 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 19:02:33,375 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 19:02:33,375 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 19:02:33,376 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 19:02:33,408 [INFO] Found leader: node node5
+2025-03-25 19:02:33,411 [INFO] Found leader: node node5
+2025-03-25 19:02:33,411 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-25 19:02:33,411 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-25 19:02:33,411 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-25 19:02:33,411 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-25 19:02:33,411 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-25 19:02:33,417 [INFO] Found leader: node node5
+2025-03-25 19:02:33,420 [INFO] Found leader: node node5
+2025-03-25 19:02:53,935 [INFO] Found leader: node node5
+2025-03-25 19:02:53,969 [INFO] Found leader: node node5
+2025-03-25 19:02:54,057 [INFO] Found leader: node node5
+2025-03-25 19:03:04,490 [INFO] Found leader: node node5
+2025-03-25 19:03:19,988 [WARNING] Leader not found. Waiting for leader election to complete...
+2025-03-25 19:03:21,998 [WARNING] Leader not found. Waiting for leader election to complete...
+2025-03-25 19:03:24,006 [WARNING] Leader not found. Waiting for leader election to complete...
+2025-03-25 19:03:26,012 [WARNING] Leader not found. Waiting for leader election to complete...
+2025-03-25 19:03:28,023 [WARNING] Leader not found. Waiting for leader election to complete...
+2025-03-25 19:03:30,036 [WARNING] Leader not found. Waiting for leader election to complete...
+2025-03-25 19:03:32,048 [WARNING] Leader not found. Waiting for leader election to complete...
+2025-03-25 19:03:34,080 [WARNING] Leader not found. Waiting for leader election to complete...
+2025-03-25 19:03:36,090 [WARNING] Leader not found. Waiting for leader election to complete...
+2025-03-25 19:03:38,098 [WARNING] Leader not found. Waiting for leader election to complete...
