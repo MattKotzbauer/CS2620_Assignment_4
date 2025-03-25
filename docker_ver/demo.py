@@ -243,7 +243,8 @@ def demo_fault_tolerance():
     print_step(11, "Restoring the cluster by restarting nodes")
     for node in [leader_node, second_killed_node, third_node]:
         print(f"Restarting node {node} using docker-compose start...")
-        run_command(f"docker-compose start node{node}")
+        run_command(f"docker-compose start {node}")
+        # run_command(f"docker-compose start node{node}")
     print("Waiting for the cluster to stabilize...")
     time.sleep(15)
     
