@@ -352,32 +352,32 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     
                 
     def _run_raft_loop(self):
-    """Main Raft algorithm loop."""
-    while self.running:
-        current_time = time.time()
-        time_since_heartbeat = (current_time - self.last_heartbeat) * 1000  # Convert to ms
+        """Main Raft algorithm loop."""
+        while self.running:
+            current_time = time.time()
+            time_since_heartbeat = (current_time - self.last_heartbeat) * 1000  # Convert to ms
+            
+            if self.state == NodeState.FOLLOWER:
+                # Check if election timeout has elapsed
+                if time_since_heartbeat > self.election_timeout:
+                    logger.info(f"Node {self.node_id} election timeout elapsed: {time_since_heartbeat:.2f}ms > {self.election_timeout}ms")
+                    self._become_candidate()
+            
+            elif self.state == NodeState.CANDIDATE:
+                # Start election
+                self._start_election()
+            
+            elif self.state == NodeState.LEADER:
+                # Send heartbeats/AppendEntries more frequently (every 50ms)
+                if time_since_heartbeat > 50:
+                    self._send_heartbeats()
+                    self.last_heartbeat = current_time
         
-        if self.state == NodeState.FOLLOWER:
-            # Check if election timeout has elapsed
-            if time_since_heartbeat > self.election_timeout:
-                logger.info(f"Node {self.node_id} election timeout elapsed: {time_since_heartbeat:.2f}ms > {self.election_timeout}ms")
-                self._become_candidate()
+            # Apply committed entries to state machine
+            self._apply_committed_entries()
         
-        elif self.state == NodeState.CANDIDATE:
-            # Start election
-            self._start_election()
-        
-        elif self.state == NodeState.LEADER:
-            # Send heartbeats/AppendEntries more frequently (every 50ms)
-            if time_since_heartbeat > 50:
-                self._send_heartbeats()
-                self.last_heartbeat = current_time
-        
-        # Apply committed entries to state machine
-        self._apply_committed_entries()
-        
-        # Sleep briefly to avoid consuming too much CPU
-        time.sleep(0.05)
+            # Sleep briefly to avoid consuming too much CPU
+            time.sleep(0.05)
     
     def _become_candidate(self):
         """Transition to candidate state and start an election."""
