@@ -1192,6 +1192,40 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         Returns:
             bool: True if successful, False otherwise
         """
+        if self.state != NodeState.LEADER:
+            return False  # Only leader can process this
+    
+        try:
+            if message_id not in self.message_base.messages:
+                return False
+
+            command = {
+                "type": "DELETE_MESSAGE",
+                "message_id": message_id,
+                "timestamp": int(time.time())
+            }
+            appended_index = len(self.log)
+            self.log.append((self.current_term, command))
+            self._persist_log_entry(appended_index, self.current_term, command)
+
+            # Wait until the command has been committed and applied
+            start_time = time.time()
+            while True:
+                if self.commit_index >= appended_index and self.last_applied >= appended_index:
+                    break
+                if time.time() - start_time > 5.0:
+                    logger.warning("Timed out waiting for DELETE_MESSAGE entry to commit/apply.")
+                    return False
+                time.sleep(0.01)
+
+            return True
+
+        except Exception as e:
+            logger.error(f"Error in delete_message: {str(e)}")
+            return False
+        
+        
+        """
         # Check if this node is the leader
         if self.state != NodeState.LEADER:
             return False  # Only leader can process this
@@ -1217,7 +1251,8 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         except Exception as e:
             logger.error(f"Error in delete_message: {str(e)}")
             return False
-    
+        """
+        
     def delete_account(self, user_id: int) -> bool:
         """
         Delete a user account.
@@ -1227,6 +1262,39 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             
         Returns:
             bool: True if successful, False otherwise
+        """
+        if self.state != NodeState.LEADER:
+        return False  # Only leader can process this
+
+        try:
+            if user_id not in self.user_base.users:
+                return False
+
+            command = {
+                "type": "DELETE_ACCOUNT",
+                "user_id": user_id,
+                "timestamp": int(time.time())
+            }
+            appended_index = len(self.log)
+            self.log.append((self.current_term, command))
+            self._persist_log_entry(appended_index, self.current_term, command)
+
+            # Wait until the command has been committed and applied
+            start_time = time.time()
+            while True:
+                if self.commit_index >= appended_index and self.last_applied >= appended_index:
+                    break
+                if time.time() - start_time > 5.0:
+                    logger.warning("Timed out waiting for DELETE_ACCOUNT entry to commit/apply.")
+                    return False
+                time.sleep(0.01)
+
+            return True
+
+        except Exception as e:
+            logger.error(f"Error in delete_account: {str(e)}")
+            return False
+
         """
         # Check if this node is the leader
         if self.state != NodeState.LEADER:
@@ -1253,7 +1321,8 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         except Exception as e:
             logger.error(f"Error in delete_account: {str(e)}")
             return False
-    
+        """
+        
     def get_unread_messages(self, user_id: int) -> List[Tuple[int, int, int]]:
         """
         Get list of unread messages for a user.
