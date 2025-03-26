@@ -382,6 +382,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     def _start_election(self):
         """Start a leader election."""
         # Increment current term and vote for self
+        self._init_peer_connections()
         self.unreachable_peers.clear()
         votes_received = 1  # Vote for self
         reachable_peers = []

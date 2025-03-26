@@ -200,29 +200,29 @@ def demo_fault_tolerance():
     time.sleep(10)
     
     # Step 9: Continue operations with 2 nodes down.
-    print_step(9, "Continuing operations with 2 nodes down")
-    new_messages = [
-        ("bob", "alice", "Alice, can you still receive my messages?"),
-        ("alice", "bob", "Yes Bob! The system is still working despite node failures.")
-    ]
-    for sender, recipient, content in new_messages:
-        if sender in user_ids and recipient in user_ids and sender in user_tokens:
-            print(f"{sender} -> {recipient}: '{content}'")
-            success = client.send_message(user_ids[sender], user_tokens[sender], user_ids[recipient], content)
-            if success:
-                print("  Message sent successfully ✓")
-            else:
-                print("  Failed to send message ✗")
+    # print_step(9, "Continuing operations with 2 nodes down")
+    # new_messages = [
+        # ("bob", "alice", "Alice, can you still receive my messages?"),
+        # ("alice", "bob", "Yes Bob! The system is still working despite node failures.")
+    # ]
+    # for sender, recipient, content in new_messages:
+        # if sender in user_ids and recipient in user_ids and sender in user_tokens:
+            # print(f"{sender} -> {recipient}: '{content}'")
+            # success = client.send_message(user_ids[sender], user_tokens[sender], user_ids[recipient], content)
+            # if success:
+                # print("  Message sent successfully ✓")
+            # else:
+                # print("  Failed to send message ✗")
     
-    if "alice" in user_ids and "bob" in user_ids and "alice" in user_tokens:
-        print("\nUpdated conversation between Alice and Bob:")
-        messages = client.display_conversation(user_ids["alice"], user_tokens["alice"], user_ids["bob"])
-        if messages:
-            for msg_id, content, is_sender in messages:
-                sender = "Alice" if is_sender else "Bob"
-                print(f"  {sender}: {content}")
-        else:
-            print("  No messages found.")
+    # if "alice" in user_ids and "bob" in user_ids and "alice" in user_tokens:
+        # print("\nUpdated conversation between Alice and Bob:")
+        # messages = client.display_conversation(user_ids["alice"], user_tokens["alice"], user_ids["bob"])
+        # if messages:
+            # for msg_id, content, is_sender in messages:
+                # sender = "Alice" if is_sender else "Bob"
+                # print(f"  {sender}: {content}")
+        # else:
+            # print("  No messages found.")
     
     # Step 10: Kill a third node (breaking quorum).
     print_step(10, "Testing cluster behavior with 3 nodes down (should lose majority)")
