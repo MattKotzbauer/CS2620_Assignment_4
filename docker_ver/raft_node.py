@@ -183,6 +183,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         c.execute("SELECT term, command FROM log_entries ORDER BY log_index ASC")
         self.log = [(term, json.loads(command)) for term, command in c.fetchall()]
         
+        
         # Load users
         c.execute("SELECT user_id, username, password_hash, data FROM users")
         for user_id, username, password_hash, data in c.fetchall():
@@ -338,19 +339,19 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             current_time = time.time()
             
             if self.state == NodeState.FOLLOWER:
-                logger.debug(f"(raft_node.py): Node {self.node_id}: current_time={current_time}, last_heartbeat={self.last_heartbeat}, timeout={self.election_timeout}")
+                logger.info(f"(raft_node.py): Node {self.node_id}: current_time={current_time}, last_heartbeat={self.last_heartbeat}, timeout={self.election_timeout}")
                 # Check if election timeout has elapsed
                 if current_time - self.last_heartbeat > self.election_timeout:
                     logger.debug("Election timeout reached, triggering _become_candidate()")
                     self._become_candidate()
             
             elif self.state == NodeState.CANDIDATE:
-                logger.debug("Node is candidate; starting election (_start_election())")
+                logger.info("Node is candidate; starting election (_start_election())")
                 # Start election
                 self._start_election()
             
             elif self.state == NodeState.LEADER:
-                logger.debug("Node is leader; sending heartbeats")
+                logger.info("Node is leader; sending heartbeats")
                 # Send heartbeats/AppendEntries
                 self._send_heartbeats()
             

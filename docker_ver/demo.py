@@ -240,7 +240,7 @@ def demo_fault_tolerance():
         # print(f"Expected failure: {e}")
     
     # Step 11: Restart nodes to restore the cluster.
-    print_step(11, "Restoring the cluster by restarting nodes")
+    print_step(9, "Restoring the cluster by restarting nodes")
     for node in [leader_node, second_killed_node, third_node]:
         service_name = node if node.startswith("node") else f"node{node}"
         print(f"Restarting {service_name} using docker-compose start...")
@@ -250,7 +250,7 @@ def demo_fault_tolerance():
     time.sleep(15)
     
     # Step 12: Verify the restored cluster is functional.
-    print_step(12, "Verifying the restored cluster is functional")
+    print_step(10, "Verifying the restored cluster is functional")
     print("Alice -> Bob: 'The cluster is back online!'")
     success = client.send_message(user_ids["alice"], user_tokens["alice"], user_ids["bob"], 
                                   "The cluster is back online!")
@@ -270,7 +270,7 @@ def demo_fault_tolerance():
             print("  No messages found.")
     
     # Step 13: Test persistence by restarting the entire cluster.
-    print_step(13, "Testing persistence by restarting the entire cluster")
+    print_step(11, "Testing persistence by restarting the entire cluster")
     print("Stopping all nodes using docker-compose down...")
     run_command("docker-compose down")
     time.sleep(15)
@@ -279,7 +279,7 @@ def demo_fault_tolerance():
     time.sleep(15)
     print("Reconnecting the client...")
     client.disconnect()
-    client = FaultTolerantClient("cluster_config.json")
+    client = FaultTolerantClient("cluster_config_client.json")
 
     max_attempts = 5
     for attempt in range(1, max_attempts + 1):
