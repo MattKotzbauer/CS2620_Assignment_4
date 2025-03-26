@@ -116,7 +116,23 @@ Our testing is handled in our main testing script `/docker_ver/demo.py`. Here, w
 - Testing leader election
 - Validating 2 fault tolerance
 
-For unit testing, we have the basic unit tests we previously implemented in the previous pset.
+We also implement multiple basic and advanced testing of the system overall:
+1. Advanced testing (`advanced_testing.py`):
+- Testing complex multi-user situations by creating multiple accounts (Alice, Bob, and Carol)
+- Tests message sending, reading / marking reads, conversation displays, account deletation and verification
+- Validates cleanup
+
+2. Basic data testing (`base_data_testing.py`):
+- Tests protobuf message structures
+- Validates requests / response message, seralization, message sizes
+- Validates data structures for diff functions (account creation/deletion, user auth, message handling, and conversation management)
+
+3. Basic function testing (`base_function_testing.py`):
+- Testing basic api functionality
+
+Additional tsts include `grpc_base_memory_test.py` tests memory management, and `repeat_call_test.py` tests repeated operations.
+
+For unit testing of the gui, we have the basic unit tests we previously implemented in the previous pset. 
 
 ## Debugging
 
