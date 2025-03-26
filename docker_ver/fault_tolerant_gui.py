@@ -19,7 +19,7 @@ class ChatInterface:
         print("Initializing ChatInterface...")
         # Initialize the main window
         self.root = tk.Tk()
-        self.root.title("Fault-Tolerant Chat Application")
+        self.root.title("Chat Application")
         self.root.geometry("800x600")  # Set a reasonable default size
         
         # Message queue for thread-safe communication
@@ -121,44 +121,66 @@ class ChatInterface:
             self.error_label.config(text="Please enter both username and password")
             return
         
+        print(f"\n=== Login Attempt for User: {username} ===")
         try:
             # Try to log in first
+            print("Attempting login...")
             success, token, unread_count = self.client.Login(username, password)
+            print(f"Login attempt result - Success: {success}, Token: {token if success else 'None'}, Unread: {unread_count if success else 0}")
             
             if success:
                 # Get user ID
+                print("Login successful, retrieving user ID...")
                 found, user_id = self.client.GetUserByUsername(username)
+                print(f"GetUserByUsername result - Found: {found}, User ID: {user_id if found else 'None'}")
+                
                 if not found:
-                    self.error_label.config(text="Failed to get user ID after login")
+                    error_msg = "Failed to get user ID after login"
+                    print(f"Error: {error_msg}")
+                    self.error_label.config(text=error_msg)
                     return
                 
                 self.current_user_id = user_id
                 self.current_token = token
-                print(f"Login successful. User ID: {user_id}, Token: {token}")
+                print(f"Login complete - User ID: {user_id}, Token: {token}")
                 self.show_main_screen()
                 self.check_messages()  # Start checking for messages
                 return
             
             # If login failed, try creating account
-            print("Login failed, attempting to create account...")
+            print("\n=== Login failed, attempting account creation ===")
             token = self.client.CreateAccount(username, password)
+            print(f"Account creation result - Token: {token if token else 'None'}")
+            
             if token:
+                print("Account created, retrieving user ID...")
                 found, user_id = self.client.GetUserByUsername(username)
+                print(f"GetUserByUsername result - Found: {found}, User ID: {user_id if found else 'None'}")
+                
                 if not found:
-                    self.error_label.config(text="Failed to get user ID after account creation")
+                    error_msg = "Failed to get user ID after account creation"
+                    print(f"Error: {error_msg}")
+                    self.error_label.config(text=error_msg)
                     return
                 
                 self.current_user_id = user_id
                 self.current_token = token
-                print(f"Account created successfully. User ID: {user_id}, Token: {token}")
+                print(f"Account creation complete - User ID: {user_id}, Token: {token}")
                 self.show_main_screen()
                 self.check_messages()  # Start checking for messages
             else:
-                self.error_label.config(text="Failed to create account")
+                error_msg = "Failed to create account"
+                print(f"Error: {error_msg}")
+                self.error_label.config(text=error_msg)
         
         except Exception as e:
-            self.error_label.config(text=f"Error: {str(e)}")
-            print(f"Login error: {str(e)}")
+            error_msg = f"Error: {str(e)}"
+            print(f"Exception during login/account creation: {str(e)}")
+            print(f"Exception type: {type(e).__name__}")
+            import traceback
+            print("Traceback:")
+            print(traceback.format_exc())
+            self.error_label.config(text=error_msg)
 
     def check_messages(self):
         """Periodically check for new messages and update the display"""

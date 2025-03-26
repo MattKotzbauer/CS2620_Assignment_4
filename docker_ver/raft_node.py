@@ -196,7 +196,6 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             self.user_base.users[user_id] = user
             self.user_trie.add(username, user)
 
-            
         # Load messages
         c.execute("SELECT message_id, sender_id, receiver_id, content, has_been_read, timestamp FROM messages")
         for msg_id, sender_id, receiver_id, content, has_been_read, timestamp in c.fetchall():
@@ -214,6 +213,9 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
             conversation_key = tuple(sorted([sender_id, receiver_id]))
             self.conversations.conversations[conversation_key].append(message)
         
+        # Clean up expired tokens
+        self._cleanup_expired_tokens()
+                
         # Load session tokens
         c.execute("SELECT user_id, token, expiry FROM session_tokens WHERE expiry > ?", (int(time.time()),))
         for user_id, token, expiry in c.fetchall():
@@ -296,7 +298,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         """Persist a session token to the database."""
         if expiry is None:
             # Default expiry: 1 day
-            expiry = int(time.time()) + 86400
+            expiry = int(time.time()) + 24 * 60 * 60
             
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
@@ -307,6 +309,22 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         conn.commit()
         conn.close()
     
+    def _cleanup_expired_tokens(self):
+        current_time = int(time.time())
+
+        # Clean up from database
+        conn = sqlite3.connect(self.db_path)
+        c = conn.cursor()
+        c.execute("DELETE FROM session_tokens WHERE expiry < ?", (current_time,))
+        expired_users = [row[0] for row in c.execute("SELECT user_id FROM session_tokens WHERE expiry < ?", (current_time,))]
+        conn.commit()
+        conn.close()
+        
+        # Clean up from memory
+        for user_id in expired_users:
+            if user_id in self.session_tokens.tokens:
+                del self.session_tokens.tokens[user_id]
+
     def _generate_election_timeout(self):
         """Generate a random election timeout between 150-300ms."""
         # return random.uniform(0.3, 0.6)  # in seconds for easier testing
@@ -333,32 +351,32 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     
                 
     def _run_raft_loop(self):
-        """Main Raft algorithm loop."""
-        while self.running:
-            current_time = time.time()
-            
-            if self.state == NodeState.FOLLOWER:
-                logger.debug(f"(raft_node.py): Node {self.node_id}: current_time={current_time}, last_heartbeat={self.last_heartbeat}, timeout={self.election_timeout}")
-                # Check if election timeout has elapsed
-                if current_time - self.last_heartbeat > self.election_timeout:
-                    logger.debug("Election timeout reached, triggering _become_candidate()")
-                    self._become_candidate()
-            
-            elif self.state == NodeState.CANDIDATE:
-                logger.debug("Node is candidate; starting election (_start_election())")
-                # Start election
-                self._start_election()
-            
-            elif self.state == NodeState.LEADER:
-                logger.debug("Node is leader; sending heartbeats")
-                # Send heartbeats/AppendEntries
+    """Main Raft algorithm loop."""
+    while self.running:
+        current_time = time.time()
+        time_since_heartbeat = (current_time - self.last_heartbeat) * 1000  # Convert to ms
+        
+        if self.state == NodeState.FOLLOWER:
+            # Check if election timeout has elapsed
+            if time_since_heartbeat > self.election_timeout:
+                logger.info(f"Node {self.node_id} election timeout elapsed: {time_since_heartbeat:.2f}ms > {self.election_timeout}ms")
+                self._become_candidate()
+        
+        elif self.state == NodeState.CANDIDATE:
+            # Start election
+            self._start_election()
+        
+        elif self.state == NodeState.LEADER:
+            # Send heartbeats/AppendEntries more frequently (every 50ms)
+            if time_since_heartbeat > 50:
                 self._send_heartbeats()
-            
-            # Apply committed entries to state machine
-            self._apply_committed_entries()
-            
-            # Sleep briefly to avoid consuming too much CPU
-            time.sleep(0.05)
+                self.last_heartbeat = current_time
+        
+        # Apply committed entries to state machine
+        self._apply_committed_entries()
+        
+        # Sleep briefly to avoid consuming too much CPU
+        time.sleep(0.05)
     
     def _become_candidate(self):
         """Transition to candidate state and start an election."""
@@ -897,12 +915,10 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
                 
             # Generate session token
             token = hashlib.sha256(f"{user_id}_{hash(time.time())}".encode()).hexdigest()
-
-            # (COMMENTING OUT the following 2 lines)
-            # self.session_tokens.tokens[user_id] = token
+            self.session_tokens.tokens[user_id] = token
             
             # Persist session token
-            # self._persist_session_token(user_id, token)
+            self._persist_session_token(user_id, token)
             
             # Create log entry
             command = {
