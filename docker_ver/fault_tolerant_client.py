@@ -732,7 +732,7 @@ class FaultTolerantClient:
 if __name__ == "__main__":
     import argparse
     
-    parser = argparse.ArgumentParser(description='Fault-tolerant chat client')
+    parser = argparse.ArgumentParser(description='Chat client')
     parser.add_argument('--config', default='cluster_config.json', help='Path to cluster configuration file')
     args = parser.parse_args()
     

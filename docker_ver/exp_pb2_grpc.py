@@ -5,7 +5,7 @@ import warnings
 
 import exp_pb2 as exp__pb2
 
-GRPC_GENERATED_VERSION = '1.70.0'
+GRPC_GENERATED_VERSION = '1.71.0'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -703,6 +703,11 @@ class RaftServiceStub(object):
                 request_serializer=exp__pb2.AppendEntriesRequest.SerializeToString,
                 response_deserializer=exp__pb2.AppendEntriesResponse.FromString,
                 _registered_method=True)
+        self.LeaderPing = channel.unary_unary(
+                '/messaging.RaftService/LeaderPing',
+                request_serializer=exp__pb2.LeaderPingRequest.SerializeToString,
+                response_deserializer=exp__pb2.LeaderPingResponse.FromString,
+                _registered_method=True)
 
 
 class RaftServiceServicer(object):
@@ -727,6 +732,13 @@ class RaftServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LeaderPing(self, request, context):
+        """LeaderPing is used to check if a node is the current leader
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RaftServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -739,6 +751,11 @@ def add_RaftServiceServicer_to_server(servicer, server):
                     servicer.AppendEntries,
                     request_deserializer=exp__pb2.AppendEntriesRequest.FromString,
                     response_serializer=exp__pb2.AppendEntriesResponse.SerializeToString,
+            ),
+            'LeaderPing': grpc.unary_unary_rpc_method_handler(
+                    servicer.LeaderPing,
+                    request_deserializer=exp__pb2.LeaderPingRequest.FromString,
+                    response_serializer=exp__pb2.LeaderPingResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -800,6 +817,33 @@ class RaftService(object):
             '/messaging.RaftService/AppendEntries',
             exp__pb2.AppendEntriesRequest.SerializeToString,
             exp__pb2.AppendEntriesResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def LeaderPing(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/messaging.RaftService/LeaderPing',
+            exp__pb2.LeaderPingRequest.SerializeToString,
+            exp__pb2.LeaderPingResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -28,15 +28,24 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Add RPC definitions for Raft
-class RaftService(object):
+class RaftServiceServicer(exp_pb2_grpc.RaftServiceServicer):
     """
-    Defines the RPCs used for Raft consensus.
+    Implements the RaftService RPCs.
     """
-    
-    @staticmethod
-    def add_to_server(servicer, server):
-        """Register the servicer for RaftService."""
-        exp_pb2_grpc.add_RaftServiceServicer_to_server(servicer, server)
+    def __init__(self, raft_node):
+        self.raft_node = raft_node
+
+    def LeaderPing(self, request, context):
+        """Handle LeaderPing RPC."""
+        return self.raft_node.LeaderPing(request, context)
+
+    def RequestVote(self, request, context):
+        """Handle RequestVote RPC."""
+        return self.raft_node.RequestVote(request, context)
+
+    def AppendEntries(self, request, context):
+        """Handle AppendEntries RPC."""
+        return self.raft_node.AppendEntries(request, context)
 
 class RaftMessagingServicer(exp_pb2_grpc.MessagingServiceServicer):
     """
@@ -45,24 +54,6 @@ class RaftMessagingServicer(exp_pb2_grpc.MessagingServiceServicer):
     
     def __init__(self, raft_node):
         self.raft_node = raft_node
-
-    def LeaderPing(self, request, context):
-        """
-        A simple RPC that only succeeds if this node is currently the Raft leader.
-        Otherwise, return an error with redirect info.
-        """
-        if self.raft_node.state != NodeState.LEADER:
-            # If we know the leader's address, suggest it for redirection
-            if self.raft_node.leader_id and self.raft_node.leader_id in self.raft_node.cluster_config:
-                leader_addr = self.raft_node.cluster_config[self.raft_node.leader_id]
-                context.set_details(f"Not the leader. Try {leader_addr}")
-            else:
-                context.set_details("No leader available")
-            context.set_code(grpc.StatusCode.FAILED_PRECONDITION)
-            return exp_pb2.LeaderPingResponse()
-    
-        # If we're leader, return success (an empty response)
-        return exp_pb2.LeaderPingResponse()
 
     
     def CreateAccount(self, request, context):
@@ -493,7 +484,8 @@ def serve(node_id, cluster_config, data_dir, port=50051):
     
     # Add the Raft service
     # RaftService.add_to_server(raft_node, server)
-    exp_pb2_grpc.add_RaftServiceServicer_to_server(raft_node, server)
+    raft_servicer = RaftServiceServicer(raft_node)
+    exp_pb2_grpc.add_RaftServiceServicer_to_server(raft_servicer, server)  
     
     # Start the server
     # server_address = f"[::]:{port}"

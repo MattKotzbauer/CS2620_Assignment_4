@@ -266,6 +266,9 @@ service RaftService {
   
   // AppendEntries is invoked by the leader to replicate log entries and as heartbeat
   rpc AppendEntries(AppendEntriesRequest) returns (AppendEntriesResponse);
+
+  // LeaderPing is used to check if a node is the current leader
+  rpc LeaderPing(LeaderPingRequest) returns (LeaderPingResponse);
 }
 
 // RequestVoteRequest is sent by candidates to gather votes
@@ -309,5 +312,6 @@ message LeaderPingRequest {
 }
 
 message LeaderPingResponse {
+  bool is_leader = 1;  // true if this node is the leader, false otherwise
   // Empty response on success—followers will send an error instead
 }

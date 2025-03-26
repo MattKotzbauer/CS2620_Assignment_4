@@ -328,9 +328,10 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
 
     def _generate_election_timeout(self):
         """Generate a random election timeout between 150-300ms."""
-        # return random.uniform(0.3, 0.6)  # in seconds for easier testing
-        # return random.uniform(10.0, 13.0)
-        return random.uniform(5.0, 7.0)
+        # Use a much wider range for election timeouts to reduce contention
+        base_timeout = 1000.0  # 1 second base timeout
+        random_factor = random.uniform(1.0, 2.0)  # Random multiplier between 1-2x
+        return base_timeout * random_factor
     
     def _init_peer_connections(self):
         """Initialize gRPC connections to peer nodes."""

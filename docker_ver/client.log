@@ -209,3 +209,151 @@
 2025-03-25 21:58:23,698 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node4:50054
 2025-03-25 21:58:23,728 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node4:50054
 2025-03-25 21:58:23,732 [INFO] Found leader: node node4
+2025-03-26 00:08:20,031 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-26 00:08:20,032 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-26 00:08:20,032 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-26 00:08:20,032 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-26 00:08:20,032 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-26 00:08:20,032 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:08:20,042 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:20,047 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:20,051 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:20,055 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:20,059 [INFO] Found leader: node node5
+2025-03-26 00:08:20,059 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-26 00:08:20,059 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-26 00:08:20,059 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-26 00:08:20,060 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-26 00:08:20,060 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-26 00:08:20,060 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:08:20,063 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:20,066 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:20,068 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:20,071 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:20,075 [INFO] Found leader: node node5
+2025-03-26 00:08:23,235 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:08:23,238 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:23,240 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:23,242 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:23,244 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:23,245 [INFO] Found leader: node node5
+2025-03-26 00:08:23,249 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:08:23,250 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:23,252 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:23,254 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:23,256 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:08:23,258 [INFO] Found leader: node node5
+2025-03-26 00:10:10,585 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-26 00:10:10,585 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-26 00:10:10,585 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-26 00:10:10,585 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-26 00:10:10,586 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-26 00:10:10,586 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:10,594 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:10,597 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:10,601 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:10,604 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:10,609 [INFO] Found leader: node node5
+2025-03-26 00:10:10,609 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-26 00:10:10,609 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-26 00:10:10,610 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-26 00:10:10,610 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-26 00:10:10,610 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-26 00:10:10,610 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:10,614 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:10,618 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:10,622 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:10,626 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:10,630 [INFO] Found leader: node node5
+2025-03-26 00:10:14,092 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:14,096 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:14,099 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:14,102 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:14,104 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:14,107 [INFO] Found leader: node node5
+2025-03-26 00:10:14,109 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:14,112 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:14,114 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:14,116 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:14,118 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:14,121 [INFO] Found leader: node node5
+2025-03-26 00:10:15,002 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:15,005 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,007 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,009 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,012 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,014 [INFO] Found leader: node node5
+2025-03-26 00:10:15,017 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:15,020 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,022 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,025 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,027 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,029 [INFO] Found leader: node node5
+2025-03-26 00:10:15,191 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:15,196 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,197 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,197 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,198 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,199 [INFO] Found leader: node node5
+2025-03-26 00:10:15,200 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:15,200 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,201 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,201 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,202 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,202 [INFO] Found leader: node node5
+2025-03-26 00:10:15,374 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:15,375 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,377 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,378 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,379 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,379 [INFO] Found leader: node node5
+2025-03-26 00:10:15,380 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:15,381 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,382 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,383 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,384 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,385 [INFO] Found leader: node node5
+2025-03-26 00:10:15,539 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:15,542 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,544 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,545 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,547 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,548 [INFO] Found leader: node node5
+2025-03-26 00:10:15,550 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:10:15,551 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,552 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,554 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,555 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:10:15,556 [INFO] Found leader: node node5
+2025-03-26 00:19:00,225 [INFO] Initialized connection to node node1 at localhost:50051
+2025-03-26 00:19:00,225 [INFO] Initialized connection to node node2 at localhost:50052
+2025-03-26 00:19:00,226 [INFO] Initialized connection to node node3 at localhost:50053
+2025-03-26 00:19:00,226 [INFO] Initialized connection to node node4 at localhost:50054
+2025-03-26 00:19:00,226 [INFO] Initialized connection to node node5 at localhost:50055
+2025-03-26 00:19:00,226 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:19:00,235 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,241 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,245 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,248 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,254 [INFO] Found leader: node node5
+2025-03-26 00:19:00,254 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:19:00,255 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,256 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,257 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,258 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,258 [INFO] Found leader: node node5
+2025-03-26 00:19:00,266 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-26 00:19:00,471 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:19:00,474 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,475 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,476 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,477 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,478 [INFO] Found leader: node node5
+2025-03-26 00:19:00,481 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
+2025-03-26 00:19:00,881 [INFO] Attempt 1: available stubs: ['node1', 'node2', 'node3', 'node4', 'node5']
+2025-03-26 00:19:00,885 [INFO] LeaderPing failed for node node1: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,891 [INFO] LeaderPing failed for node node2: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,897 [INFO] LeaderPing failed for node node3: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,906 [INFO] LeaderPing failed for node node4: StatusCode.FAILED_PRECONDITION - Not the leader. Try node5:50055
+2025-03-26 00:19:00,909 [INFO] Found leader: node node5
+2025-03-26 00:19:00,916 [INFO] _execute_with_retry: caught RpcError code=StatusCode.INTERNAL, details=Failed to create account
