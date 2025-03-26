@@ -183,6 +183,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         c.execute("SELECT term, command FROM log_entries ORDER BY log_index ASC")
         self.log = [(term, json.loads(command)) for term, command in c.fetchall()]
         
+        
         # Load users
         c.execute("SELECT user_id, username, password_hash, data FROM users")
         for user_id, username, password_hash, data in c.fetchall():

@@ -70,6 +70,7 @@ class FaultTolerantClient:
     def _find_leader(self) -> bool:
         # Try for a fixed number of attempts
         for attempt in range(10):
+            logger.info(f"Attempt {attempt+1}: available stubs: {list(self.stubs.keys())}")
             for node_id, stub in self.stubs.items():
                 try:
                     request = exp_pb2.LeaderPingRequest()
@@ -80,6 +81,7 @@ class FaultTolerantClient:
                     return True
                 except grpc.RpcError as e:
                     details = e.details() or ""
+                    logger.info(f"LeaderPing failed for node {node_id}: {e.code()} - {details}")
                     if "Not the leader. Try " in details:
                         new_addr = details.split("Try ")[1].strip()
                         for possible_id, address in self.cluster_config.items():
