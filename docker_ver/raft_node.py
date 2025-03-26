@@ -118,13 +118,6 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         ''')
         
         # Log entries table
-        # c.execute('''
-        # CREATE TABLE IF NOT EXISTS log_entries (
-            # index INTEGER PRIMARY KEY,
-            # term INTEGER,
-            # command TEXT
-        # )
-        # ''')
         c.execute('''
         CREATE TABLE IF NOT EXISTS log_entries (
         log_index INTEGER PRIMARY KEY,
@@ -382,6 +375,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     def _start_election(self):
         """Start a leader election."""
         # Increment current term and vote for self
+        self._init_peer_connections()
         self.unreachable_peers.clear()
         votes_received = 1  # Vote for self
         reachable_peers = []
@@ -447,6 +441,7 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
     
     def _send_heartbeats(self):
         """Send AppendEntries RPCs to all peers (as heartbeats or to replicate logs)."""
+        # self._init_peer_connections()
         for peer_id, stub in self.peers.items():
             try:
                 next_idx = self.next_index.get(peer_id, 0)
@@ -511,6 +506,11 @@ class RaftNode(exp_pb2_grpc.RaftServiceServicer):
         if self.state != NodeState.LEADER:
             return
 
+        # healthy_count = 1 + sum(1 for peer in self.peers if self.match_index.get(peer, -1) != -1)
+        # if healthy_count < (len(self.cluster_config) // 2) + 1:
+            # logger.warning("Not enough healthy nodes to reach quorum; commit index not updated.")
+            # return
+        
         # Leader's own log is always replicated locally.
         leader_index = len(self.log) - 1
 
